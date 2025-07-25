@@ -107,6 +107,34 @@ Restart Claude Desktop and the TALL UI tools will be available.
 - `tallui_search_components` - Search components by keyword
 - `tallui_get_component_example` - Get component usage examples
 
+## WireUI Component Coverage
+
+### Coverage Status: 3/27 (11%)
+
+| Category | Component | Status | Category | Component | Status |
+|----------|-----------|--------|----------|-----------|--------|
+| **UI Components** | | | **Form Components** | | |
+| | Alert | ❌ | | Checkbox | ❌ |
+| | Avatar | ❌ | | Color Picker | ❌ |
+| | Badge | ❌ | | Currency | ❌ |
+| | Button | ✅ | | Datetime Picker | ❌ |
+| | Card | ❌ | | Errors | ❌ |
+| | Dropdown | ❌ | | Input | ✅ |
+| | Icon | ❌ | | Maskable | ❌ |
+| | Link | ❌ | | Native Select | ❌ |
+| | Modal | ✅ | | Number | ❌ |
+| | Table | ❌ | | Password | ❌ |
+| | | | | Phone | ❌ |
+| | | | | Radio | ❌ |
+| | | | | Select | ❌ |
+| | | | | Textarea | ❌ |
+| | | | | Time Picker | ❌ |
+| | | | | Toggle | ❌ |
+
+**Legend:**
+- ✅ Implemented
+- ❌ Not yet implemented
+
 ## Development
 
 ```bash
