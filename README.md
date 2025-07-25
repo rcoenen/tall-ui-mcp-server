@@ -111,6 +111,8 @@ Restart Claude Desktop and the TALL UI tools will be available.
 
 ### Coverage Status: 3/27 (11%)
 
+Based on the official WireUI v2.x component library: https://wireui.dev/components
+
 | Category | Component | Status | Category | Component | Status |
 |----------|-----------|--------|----------|-----------|--------|
 | **UI Components** | | | **Form Components** | | |
