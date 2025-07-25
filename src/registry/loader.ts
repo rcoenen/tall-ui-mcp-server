@@ -1,16 +1,20 @@
 import { readdir, readFile } from 'fs/promises';
-import { join, dirname } from 'path';
+import { join, dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import { ComponentMetadata, validateComponentMetadata } from './schema.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export class ComponentRegistry {
   private components: Map<string, ComponentMetadata> = new Map();
   private componentsByCategory: Map<string, ComponentMetadata[]> = new Map();
 
   async loadComponents(): Promise<void> {
-    const componentsDir = join(__dirname, '../components/wireui');
+    // Use process.cwd() to get the correct project root
+    const projectRoot = process.cwd();
+    const componentsDir = join(projectRoot, 'src/components/wireui');
+    console.error(`Looking for components in: ${componentsDir}`);
     
     try {
       const files = await readdir(componentsDir);

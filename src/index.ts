@@ -99,16 +99,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   try {
     switch (name) {
       case 'tallui_list_components':
-        return await componentHandlers.listComponents(registry, args);
+        return await componentHandlers.listComponents(registry, args as any || {});
       
       case 'tallui_get_component':
-        return await componentHandlers.getComponent(registry, args);
+        return await componentHandlers.getComponent(registry, args as any || {});
       
       case 'tallui_search_components':
-        return await componentHandlers.searchComponents(registry, args);
+        return await componentHandlers.searchComponents(registry, args as any || {});
       
       case 'tallui_get_component_example':
-        return await componentHandlers.getComponentExample(registry, args);
+        return await componentHandlers.getComponentExample(registry, args as any || {});
       
       default:
         throw new McpError(

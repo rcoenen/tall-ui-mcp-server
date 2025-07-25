@@ -2,6 +2,16 @@
 
 An MCP (Model Context Protocol) server that provides AI tools with deep understanding of TALL stack UI components, focusing on WireUI v2.x components.
 
+## What is the TALL Stack?
+
+TALL is a full-stack development solution that combines:
+- **T**ailwind CSS - Utility-first CSS framework
+- **A**lpine.js - Lightweight JavaScript framework
+- **L**aravel - PHP web application framework
+- **L**ivewire - Full-stack framework for Laravel
+
+Learn more about TALL: https://github.com/livewire/tallstack.dev
+
 ## Overview
 
 This MCP server enables AI assistants like Claude to:
@@ -16,11 +26,13 @@ This MCP server enables AI assistants like Claude to:
 - Compatible with WireUI v2.4+
 - Supports Laravel 10-12, Livewire 3, Tailwind CSS 3-4
 
-## Installation
+## Quick Start Guide
+
+### 1. Clone and Install
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/tall-ui-mcp-server.git
+git clone https://github.com/rcoenen/tall-ui-mcp-server.git
 cd tall-ui-mcp-server
 
 # Install dependencies
@@ -30,9 +42,48 @@ npm install
 npm run build
 ```
 
-## Usage
+### 2. Test with MCP Inspector (Recommended for First-Time Users)
 
-### With Claude Desktop
+The easiest way to test the server is using the MCP Inspector:
+
+```bash
+# Run this command from the project directory
+npx @modelcontextprotocol/inspector node dist/index.js
+```
+
+This will:
+1. Start the MCP Inspector
+2. Open your browser automatically
+3. Show the Inspector interface
+
+In the browser, you'll see a form. Enter these values:
+- **Command**: `node`
+- **Arguments**: `/Users/YOUR_USERNAME/Dev/tall-ui-mcp-server/dist/index.js` (adjust path to match your setup)
+
+Click "Connect" and you should see:
+- "Connected" status
+- In the console: "Loaded 3 components"
+- Available tools in the Tools tab
+
+### 3. Try the Tools
+
+Once connected, test the tools:
+
+1. **List all components**: 
+   - Select `tallui_list_components`
+   - Click "Run"
+
+2. **Get component details**:
+   - Select `tallui_get_component`
+   - Enter arguments: `{"name": "button"}`
+   - Click "Run"
+
+3. **Search components**:
+   - Select `tallui_search_components`
+   - Enter arguments: `{"query": "form"}`
+   - Click "Run"
+
+## Using with Claude Desktop
 
 Add to your Claude Desktop configuration (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 
@@ -47,7 +98,9 @@ Add to your Claude Desktop configuration (`~/Library/Application Support/Claude/
 }
 ```
 
-### Available Tools
+Restart Claude Desktop and the TALL UI tools will be available.
+
+## Available Tools
 
 - `tallui_list_components` - List all available components
 - `tallui_get_component` - Get detailed component information
@@ -65,9 +118,6 @@ npm test
 
 # Type check
 npm run typecheck
-
-# Test with MCP inspector
-npm run inspect
 ```
 
 ## Component Structure
@@ -90,7 +140,21 @@ Components are defined as JSON files in `src/components/wireui/`:
 1. Create a JSON file in `src/components/wireui/`
 2. Follow the schema defined in `src/registry/schema.ts`
 3. Include version compatibility, props, examples, and best practices
-4. Restart the server to load new components
+4. Rebuild with `npm run build`
+5. Restart the server to load new components
+
+## Troubleshooting
+
+### "ENOENT: no such file or directory" error
+Make sure you're running commands from the project root directory, not from a subdirectory.
+
+### Inspector won't connect
+1. Ensure the server is built: `npm run build`
+2. Check the path in Arguments matches your actual file location
+3. Try using the full absolute path
+
+### Components not loading
+Check that JSON files in `src/components/wireui/` are valid JSON format.
 
 ## Roadmap
 
