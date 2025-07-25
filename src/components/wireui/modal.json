@@ -1,0 +1,112 @@
+{
+  "name": "modal",
+  "category": "overlays",
+  "description": "Modal dialog component with backdrop and animations",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Unique identifier for the modal",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Modal header title",
+      "required": false
+    },
+    {
+      "name": "max-width",
+      "type": "string",
+      "description": "Maximum width of the modal",
+      "enum": ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl"],
+      "default": "2xl"
+    },
+    {
+      "name": "blur",
+      "type": "boolean",
+      "description": "Apply backdrop blur effect",
+      "default": false
+    },
+    {
+      "name": "align",
+      "type": "string",
+      "description": "Vertical alignment of the modal",
+      "enum": ["top", "center", "bottom"],
+      "default": "center"
+    },
+    {
+      "name": "persistent",
+      "type": "boolean",
+      "description": "Prevent closing on backdrop click",
+      "default": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Main modal content",
+      "required": true
+    },
+    {
+      "name": "footer",
+      "description": "Modal footer with actions",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "$wire.entangle",
+    "wire:model",
+    "wire:click"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-show",
+    "x-transition",
+    "x-on:click.away",
+    "x-on:keydown.escape"
+  ],
+  "tailwind_classes": [
+    "fixed",
+    "inset-0",
+    "z-50",
+    "backdrop-blur-sm",
+    "bg-black/50",
+    "transition-opacity"
+  ],
+  "examples": [
+    {
+      "title": "Basic Modal",
+      "description": "Simple modal with title and content",
+      "code": "<x-modal name=\"user-modal\" title=\"User Details\">\n    <p>Modal content goes here...</p>\n</x-modal>\n\n<x-button x-on:click=\"$openModal('user-modal')\">\n    Open Modal\n</x-button>"
+    },
+    {
+      "title": "Modal with Footer Actions",
+      "description": "Modal with cancel and confirm buttons",
+      "code": "<x-modal name=\"confirm-modal\" title=\"Confirm Action\">\n    <p>Are you sure you want to proceed?</p>\n    \n    <x-slot name=\"footer\">\n        <x-button x-on:click=\"close\" outline>\n            Cancel\n        </x-button>\n        <x-button wire:click=\"confirmAction\" primary>\n            Confirm\n        </x-button>\n    </x-slot>\n</x-modal>",
+      "livewire_context": "public function confirmAction() { /* confirmation logic */ }"
+    },
+    {
+      "title": "Persistent Modal with Blur",
+      "description": "Modal that must be explicitly closed",
+      "code": "<x-modal name=\"important-modal\" title=\"Important Notice\" :persistent=\"true\" :blur=\"true\">\n    <div class=\"p-4\">\n        <p>This is important information that requires acknowledgment.</p>\n    </div>\n    \n    <x-slot name=\"footer\">\n        <x-button x-on:click=\"close\" primary>\n            I Understand\n        </x-button>\n    </x-slot>\n</x-modal>"
+    }
+  ],
+  "best_practices": [
+    "Use unique names for each modal instance",
+    "Provide clear titles and actions",
+    "Consider mobile viewport sizes when setting max-width",
+    "Use persistent sparingly for critical interactions",
+    "Always provide a way to close the modal"
+  ],
+  "accessibility": [
+    "Focus is trapped within modal when open",
+    "Escape key closes non-persistent modals",
+    "Screen readers announce modal content",
+    "Focus returns to trigger element on close"
+  ],
+  "dependencies": ["button"],
+  "tags": ["modal", "dialog", "overlay", "popup", "window"]
+}

@@ -1,0 +1,117 @@
+{
+  "name": "button",
+  "category": "actions",
+  "description": "Interactive button component with multiple variants and states",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "variant",
+      "type": "string",
+      "description": "Visual style variant of the button",
+      "enum": ["primary", "secondary", "positive", "negative", "warning", "info", "dark", "flat", "outline"],
+      "default": "primary"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Size of the button",
+      "enum": ["xs", "sm", "md", "lg", "xl"],
+      "default": "md"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the button is disabled",
+      "default": false
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "description": "Show loading spinner",
+      "default": false
+    },
+    {
+      "name": "rounded",
+      "type": "string",
+      "description": "Border radius style",
+      "enum": ["none", "sm", "base", "md", "lg", "xl", "2xl", "3xl", "full"],
+      "default": "base"
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Icon name to display",
+      "required": false
+    },
+    {
+      "name": "rightIcon",
+      "type": "string",
+      "description": "Icon to display on the right side",
+      "required": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Button label content",
+      "required": true
+    }
+  ],
+  "wireui_features": [
+    "wire:click",
+    "wire:loading",
+    "wire:loading.attr=\"disabled\"",
+    "wire:target"
+  ],
+  "alpine_directives": [
+    "x-on:click",
+    "x-bind:disabled",
+    "x-data"
+  ],
+  "tailwind_classes": [
+    "bg-primary-500",
+    "hover:bg-primary-600",
+    "focus:ring-2",
+    "focus:ring-primary-500",
+    "disabled:opacity-50",
+    "disabled:cursor-not-allowed"
+  ],
+  "examples": [
+    {
+      "title": "Basic Button",
+      "description": "Simple button with default styling",
+      "code": "<x-button>Click me</x-button>"
+    },
+    {
+      "title": "Primary Button with Loading",
+      "description": "Button that shows loading state during Livewire actions",
+      "code": "<x-button wire:click=\"save\" wire:loading.attr=\"disabled\">\n    <span wire:loading.remove>Save</span>\n    <span wire:loading>Saving...</span>\n</x-button>",
+      "livewire_context": "public function save() { /* save logic */ }"
+    },
+    {
+      "title": "Icon Button",
+      "description": "Button with icon and text",
+      "code": "<x-button icon=\"check\" positive>\n    Confirm\n</x-button>"
+    },
+    {
+      "title": "Outline Button with Right Icon",
+      "description": "Outline variant with icon on the right",
+      "code": "<x-button variant=\"outline\" right-icon=\"arrow-right\">\n    Next Step\n</x-button>"
+    }
+  ],
+  "best_practices": [
+    "Use semantic variant colors (positive for success, negative for danger)",
+    "Always provide accessible labels for icon-only buttons",
+    "Use wire:loading states for better UX during async operations",
+    "Consider button size in relation to surrounding UI elements"
+  ],
+  "accessibility": [
+    "Ensure proper contrast ratios for all variants",
+    "Include aria-label for icon-only buttons",
+    "Keyboard navigation support (Enter/Space to activate)",
+    "Focus states must be clearly visible"
+  ],
+  "dependencies": [],
+  "tags": ["button", "action", "click", "submit", "form", "interactive"]
+}

@@ -1,0 +1,133 @@
+{
+  "name": "input",
+  "category": "forms",
+  "description": "Form input field with validation states and icons",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Input label text",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Placeholder text",
+      "required": false
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text shown below input",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Text shown in the top right corner",
+      "required": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Icon to display on the left",
+      "required": false
+    },
+    {
+      "name": "right-icon",
+      "type": "string",
+      "description": "Icon to display on the right",
+      "required": false
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "description": "Text prefix inside the input",
+      "required": false
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "Text suffix inside the input",
+      "required": false
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "HTML input type",
+      "enum": ["text", "email", "password", "number", "tel", "url", "search"],
+      "default": "text"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the input is disabled",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Whether the input is readonly",
+      "default": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.lazy",
+    "wire:model.defer",
+    "wire:model.debounce"
+  ],
+  "alpine_directives": [
+    "x-model",
+    "x-on:input",
+    "x-on:change",
+    "x-on:focus",
+    "x-on:blur"
+  ],
+  "tailwind_classes": [
+    "border-gray-300",
+    "focus:border-primary-500",
+    "focus:ring-primary-500",
+    "disabled:bg-gray-50",
+    "disabled:text-gray-500"
+  ],
+  "examples": [
+    {
+      "title": "Basic Input",
+      "description": "Simple text input with label",
+      "code": "<x-input label=\"Name\" placeholder=\"Enter your name\" />"
+    },
+    {
+      "title": "Input with Livewire Binding",
+      "description": "Two-way data binding with Livewire",
+      "code": "<x-input wire:model=\"user.email\" label=\"Email\" type=\"email\" />",
+      "livewire_context": "public $user = ['email' => ''];"
+    },
+    {
+      "title": "Input with Icons and Hints",
+      "description": "Enhanced input with visual aids",
+      "code": "<x-input\n    label=\"Password\"\n    type=\"password\"\n    icon=\"key\"\n    hint=\"Must be at least 8 characters\"\n    corner-hint=\"Required\"\n/>"
+    },
+    {
+      "title": "Input with Prefix/Suffix",
+      "description": "Input with inline prefix and suffix",
+      "code": "<x-input\n    label=\"Price\"\n    prefix=\"$\"\n    suffix=\".00\"\n    type=\"number\"\n/>"
+    }
+  ],
+  "best_practices": [
+    "Always provide labels for accessibility",
+    "Use appropriate input types for better mobile UX",
+    "Provide clear error messages and hints",
+    "Use wire:model.lazy for performance on large forms"
+  ],
+  "accessibility": [
+    "Labels are automatically associated with inputs",
+    "Error messages are linked via aria-describedby",
+    "Required fields should be marked appropriately",
+    "Use semantic HTML5 input types"
+  ],
+  "dependencies": [],
+  "tags": ["input", "form", "field", "text", "validation"]
+}
