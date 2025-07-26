@@ -14,12 +14,30 @@ bg-background-white
 dark:bg-background-dark
 ```
 
-**Solution**: Add WireUI paths to your `tailwind.config.js`:
+**Solution**: Add WireUI paths to your `tailwind.config.js` AND safelist dynamic classes:
 ```javascript
 content: [
     './resources/views/**/*.blade.php',
     './vendor/wireui/wireui/src/**/*.php',
     './vendor/wireui/wireui/ts/**/*.ts',   
+],
+safelist: [
+    // WireUI shadow classes
+    'shadow-none',
+    'shadow-xs', 
+    'shadow-sm',
+    'shadow-md',
+    'shadow-lg',
+    'shadow-xl',
+    'shadow-2xl',
+    'shadow-inner',
+    'hover:shadow-xs',
+    'hover:shadow-sm',
+    'hover:shadow-md',
+    'hover:shadow-lg',
+    'hover:shadow-xl',
+    'hover:shadow-2xl',
+    // Add other dynamic classes as needed
 ],
 ```
 

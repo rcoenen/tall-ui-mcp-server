@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Updated - 2025-07-26
+
+#### Production Best Practices Enhancement (19:15 UTC)
+- **Updated BEST_PRACTICES_WIREUI.md**: Added critical safelist configuration for shadow classes
+- **Issue discovered**: WireUI uses dynamic shadow classes that get purged in production
+- **Solution documented**: Must add shadow classes to Tailwind's safelist configuration
+- **Classes affected**: shadow-none, shadow-xs, shadow-sm, shadow-md, shadow-lg, shadow-xl, shadow-2xl, shadow-inner and hover variants
+
 ### Added - 2025-07-26
 
 #### Production Best Practices Documentation (17:30 UTC)
