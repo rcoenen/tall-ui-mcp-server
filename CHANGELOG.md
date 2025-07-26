@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added - 2025-07-26
+
+#### Production Best Practices Documentation (17:30 UTC)
+- **Created BEST_PRACTICES_WIREUI.md**: Comprehensive guide based on real-world production issues
+- **Added critical warnings** to select.json, datetime-picker.json, and input.json components
+- **Documented solutions** for:
+  - Tailwind CSS dynamic class purging in production
+  - Background color box issues
+  - Text alignment and color problems
+  - Accessibility errors (PR #1087 submitted to WireUI)
+- **Updated README.md** with prominent link to best practices guide
+
 ### Fixed - 2025-07-26
 
 #### Currency Component Fixes (12:45 UTC)

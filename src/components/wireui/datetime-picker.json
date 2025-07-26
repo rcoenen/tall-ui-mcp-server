@@ -177,7 +177,11 @@
     "Set min/max dates for valid ranges",
     "Consider timezone handling for global apps",
     "Provide clear date format hints",
-    "Use without-time for date-only scenarios"
+    "Use without-time for date-only scenarios",
+    "⚠️ IMPORTANT: Add vendor/wireui paths to tailwind.config.js content array to prevent styling issues in production",
+    "⚠️ Icon spacing issues? Target specific elements: svg.mr-2 for clear button, button.px-4 for calendar button",
+    "⚠️ Text color issues? The visible input needs explicit color: [x-data*='wireui_date_picker'] input { @apply text-gray-900; }",
+    "⚠️ Known issue: As of v2.4.3, generates invalid HTML with name attributes on labels (PR #1087 pending)"
   ],
   "accessibility": [
     "Keyboard navigation in calendar",

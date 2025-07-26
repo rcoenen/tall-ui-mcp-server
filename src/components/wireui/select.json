@@ -217,7 +217,10 @@
     "Provide search for lists over 10 items",
     "Show descriptions for complex options",
     "Use multiselect sparingly",
-    "Consider mobile UX for dropdowns"
+    "Consider mobile UX for dropdowns",
+    "⚠️ IMPORTANT: Add vendor/wireui paths to tailwind.config.js content array to prevent styling issues in production",
+    "⚠️ Text alignment issues? Target the button element inside: [x-data*=\"wireui:select\"] button { @apply pl-3 pr-10; }",
+    "⚠️ Border issues? The border is on the label wrapper, not the button element"
   ],
   "accessibility": [
     "Full keyboard navigation support",

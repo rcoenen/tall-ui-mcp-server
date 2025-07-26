@@ -120,7 +120,11 @@
     "Always provide labels for accessibility",
     "Use appropriate input types for better mobile UX",
     "Provide clear error messages and hints",
-    "Use wire:model.lazy for performance on large forms"
+    "Use wire:model.lazy for performance on large forms",
+    "⚠️ IMPORTANT: Add vendor/wireui paths to tailwind.config.js content array to prevent styling issues in production",
+    "⚠️ Text color issues? Add to CSS: input[type='text'] { @apply text-gray-900; }",
+    "⚠️ Background colors causing boxes? Override in tailwind.config.js: background: { white: 'transparent', dark: 'transparent' }",
+    "⚠️ Known issue: As of v2.4.3, generates invalid HTML with name attributes on labels (PR #1087 pending)"
   ],
   "accessibility": [
     "Labels are automatically associated with inputs",

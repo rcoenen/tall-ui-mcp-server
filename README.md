@@ -190,6 +190,11 @@ Check that JSON files in `src/components/wireui/` are valid JSON format.
 
 ## Recent Updates
 
+### July 26, 2025
+- 📚 **New Best Practices Guide**: Added comprehensive BEST_PRACTICES_WIREUI.md based on production experience
+- ⚠️ **Critical Warnings Added**: Updated component definitions with known issues and workarounds
+- 🐛 **Accessibility Fix**: Submitted PR #1087 to WireUI for invalid HTML generation
+
 ### July 25, 2025
 - ✅ **Complete WireUI v2 Coverage**: All 26 components now implemented!
 - 🔧 **Major Fixes**: Updated component specs based on real-world testing
@@ -199,6 +204,14 @@ Check that JSON files in `src/components/wireui/` are valid JSON format.
 - 📝 **Documentation**: Added CHANGELOG.md and CHANGELOG_FIXES.md for tracking changes
 
 ## Important Notes
+
+### 🚨 Critical Production Issues & Solutions
+See **[BEST_PRACTICES_WIREUI.md](./BEST_PRACTICES_WIREUI.md)** for detailed solutions to common WireUI issues including:
+- Tailwind CSS dynamic class purging in production
+- Background colors creating unwanted boxes
+- Text alignment and color issues
+- Accessibility errors
+- Proper configuration techniques
 
 ### WireUI v2 Compatibility
 This server is specifically designed for WireUI v2.x which requires:
