@@ -6,8 +6,10 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsup src/index.ts --format esm --dts --clean",
-    "start": "node dist/index.js",
+    "dev:web": "tsx watch src/web-server.ts",
+    "build": "tsup src/index.ts src/web-server.ts --format esm --dts --clean",
+    "start": "node dist/web-server.js",
+    "start:mcp": "node dist/index.js",
     "inspect": "npx @modelcontextprotocol/inspector dist/index.js",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
