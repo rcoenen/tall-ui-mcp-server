@@ -1,0 +1,173 @@
+{
+  "name": "textarea",
+  "category": "forms",
+  "description": "Multiline text input component with auto-resize and character counting",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Textarea label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Placeholder text",
+      "required": false
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "description": "Number of visible rows",
+      "default": 3
+    },
+    {
+      "name": "cols",
+      "type": "number",
+      "description": "Number of visible columns",
+      "required": false
+    },
+    {
+      "name": "resize",
+      "type": "string",
+      "description": "Resize behavior",
+      "enum": ["none", "vertical", "horizontal", "both", "auto"],
+      "default": "vertical"
+    },
+    {
+      "name": "maxlength",
+      "type": "number",
+      "description": "Maximum character length",
+      "required": false
+    },
+    {
+      "name": "show-count",
+      "type": "boolean",
+      "description": "Show character count",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the textarea",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make textarea readonly",
+      "default": false
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy",
+    "wire:model.debounce",
+    "auto-resize"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-model",
+    "x-on:input",
+    "x-ref",
+    "x-init"
+  ],
+  "tailwind_classes": [
+    "form-textarea",
+    "resize-none",
+    "resize-y",
+    "resize-x",
+    "resize",
+    "min-h-[theme(spacing.20)]"
+  ],
+  "examples": [
+    {
+      "title": "Basic Textarea",
+      "description": "Simple multiline input",
+      "code": "<x-textarea label=\"Description\" placeholder=\"Enter description...\" />"
+    },
+    {
+      "title": "Textarea with Character Count",
+      "description": "Shows remaining characters",
+      "code": "<x-textarea \n    wire:model=\"bio\"\n    label=\"Bio\"\n    placeholder=\"Tell us about yourself\"\n    :maxlength=\"200\"\n    show-count\n    rows=\"4\"\n/>",
+      "livewire_context": "public string $bio = '';"
+    },
+    {
+      "title": "Auto-Resize Textarea",
+      "description": "Grows with content",
+      "code": "<x-textarea \n    wire:model=\"content\"\n    label=\"Content\"\n    placeholder=\"Start typing...\"\n    resize=\"auto\"\n    :rows=\"2\"\n    hint=\"Textarea will expand as you type\"\n/>"
+    },
+    {
+      "title": "Fixed Size Textarea",
+      "description": "No resize allowed",
+      "code": "<x-textarea \n    wire:model=\"notes\"\n    label=\"Notes\"\n    placeholder=\"Additional notes\"\n    resize=\"none\"\n    rows=\"5\"\n    corner-hint=\"Optional\"\n/>"
+    },
+    {
+      "title": "Comment Form Example",
+      "description": "Textarea in a comment form",
+      "code": "<form wire:submit.prevent=\"postComment\" class=\"space-y-4\">\n    <x-textarea \n        wire:model=\"comment\"\n        placeholder=\"Write your comment...\"\n        rows=\"3\"\n        :maxlength=\"500\"\n        show-count\n    />\n    \n    <div class=\"flex items-center justify-between\">\n        <div class=\"flex items-center space-x-4 text-sm text-gray-500\">\n            <button type=\"button\" class=\"hover:text-gray-700\">\n                <x-icon name=\"photograph\" class=\"w-5 h-5\" />\n            </button>\n            <button type=\"button\" class=\"hover:text-gray-700\">\n                <x-icon name=\"emoji-happy\" class=\"w-5 h-5\" />\n            </button>\n            <button type=\"button\" class=\"hover:text-gray-700\">\n                <x-icon name=\"link\" class=\"w-5 h-5\" />\n            </button>\n        </div>\n        \n        <x-button \n            type=\"submit\" \n            primary \n            sm \n            label=\"Post Comment\"\n            :disabled=\"!$comment\"\n        />\n    </div>\n</form>",
+      "livewire_context": "public string $comment = '';\n\npublic function postComment() {\n    $this->validate([\n        'comment' => 'required|max:500'\n    ]);\n    \n    // Post comment logic\n    $this->comment = '';\n}"
+    },
+    {
+      "title": "Markdown Editor",
+      "description": "Textarea with markdown preview",
+      "code": "<div class=\"grid grid-cols-2 gap-4\">\n    <div>\n        <x-textarea \n            wire:model=\"markdown\"\n            label=\"Markdown\"\n            placeholder=\"Write markdown here...\"\n            rows=\"10\"\n            resize=\"vertical\"\n        />\n    </div>\n    \n    <div>\n        <label class=\"block text-sm font-medium text-gray-700 mb-1\">Preview</label>\n        <div class=\"prose prose-sm border rounded-md p-4 min-h-[theme(spacing.60)] bg-gray-50\">\n            {!! Str::markdown($markdown) !!}\n        </div>\n    </div>\n</div>",
+      "livewire_context": "public string $markdown = '# Hello World\\n\\nThis is **bold** text.';"
+    },
+    {
+      "title": "Feedback Form",
+      "description": "Multiple textareas in a form",
+      "code": "<form wire:submit.prevent=\"submitFeedback\" class=\"space-y-4\">\n    <x-input \n        wire:model=\"feedback.email\"\n        label=\"Email\"\n        type=\"email\"\n        placeholder=\"your@email.com\"\n    />\n    \n    <x-select \n        wire:model=\"feedback.type\"\n        label=\"Feedback Type\"\n        :options=\"[\n            ['value' => 'bug', 'label' => 'Bug Report'],\n            ['value' => 'feature', 'label' => 'Feature Request'],\n            ['value' => 'improvement', 'label' => 'Improvement'],\n            ['value' => 'other', 'label' => 'Other']\n        ]\"\n    />\n    \n    <x-textarea \n        wire:model=\"feedback.summary\"\n        label=\"Summary\"\n        placeholder=\"Brief summary of your feedback\"\n        rows=\"2\"\n        :maxlength=\"100\"\n        show-count\n    />\n    \n    <x-textarea \n        wire:model=\"feedback.details\"\n        label=\"Details\"\n        placeholder=\"Please provide detailed information...\"\n        rows=\"6\"\n        hint=\"Be as specific as possible\"\n    />\n    \n    <x-button type=\"submit\" primary label=\"Submit Feedback\" class=\"w-full\" />\n</form>",
+      "livewire_context": "public array $feedback = [\n    'email' => '',\n    'type' => '',\n    'summary' => '',\n    'details' => ''\n];\n\npublic function submitFeedback() {\n    $this->validate([\n        'feedback.email' => 'required|email',\n        'feedback.type' => 'required',\n        'feedback.summary' => 'required|max:100',\n        'feedback.details' => 'required'\n    ]);\n    \n    // Submit logic\n}"
+    },
+    {
+      "title": "JSON Editor",
+      "description": "Textarea for JSON input",
+      "code": "<x-textarea \n    wire:model=\"jsonData\"\n    label=\"JSON Configuration\"\n    placeholder='{ \"key\": \"value\" }'\n    rows=\"8\"\n    resize=\"vertical\"\n    class=\"font-mono text-sm\"\n/>\n\n@error('jsonData')\n    <p class=\"mt-1 text-sm text-red-600\">Invalid JSON format</p>\n@enderror",
+      "livewire_context": "public string $jsonData = '';\n\npublic function updatedJsonData($value) {\n    try {\n        json_decode($value, true, 512, JSON_THROW_ON_ERROR);\n    } catch (\\JsonException $e) {\n        $this->addError('jsonData', 'Invalid JSON: ' . $e->getMessage());\n    }\n}"
+    },
+    {
+      "title": "Limited Textarea",
+      "description": "With strict limits",
+      "code": "<x-textarea \n    wire:model=\"tweet\"\n    label=\"Compose Tweet\"\n    placeholder=\"What's happening?\"\n    :maxlength=\"280\"\n    show-count\n    rows=\"3\"\n    resize=\"none\"\n    hint=\"{{ 280 - strlen($tweet) }} characters remaining\"\n/>",
+      "livewire_context": "public string $tweet = '';"
+    },
+    {
+      "title": "Readonly Display",
+      "description": "Display-only textarea",
+      "code": "<x-textarea \n    value=\"{{ $logContent }}\"\n    label=\"System Log\"\n    rows=\"10\"\n    readonly\n    resize=\"vertical\"\n    class=\"font-mono text-xs bg-gray-900 text-green-400\"\n/>",
+      "livewire_context": "public string $logContent = \"[2024-01-20 10:30:45] INFO: Application started\\n[2024-01-20 10:30:46] DEBUG: Database connected\\n[2024-01-20 10:30:47] INFO: Server listening on port 8000\";"
+    }
+  ],
+  "best_practices": [
+    "Set appropriate rows for expected content",
+    "Use maxlength with show-count for limited inputs",
+    "Consider resize behavior for UX",
+    "Provide helpful placeholders and hints",
+    "Use auto-resize for variable content length"
+  ],
+  "accessibility": [
+    "Labels are properly associated",
+    "Character count is announced to screen readers",
+    "Resize handles are keyboard accessible",
+    "Error messages are linked to textarea",
+    "Sufficient contrast for placeholder text"
+  ],
+  "dependencies": [],
+  "tags": ["textarea", "multiline", "text", "input", "form", "editor"]
+}

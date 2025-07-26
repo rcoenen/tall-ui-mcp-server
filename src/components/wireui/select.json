@@ -1,0 +1,231 @@
+{
+  "name": "select",
+  "category": "forms",
+  "description": "Advanced select component with search, multiple selection, and async loading",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Select label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Placeholder text",
+      "default": "Select an option"
+    },
+    {
+      "name": "options",
+      "type": "array",
+      "description": "Array of options",
+      "required": false
+    },
+    {
+      "name": "option-value",
+      "type": "string",
+      "description": "Option value key",
+      "default": "value"
+    },
+    {
+      "name": "option-label",
+      "type": "string",
+      "description": "Option label key",
+      "default": "label"
+    },
+    {
+      "name": "option-description",
+      "type": "string",
+      "description": "Option description key",
+      "required": false
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "description": "Enable search functionality",
+      "default": true
+    },
+    {
+      "name": "multiselect",
+      "type": "boolean",
+      "description": "Allow multiple selections",
+      "default": false
+    },
+    {
+      "name": "clearable",
+      "type": "boolean",
+      "description": "Show clear button",
+      "default": true
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the select",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make select readonly",
+      "default": false
+    },
+    {
+      "name": "async-data",
+      "type": "string",
+      "description": "URL for async data loading",
+      "required": false
+    },
+    {
+      "name": "min-input-length",
+      "type": "number",
+      "description": "Minimum characters before search",
+      "default": 0
+    },
+    {
+      "name": "empty-message",
+      "type": "string",
+      "description": "Message when no options",
+      "default": "No options found"
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Left icon",
+      "required": false
+    },
+    {
+      "name": "right-icon",
+      "type": "string",
+      "description": "Right icon",
+      "required": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "beforeOptions",
+      "description": "Content before options list",
+      "required": false
+    },
+    {
+      "name": "afterOptions",
+      "description": "Content after options list",
+      "required": false
+    },
+    {
+      "name": "option",
+      "description": "Custom option template",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy",
+    "async search",
+    "infinite scroll"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-model",
+    "x-show",
+    "x-on:click",
+    "x-on:keydown"
+  ],
+  "tailwind_classes": [
+    "absolute",
+    "mt-1",
+    "w-full",
+    "rounded-md",
+    "bg-white",
+    "shadow-lg",
+    "max-h-60",
+    "overflow-auto"
+  ],
+  "examples": [
+    {
+      "title": "Basic Select",
+      "description": "Simple searchable select",
+      "code": "<x-select\n    label=\"Select User\"\n    placeholder=\"Choose a user\"\n    :options=\"[\n        ['id' => 1, 'name' => 'John Doe'],\n        ['id' => 2, 'name' => 'Jane Smith'],\n        ['id' => 3, 'name' => 'Bob Johnson'],\n        ['id' => 4, 'name' => 'Alice Brown']\n    ]\"\n    option-label=\"name\"\n    option-value=\"id\"\n/>"
+    },
+    {
+      "title": "Select with Descriptions",
+      "description": "Options with additional info",
+      "code": "<x-select\n    wire:model=\"selectedUser\"\n    label=\"Team Member\"\n    option-description=\"email\"\n    :options=\"[\n        ['id' => 1, 'name' => 'John Doe', 'email' => 'john@example.com'],\n        ['id' => 2, 'name' => 'Jane Smith', 'email' => 'jane@example.com'],\n        ['id' => 3, 'name' => 'Bob Johnson', 'email' => 'bob@example.com']\n    ]\"\n    option-label=\"name\"\n    option-value=\"id\"\n/>",
+      "livewire_context": "public $selectedUser = null;"
+    },
+    {
+      "title": "Multiple Selection",
+      "description": "Select multiple options",
+      "code": "<x-select\n    wire:model=\"selectedTags\"\n    label=\"Tags\"\n    placeholder=\"Select tags\"\n    multiselect\n    :options=\"[\n        ['id' => 'bug', 'name' => 'Bug'],\n        ['id' => 'feature', 'name' => 'Feature'],\n        ['id' => 'enhancement', 'name' => 'Enhancement'],\n        ['id' => 'documentation', 'name' => 'Documentation'],\n        ['id' => 'question', 'name' => 'Question']\n    ]\"\n    option-label=\"name\"\n    option-value=\"id\"\n/>",
+      "livewire_context": "public array $selectedTags = [];"
+    },
+    {
+      "title": "Async Data Loading",
+      "description": "Load options from API",
+      "code": "<x-select\n    wire:model=\"userId\"\n    label=\"Search Users\"\n    placeholder=\"Type to search...\"\n    async-data=\"/api/users/search\"\n    :min-input-length=\"2\"\n    option-label=\"name\"\n    option-value=\"id\"\n    option-description=\"department\"\n/>",
+      "livewire_context": "public $userId = null;\n\n// API endpoint returns:\n// [\n//   {\"id\": 1, \"name\": \"John Doe\", \"department\": \"Engineering\"},\n//   {\"id\": 2, \"name\": \"Jane Smith\", \"department\": \"Marketing\"}\n// ]"
+    },
+    {
+      "title": "Custom Option Template",
+      "description": "Custom rendering for options",
+      "code": "<x-select\n    wire:model=\"assignee\"\n    label=\"Assign To\"\n    :options=\"$users\"\n>\n    <x-slot name=\"option\" :option=\"$option\">\n        <div class=\"flex items-center\">\n            <x-avatar :src=\"$option['avatar']\" size=\"xs\" />\n            <div class=\"ml-3\">\n                <p class=\"text-sm font-medium\">{{ $option['name'] }}</p>\n                <p class=\"text-xs text-gray-500\">{{ $option['role'] }}</p>\n            </div>\n        </div>\n    </x-slot>\n</x-select>",
+      "livewire_context": "public $assignee = null;\npublic $users = [\n    ['value' => 1, 'name' => 'John Doe', 'role' => 'Developer', 'avatar' => '/img/john.jpg'],\n    ['value' => 2, 'name' => 'Jane Smith', 'role' => 'Designer', 'avatar' => '/img/jane.jpg']\n];"
+    },
+    {
+      "title": "Grouped Options",
+      "description": "Options organized in groups",
+      "code": "<x-select\n    wire:model=\"country\"\n    label=\"Country\"\n    :options=\"[\n        ['group' => 'North America', 'options' => [\n            ['value' => 'us', 'label' => 'United States'],\n            ['value' => 'ca', 'label' => 'Canada'],\n            ['value' => 'mx', 'label' => 'Mexico']\n        ]],\n        ['group' => 'Europe', 'options' => [\n            ['value' => 'gb', 'label' => 'United Kingdom'],\n            ['value' => 'de', 'label' => 'Germany'],\n            ['value' => 'fr', 'label' => 'France']\n        ]],\n        ['group' => 'Asia', 'options' => [\n            ['value' => 'jp', 'label' => 'Japan'],\n            ['value' => 'cn', 'label' => 'China'],\n            ['value' => 'in', 'label' => 'India']\n        ]]\n    ]\"\n/>"
+    },
+    {
+      "title": "Select with Icons",
+      "description": "Enhanced select with icons",
+      "code": "<x-select\n    wire:model=\"priority\"\n    label=\"Priority\"\n    icon=\"flag\"\n    :options=\"[\n        ['value' => 'low', 'label' => 'Low', 'icon' => 'arrow-down', 'color' => 'text-gray-500'],\n        ['value' => 'medium', 'label' => 'Medium', 'icon' => 'minus', 'color' => 'text-yellow-500'],\n        ['value' => 'high', 'label' => 'High', 'icon' => 'arrow-up', 'color' => 'text-orange-500'],\n        ['value' => 'urgent', 'label' => 'Urgent', 'icon' => 'exclamation-triangle', 'color' => 'text-red-500']\n    ]\"\n>\n    <x-slot name=\"option\" :option=\"$option\">\n        <div class=\"flex items-center\">\n            <x-icon :name=\"$option['icon']\" :class=\"$option['color'] . ' w-4 h-4 mr-2'\" />\n            <span>{{ $option['label'] }}</span>\n        </div>\n    </x-slot>\n</x-select>"
+    },
+    {
+      "title": "Disabled Options",
+      "description": "Some options disabled",
+      "code": "<x-select\n    label=\"Subscription Plan\"\n    :options=\"[\n        ['value' => 'free', 'label' => 'Free'],\n        ['value' => 'basic', 'label' => 'Basic - $9/mo'],\n        ['value' => 'pro', 'label' => 'Pro - $29/mo'],\n        ['value' => 'enterprise', 'label' => 'Enterprise', 'disabled' => true, 'description' => 'Contact sales']\n    ]\"\n/>"
+    },
+    {
+      "title": "Select with Actions",
+      "description": "Additional actions in dropdown",
+      "code": "<x-select\n    wire:model=\"category\"\n    label=\"Category\"\n    :options=\"$categories\"\n>\n    <x-slot name=\"afterOptions\">\n        <div class=\"border-t px-2 py-2\">\n            <button\n                type=\"button\"\n                wire:click=\"$emit('openModal', 'create-category')\"\n                class=\"flex items-center w-full px-2 py-2 text-sm hover:bg-gray-100 rounded\"\n            >\n                <x-icon name=\"plus\" class=\"w-4 h-4 mr-2\" />\n                Create new category\n            </button>\n        </div>\n    </x-slot>\n</x-select>"
+    },
+    {
+      "title": "Complex Filter Example",
+      "description": "Advanced filtering with select",
+      "code": "<div class=\"grid grid-cols-3 gap-4\">\n    <x-select\n        wire:model=\"filters.status\"\n        label=\"Status\"\n        placeholder=\"All statuses\"\n        clearable\n        :options=\"[\n            ['value' => 'active', 'label' => 'Active'],\n            ['value' => 'pending', 'label' => 'Pending'],\n            ['value' => 'archived', 'label' => 'Archived']\n        ]\"\n    />\n    \n    <x-select\n        wire:model=\"filters.categories\"\n        label=\"Categories\"\n        placeholder=\"Select categories\"\n        multiselect\n        :options=\"$categories\"\n    />\n    \n    <x-select\n        wire:model=\"filters.assignee\"\n        label=\"Assignee\"\n        placeholder=\"Any assignee\"\n        async-data=\"/api/users/search\"\n        option-label=\"name\"\n        option-value=\"id\"\n    />\n</div>",
+      "livewire_context": "public array $filters = [\n    'status' => null,\n    'categories' => [],\n    'assignee' => null\n];\n\npublic $categories = [];\n\npublic function mount() {\n    $this->categories = Category::all()->map(fn($c) => [\n        'value' => $c->id,\n        'label' => $c->name\n    ])->toArray();\n}"
+    }
+  ],
+  "best_practices": [
+    "Use async loading for large datasets",
+    "Provide search for lists over 10 items",
+    "Show descriptions for complex options",
+    "Use multiselect sparingly",
+    "Consider mobile UX for dropdowns"
+  ],
+  "accessibility": [
+    "Full keyboard navigation support",
+    "Screen reader announcements",
+    "Search input is properly labeled",
+    "Selected values are announced",
+    "Loading states are communicated"
+  ],
+  "dependencies": ["input", "icon", "avatar"],
+  "tags": ["select", "dropdown", "search", "multiselect", "async", "filter"]
+}

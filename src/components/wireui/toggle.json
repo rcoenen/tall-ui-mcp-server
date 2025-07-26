@@ -1,0 +1,173 @@
+{
+  "name": "toggle",
+  "category": "forms",
+  "description": "Toggle switch component for boolean values with optional labels",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Toggle label",
+      "required": false
+    },
+    {
+      "name": "left-label",
+      "type": "string",
+      "description": "Label for off state",
+      "required": false
+    },
+    {
+      "name": "right-label",
+      "type": "string",
+      "description": "Label for on state",
+      "required": false
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Toggle size",
+      "enum": ["xs", "sm", "md", "lg", "xl"],
+      "default": "md"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the toggle",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make toggle readonly",
+      "default": false
+    },
+    {
+      "name": "value",
+      "type": "boolean",
+      "description": "Toggle state",
+      "default": false
+    },
+    {
+      "name": "icon-off",
+      "type": "string",
+      "description": "Icon for off state",
+      "required": false
+    },
+    {
+      "name": "icon-on",
+      "type": "string",
+      "description": "Icon for on state",
+      "required": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "description": "Custom label content",
+      "required": false
+    },
+    {
+      "name": "description",
+      "description": "Additional description",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy"
+  ],
+  "alpine_directives": [
+    "x-model",
+    "x-on:click",
+    "x-bind:class",
+    "x-transition"
+  ],
+  "tailwind_classes": [
+    "relative",
+    "inline-flex",
+    "flex-shrink-0",
+    "h-6",
+    "w-11",
+    "border-2",
+    "border-transparent",
+    "rounded-full",
+    "cursor-pointer",
+    "transition-colors",
+    "bg-gray-200",
+    "bg-primary-600"
+  ],
+  "examples": [
+    {
+      "title": "Basic Toggle",
+      "description": "Simple on/off switch",
+      "code": "<x-toggle label=\"Enable notifications\" />"
+    },
+    {
+      "title": "Toggle with Livewire",
+      "description": "Two-way data binding",
+      "code": "<x-toggle \n    wire:model=\"settings.darkMode\"\n    label=\"Dark Mode\"\n/>",
+      "livewire_context": "public array $settings = [\n    'darkMode' => false\n];"
+    },
+    {
+      "title": "Toggle with Side Labels",
+      "description": "Labels on both sides",
+      "code": "<x-toggle \n    wire:model=\"isPublic\"\n    left-label=\"Private\"\n    right-label=\"Public\"\n/>"
+    },
+    {
+      "title": "Toggle Sizes",
+      "description": "Different toggle sizes",
+      "code": "<!-- Extra Small -->\n<x-toggle xs label=\"Extra Small\" />\n\n<!-- Small -->\n<x-toggle sm label=\"Small\" />\n\n<!-- Medium (default) -->\n<x-toggle md label=\"Medium\" />\n\n<!-- Large -->\n<x-toggle lg label=\"Large\" />\n\n<!-- Extra Large -->\n<x-toggle xl label=\"Extra Large\" />"
+    },
+    {
+      "title": "Toggle with Icons",
+      "description": "Icons for on/off states",
+      "code": "<x-toggle \n    wire:model=\"soundEnabled\"\n    label=\"Sound\"\n    icon-off=\"volume-off\"\n    icon-on=\"volume-up\"\n/>"
+    },
+    {
+      "title": "Toggle with Description",
+      "description": "Additional help text",
+      "code": "<x-toggle wire:model=\"marketingEmails\">\n    <x-slot name=\"label\">Marketing Emails</x-slot>\n    <x-slot name=\"description\">\n        Receive updates about new features and promotions\n    </x-slot>\n</x-toggle>"
+    },
+    {
+      "title": "Settings Form",
+      "description": "Multiple toggles in settings",
+      "code": "<div class=\"space-y-4\">\n    <h3 class=\"text-lg font-medium\">Notification Settings</h3>\n    \n    <x-toggle \n        wire:model=\"notifications.email\"\n        label=\"Email Notifications\"\n    />\n    \n    <x-toggle \n        wire:model=\"notifications.push\"\n        label=\"Push Notifications\"\n    />\n    \n    <x-toggle \n        wire:model=\"notifications.sms\"\n        label=\"SMS Notifications\"\n    />\n    \n    <div class=\"border-t pt-4\">\n        <x-toggle \n            wire:model=\"notifications.marketing\">\n            <x-slot name=\"label\">Marketing Communications</x-slot>\n            <x-slot name=\"description\">\n                Promotional emails and special offers\n            </x-slot>\n        </x-toggle>\n    </div>\n</div>",
+      "livewire_context": "public array $notifications = [\n    'email' => true,\n    'push' => false,\n    'sms' => false,\n    'marketing' => false\n];"
+    },
+    {
+      "title": "Feature Flags",
+      "description": "Toggle features on/off",
+      "code": "<x-card title=\"Feature Flags\">\n    <div class=\"space-y-3\">\n        @foreach($features as $key => $feature)\n            <div class=\"flex items-center justify-between\">\n                <div>\n                    <p class=\"font-medium\">{{ $feature['name'] }}</p>\n                    <p class=\"text-sm text-gray-500\">{{ $feature['description'] }}</p>\n                </div>\n                <x-toggle \n                    wire:model=\"features.{{ $key }}.enabled\"\n                    size=\"sm\"\n                />\n            </div>\n        @endforeach\n    </div>\n</x-card>",
+      "livewire_context": "public array $features = [\n    'dark_mode' => [\n        'name' => 'Dark Mode',\n        'description' => 'Enable dark theme',\n        'enabled' => false\n    ],\n    'beta_features' => [\n        'name' => 'Beta Features',\n        'description' => 'Access to experimental features',\n        'enabled' => false\n    ],\n    'analytics' => [\n        'name' => 'Analytics',\n        'description' => 'Help improve the app',\n        'enabled' => true\n    ]\n];"
+    },
+    {
+      "title": "Privacy Settings",
+      "description": "Privacy control toggles",
+      "code": "<div class=\"space-y-6\">\n    <div>\n        <h3 class=\"text-lg font-medium mb-4\">Privacy Settings</h3>\n        \n        <div class=\"space-y-4\">\n            <x-toggle wire:model=\"privacy.profile_visible\">\n                <x-slot name=\"label\">Public Profile</x-slot>\n                <x-slot name=\"description\">\n                    Make your profile visible to other users\n                </x-slot>\n            </x-toggle>\n            \n            <x-toggle wire:model=\"privacy.show_email\">\n                <x-slot name=\"label\">Show Email</x-slot>\n                <x-slot name=\"description\">\n                    Display your email on your public profile\n                </x-slot>\n            </x-toggle>\n            \n            <x-toggle wire:model=\"privacy.allow_messages\">\n                <x-slot name=\"label\">Allow Messages</x-slot>\n                <x-slot name=\"description\">\n                    Let other users send you direct messages\n                </x-slot>\n            </x-toggle>\n        </div>\n    </div>\n    \n    <div>\n        <h3 class=\"text-lg font-medium mb-4\">Data & Personalization</h3>\n        \n        <div class=\"space-y-4\">\n            <x-toggle \n                wire:model=\"privacy.personalized_ads\"\n                left-label=\"Generic\"\n                right-label=\"Personalized\"\n                label=\"Ad Preferences\"\n            />\n            \n            <x-toggle wire:model=\"privacy.usage_data\">\n                <x-slot name=\"label\">Usage Analytics</x-slot>\n                <x-slot name=\"description\">\n                    Share anonymous usage data to help improve the service\n                </x-slot>\n            </x-toggle>\n        </div>\n    </div>\n</div>",
+      "livewire_context": "public array $privacy = [\n    'profile_visible' => true,\n    'show_email' => false,\n    'allow_messages' => true,\n    'personalized_ads' => false,\n    'usage_data' => true\n];"
+    },
+    {
+      "title": "Disabled States",
+      "description": "Various disabled configurations",
+      "code": "<!-- Disabled in off state -->\n<x-toggle \n    label=\"Disabled Off\"\n    disabled\n/>\n\n<!-- Disabled in on state -->\n<x-toggle \n    label=\"Disabled On\"\n    :value=\"true\"\n    disabled\n/>\n\n<!-- Conditionally disabled -->\n<x-toggle \n    wire:model=\"premiumFeature\"\n    label=\"Premium Feature\"\n    :disabled=\"!$isPremiumUser\"\n>\n    @if(!$isPremiumUser)\n        <x-slot name=\"description\">\n            <span class=\"text-yellow-600\">Upgrade to Premium to enable</span>\n        </x-slot>\n    @endif\n</x-toggle>"
+    }
+  ],
+  "best_practices": [
+    "Use clear labels that indicate the action",
+    "Consider using descriptions for complex settings",
+    "Group related toggles together",
+    "Use consistent sizing within a form",
+    "Provide immediate visual feedback"
+  ],
+  "accessibility": [
+    "Uses role='switch' for screen readers",
+    "Keyboard accessible with Space bar",
+    "Clear labels and descriptions",
+    "State changes are announced",
+    "Focus indicators are visible"
+  ],
+  "dependencies": ["icon"],
+  "tags": ["toggle", "switch", "boolean", "on-off", "settings", "preferences"]
+}

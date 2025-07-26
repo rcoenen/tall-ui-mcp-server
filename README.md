@@ -24,7 +24,7 @@ This MCP server enables AI assistants like Claude to:
 
 - Node.js 18+
 - Compatible with WireUI v2.4+
-- Supports Laravel 10-12, Livewire 3, Tailwind CSS 3-4
+- Supports Laravel 10-12, Livewire 3, Tailwind CSS 3 (v4 not supported by WireUI v2)
 
 ## Quick Start Guide
 
@@ -62,7 +62,7 @@ In the browser, you'll see a form. Enter these values:
 
 Click "Connect" and you should see:
 - "Connected" status
-- In the console: "Loaded 3 components"
+- In the console: "Loaded 26 components"
 - Available tools in the Tools tab
 
 ### 3. Try the Tools
@@ -72,6 +72,7 @@ Once connected, test the tools:
 1. **List all components**: 
    - Select `tallui_list_components`
    - Click "Run"
+   - You should see all 26 WireUI components listed
 
 2. **Get component details**:
    - Select `tallui_get_component`
@@ -82,6 +83,7 @@ Once connected, test the tools:
    - Select `tallui_search_components`
    - Enter arguments: `{"query": "form"}`
    - Click "Run"
+   - This will return all form-related components
 
 ## Using with Claude Desktop
 
@@ -109,29 +111,29 @@ Restart Claude Desktop and the TALL UI tools will be available.
 
 ## WireUI Component Coverage
 
-### Coverage Status: 3/27 (11%)
+### Coverage Status: 26/26 (100%) ✅
 
 Based on the official WireUI v2.x component library: https://wireui.dev/components
 
 | Category | Component | Status | Category | Component | Status |
 |----------|-----------|--------|----------|-----------|--------|
 | **UI Components** | | | **Form Components** | | |
-| | Alert | ❌ | | Checkbox | ❌ |
-| | Avatar | ❌ | | Color Picker | ❌ |
-| | Badge | ❌ | | Currency | ❌ |
-| | Button | ✅ | | Datetime Picker | ❌ |
-| | Card | ❌ | | Errors | ❌ |
-| | Dropdown | ❌ | | Input | ✅ |
-| | Icon | ❌ | | Maskable | ❌ |
-| | Link | ❌ | | Native Select | ❌ |
-| | Modal | ✅ | | Number | ❌ |
-| | Table | ❌ | | Password | ❌ |
-| | | | | Phone | ❌ |
-| | | | | Radio | ❌ |
-| | | | | Select | ❌ |
-| | | | | Textarea | ❌ |
-| | | | | Time Picker | ❌ |
-| | | | | Toggle | ❌ |
+| | Alert | ✅ | | Checkbox | ✅ |
+| | Avatar | ✅ | | Color Picker | ✅ |
+| | Badge | ✅ | | Currency | ✅ |
+| | Button | ✅ | | Datetime Picker | ✅ |
+| | Card | ✅ | | Errors | ✅ |
+| | Dropdown | ✅ | | Input | ✅ |
+| | Icon | ✅ | | Maskable | ✅ |
+| | Link | ✅ | | Native Select | ✅ |
+| | Modal | ✅ | | Number | ✅ |
+| | Table | ✅ | | Password | ✅ |
+| | | | | Phone | ✅ |
+| | | | | Radio | ✅ |
+| | | | | Select | ✅ |
+| | | | | Textarea | ✅ |
+| | | | | Time Picker | ✅ |
+| | | | | Toggle | ✅ |
 
 **Legend:**
 - ✅ Implemented
@@ -186,13 +188,36 @@ Make sure you're running commands from the project root directory, not from a su
 ### Components not loading
 Check that JSON files in `src/components/wireui/` are valid JSON format.
 
+## Recent Updates
+
+### July 25, 2025
+- ✅ **Complete WireUI v2 Coverage**: All 26 components now implemented!
+- 🔧 **Major Fixes**: Updated component specs based on real-world testing
+  - Components now use boolean props for colors (e.g., `<x-alert info />` instead of `variant="info"`)
+  - Updated all icon names to Heroicons v2 convention
+  - Added Tailwind CSS v3 requirement (v4 not supported)
+- 📝 **Documentation**: Added CHANGELOG.md and CHANGELOG_FIXES.md for tracking changes
+
+## Important Notes
+
+### WireUI v2 Compatibility
+This server is specifically designed for WireUI v2.x which requires:
+- Tailwind CSS v3 (v4 is NOT compatible)
+- Heroicons v2
+- Alpine.js v3
+- Livewire v3
+
+### Breaking Changes from Previous Versions
+If you used earlier versions of this MCP server, note that many components now use boolean props instead of variant strings. See CHANGELOG.md for migration guide.
+
 ## Roadmap
 
-- [ ] More WireUI components coverage
+- [x] Complete WireUI v2 components coverage ✅
 - [ ] Component validation tools
 - [ ] Form generation helpers
 - [ ] Filament components support
 - [ ] CLI for metadata generation
+- [ ] Support for WireUI v3 (when released)
 
 ## Contributing
 

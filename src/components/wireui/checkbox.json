@@ -1,0 +1,185 @@
+{
+  "name": "checkbox",
+  "category": "forms",
+  "description": "Checkbox input component for boolean values and multiple selections",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Checkbox label text",
+      "required": false
+    },
+    {
+      "name": "value",
+      "type": "mixed",
+      "description": "Value when checked (for array binding)",
+      "required": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Input ID attribute",
+      "required": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Input name attribute",
+      "required": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the checkbox",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make checkbox readonly",
+      "default": false
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Default checked state",
+      "default": false
+    },
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "description": "Show indeterminate state",
+      "default": false
+    },
+    {
+      "name": "left-label",
+      "type": "boolean",
+      "description": "Position label on the left",
+      "default": false
+    },
+    {
+      "name": "lg",
+      "type": "boolean",
+      "description": "Large size variant",
+      "default": false
+    },
+    {
+      "name": "md",
+      "type": "boolean",
+      "description": "Medium size variant",
+      "default": false
+    },
+    {
+      "name": "sm",
+      "type": "boolean",
+      "description": "Small size variant",
+      "default": false
+    },
+    {
+      "name": "xs",
+      "type": "boolean",
+      "description": "Extra small size variant",
+      "default": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "description": "Custom label content",
+      "required": false
+    },
+    {
+      "name": "description",
+      "description": "Additional description text",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:loading.attr=\"disabled\""
+  ],
+  "alpine_directives": [
+    "x-model",
+    "x-on:change",
+    "x-bind:checked",
+    "x-bind:indeterminate"
+  ],
+  "tailwind_classes": [
+    "h-4",
+    "w-4",
+    "text-primary-600",
+    "border-gray-300",
+    "rounded",
+    "focus:ring-2",
+    "focus:ring-primary-500",
+    "disabled:opacity-50"
+  ],
+  "examples": [
+    {
+      "title": "Basic Checkbox",
+      "description": "Simple checkbox with label",
+      "code": "<x-checkbox label=\"I agree to the terms and conditions\" />"
+    },
+    {
+      "title": "Checkbox with Livewire Model",
+      "description": "Two-way binding with Livewire",
+      "code": "<x-checkbox wire:model=\"accepted\" label=\"Accept privacy policy\" />",
+      "livewire_context": "public bool $accepted = false;"
+    },
+    {
+      "title": "Multiple Checkboxes",
+      "description": "Checkbox group with array binding",
+      "code": "<div class=\"space-y-2\">\n    <x-checkbox wire:model=\"permissions\" value=\"read\" label=\"Read\" />\n    <x-checkbox wire:model=\"permissions\" value=\"write\" label=\"Write\" />\n    <x-checkbox wire:model=\"permissions\" value=\"delete\" label=\"Delete\" />\n</div>",
+      "livewire_context": "public array $permissions = [];"
+    },
+    {
+      "title": "Checkbox Sizes",
+      "description": "Different checkbox sizes",
+      "code": "<!-- Extra Small -->\n<x-checkbox xs label=\"Extra Small\" />\n\n<!-- Small -->\n<x-checkbox sm label=\"Small\" />\n\n<!-- Medium (default) -->\n<x-checkbox md label=\"Medium\" />\n\n<!-- Large -->\n<x-checkbox lg label=\"Large\" />"
+    },
+    {
+      "title": "Checkbox with Description",
+      "description": "Checkbox with additional description",
+      "code": "<x-checkbox wire:model=\"notifications\">\n    <x-slot name=\"label\">\n        Email Notifications\n    </x-slot>\n    <x-slot name=\"description\">\n        Receive email updates about your account activity\n    </x-slot>\n</x-checkbox>"
+    },
+    {
+      "title": "Left Label Checkbox",
+      "description": "Label positioned on the left",
+      "code": "<x-checkbox left-label label=\"Left aligned label\" />"
+    },
+    {
+      "title": "Indeterminate State",
+      "description": "Checkbox with indeterminate state",
+      "code": "<div x-data=\"{ \n    allSelected: false,\n    items: [false, false, false],\n    toggleAll() {\n        this.allSelected = !this.allSelected;\n        this.items = this.items.map(() => this.allSelected);\n    }\n}\">\n    <x-checkbox \n        x-model=\"allSelected\"\n        x-bind:indeterminate=\"items.includes(true) && items.includes(false)\"\n        x-on:change=\"toggleAll\"\n        label=\"Select All\"\n    />\n    \n    <div class=\"ml-6 mt-2 space-y-2\">\n        <x-checkbox x-model=\"items[0]\" label=\"Item 1\" />\n        <x-checkbox x-model=\"items[1]\" label=\"Item 2\" />\n        <x-checkbox x-model=\"items[2]\" label=\"Item 3\" />\n    </div>\n</div>"
+    },
+    {
+      "title": "Disabled States",
+      "description": "Disabled checkboxes",
+      "code": "<!-- Disabled unchecked -->\n<x-checkbox disabled label=\"Disabled unchecked\" />\n\n<!-- Disabled checked -->\n<x-checkbox disabled checked label=\"Disabled checked\" />\n\n<!-- Disabled with loading -->\n<x-checkbox wire:loading.attr=\"disabled\" wire:target=\"save\" label=\"Disabled while saving\" />"
+    },
+    {
+      "title": "Custom Styled Checkbox",
+      "description": "Checkbox with custom styling",
+      "code": "<x-checkbox class=\"text-green-600 focus:ring-green-500\">\n    <x-slot name=\"label\">\n        <span class=\"font-medium text-green-700\">Eco-friendly option</span>\n    </x-slot>\n    <x-slot name=\"description\">\n        <span class=\"text-green-600\">This option supports environmental sustainability</span>\n    </x-slot>\n</x-checkbox>"
+    }
+  ],
+  "best_practices": [
+    "Always provide clear labels for checkboxes",
+    "Group related checkboxes together",
+    "Use proper form associations with labels",
+    "Consider touch targets for mobile (minimum 44x44px)",
+    "Provide visual feedback for state changes"
+  ],
+  "accessibility": [
+    "Labels are properly associated with inputs",
+    "Keyboard accessible with Space bar toggle",
+    "ARIA attributes for indeterminate state",
+    "Clear focus indicators",
+    "Screen reader announcements for state changes"
+  ],
+  "dependencies": [],
+  "tags": ["checkbox", "form", "input", "boolean", "toggle", "selection"]
+}

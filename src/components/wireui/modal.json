@@ -12,36 +12,69 @@
       "required": true
     },
     {
-      "name": "title",
-      "type": "string",
-      "description": "Modal header title",
-      "required": false
-    },
-    {
       "name": "max-width",
-      "type": "string",
+      "type": "string", 
       "description": "Maximum width of the modal",
-      "enum": ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl"],
+      "enum": ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl"],
       "default": "2xl"
     },
     {
       "name": "blur",
-      "type": "boolean",
+      "type": "string",
       "description": "Apply backdrop blur effect",
-      "default": false
+      "enum": ["none", "sm", "md", "base", "lg", "xl", "2xl", "3xl"],
+      "default": "none"
+    },
+    {
+      "name": "z-index",
+      "type": "string",
+      "description": "Z-index for modal stacking",
+      "default": "z-50"
+    },
+    {
+      "name": "spacing",
+      "type": "string",
+      "description": "Internal padding of the modal",
+      "default": "p-4"
     },
     {
       "name": "align",
       "type": "string",
       "description": "Vertical alignment of the modal",
-      "enum": ["top", "center", "bottom"],
-      "default": "center"
+      "enum": ["start", "center", "end"],
+      "default": "start"
+    },
+    {
+      "name": "show",
+      "type": "boolean",
+      "description": "Control modal visibility programmatically",
+      "default": false
     },
     {
       "name": "persistent",
       "type": "boolean",
       "description": "Prevent closing on backdrop click",
       "default": false
+    },
+    {
+      "name": "blurless",
+      "type": "boolean",
+      "description": "Disable backdrop blur effect",
+      "default": false
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Modal type for styling configurations",
+      "enum": ["default", "card"],
+      "default": "default"
+    },
+    {
+      "name": "width",
+      "type": "string",
+      "description": "Width of the modal (alternative to max-width)",
+      "enum": ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "full"],
+      "required": false
     }
   ],
   "slots": [
@@ -53,6 +86,11 @@
     {
       "name": "footer",
       "description": "Modal footer with actions",
+      "required": false
+    },
+    {
+      "name": "title",
+      "description": "Modal title/header content",
       "required": false
     }
   ],
@@ -78,28 +116,91 @@
   ],
   "examples": [
     {
-      "title": "Basic Modal",
-      "description": "Simple modal with title and content",
-      "code": "<x-modal name=\"user-modal\" title=\"User Details\">\n    <p>Modal content goes here...</p>\n</x-modal>\n\n<x-button x-on:click=\"$openModal('user-modal')\">\n    Open Modal\n</x-button>"
+      "title": "Simple Modal with wire:model",
+      "description": "Modal controlled by Livewire property",
+      "code": "<x-modal-card blur wire:model.defer=\"cardModal\" title=\"Edit Profile\">\n    <div class=\"grid grid-cols-1 sm:grid-cols-2 gap-4\">\n        <x-input label=\"Name\" placeholder=\"Your name\" />\n        <x-input label=\"Email\" placeholder=\"your@email.com\" />\n    </div>\n    \n    <x-slot name=\"footer\">\n        <div class=\"flex justify-end gap-x-4\">\n            <x-button flat label=\"Cancel\" x-on:click=\"close\" />\n            <x-button primary label=\"Save\" wire:click=\"save\" />\n        </div>\n    </x-slot>\n</x-modal-card>\n\n<x-button primary label=\"Edit Profile\" wire:click=\"$set('cardModal', true)\" />",
+      "livewire_context": "public bool $cardModal = false;\n\npublic function save() {\n    // Save logic\n    $this->cardModal = false;\n}"
     },
     {
-      "title": "Modal with Footer Actions",
-      "description": "Modal with cancel and confirm buttons",
-      "code": "<x-modal name=\"confirm-modal\" title=\"Confirm Action\">\n    <p>Are you sure you want to proceed?</p>\n    \n    <x-slot name=\"footer\">\n        <x-button x-on:click=\"close\" outline>\n            Cancel\n        </x-button>\n        <x-button wire:click=\"confirmAction\" primary>\n            Confirm\n        </x-button>\n    </x-slot>\n</x-modal>",
-      "livewire_context": "public function confirmAction() { /* confirmation logic */ }"
+      "title": "Centered Modal with Different Sizes",
+      "description": "Modal with center alignment and size options",
+      "code": "<x-modal wire:model.defer=\"sizeModal\" max-width=\"xl\" align=\"center\">\n    <x-card title=\"Centered Modal\">\n        <p>This modal is centered on screen with XL width.</p>\n        <p class=\"mt-4\">The align=\"center\" prop ensures vertical centering.</p>\n        \n        <x-slot name=\"footer\">\n            <x-button flat label=\"Close\" x-on:click=\"close\" />\n        </x-slot>\n    </x-card>\n</x-modal>"
     },
     {
-      "title": "Persistent Modal with Blur",
-      "description": "Modal that must be explicitly closed",
-      "code": "<x-modal name=\"important-modal\" title=\"Important Notice\" :persistent=\"true\" :blur=\"true\">\n    <div class=\"p-4\">\n        <p>This is important information that requires acknowledgment.</p>\n    </div>\n    \n    <x-slot name=\"footer\">\n        <x-button x-on:click=\"close\" primary>\n            I Understand\n        </x-button>\n    </x-slot>\n</x-modal>"
+      "title": "Fullscreen Modal Card",
+      "description": "Modal that takes full screen on mobile",
+      "code": "<x-modal-card fullscreen wire:model.defer=\"fullscreenModal\" title=\"Mobile Fullscreen\">\n    <div class=\"space-y-4\">\n        <p>This modal becomes fullscreen on mobile devices.</p>\n        <x-textarea label=\"Description\" placeholder=\"Enter description...\" rows=\"4\" />\n    </div>\n    \n    <x-slot name=\"footer\">\n        <x-button flat label=\"Cancel\" x-on:click=\"close\" />\n        <x-button primary label=\"Submit\" />\n    </x-slot>\n</x-modal-card>"
+    },
+    {
+      "title": "Modal with Custom Z-Index",
+      "description": "Modal with higher z-index for stacking",
+      "code": "<x-modal wire:model.defer=\"stackedModal\" z-index=\"z-60\">\n    <x-card title=\"Stacked Modal\">\n        <p>This modal has z-60 to appear above other modals.</p>\n    </x-card>\n</x-modal>"
+    },
+    {
+      "title": "Persistent Modal",
+      "description": "Modal that cannot be closed by clicking outside",
+      "code": "<x-modal wire:model.defer=\"persistentModal\" persistent>\n    <x-card title=\"Important Action Required\">\n        <p>This modal requires explicit action and cannot be closed by clicking outside.</p>\n        \n        <x-slot name=\"footer\">\n            <x-button flat label=\"Cancel\" wire:click=\"$set('persistentModal', false)\" />\n            <x-button primary label=\"Confirm\" wire:click=\"confirm\" />\n        </x-slot>\n    </x-card>\n</x-modal>",
+      "livewire_context": "public bool $persistentModal = false;\n\npublic function confirm() {\n    // Confirmation logic\n    $this->persistentModal = false;\n}"
+    },
+    {
+      "title": "Modal with All Blur Variations",
+      "description": "Examples of different blur levels",
+      "code": "<!-- No blur -->\n<x-modal wire:model=\"modal1\" blur=\"none\">\n    <x-card title=\"No Blur\">Content without backdrop blur</x-card>\n</x-modal>\n\n<!-- Small blur -->\n<x-modal wire:model=\"modal2\" blur=\"sm\">\n    <x-card title=\"Small Blur\">Subtle backdrop blur effect</x-card>\n</x-modal>\n\n<!-- Medium blur -->\n<x-modal wire:model=\"modal3\" blur=\"md\">\n    <x-card title=\"Medium Blur\">Moderate backdrop blur</x-card>\n</x-modal>\n\n<!-- Large blur -->\n<x-modal wire:model=\"modal4\" blur=\"lg\">\n    <x-card title=\"Large Blur\">Strong backdrop blur</x-card>\n</x-modal>\n\n<!-- Extra large blur -->\n<x-modal wire:model=\"modal5\" blur=\"xl\">\n    <x-card title=\"XL Blur\">Very strong backdrop blur</x-card>\n</x-modal>\n\n<!-- 2XL blur -->\n<x-modal wire:model=\"modal6\" blur=\"2xl\">\n    <x-card title=\"2XL Blur\">Extra strong backdrop blur</x-card>\n</x-modal>\n\n<!-- 3XL blur -->\n<x-modal wire:model=\"modal7\" blur=\"3xl\">\n    <x-card title=\"3XL Blur\">Maximum backdrop blur</x-card>\n</x-modal>"
+    }
+  ],
+  "modal_card_props": [
+    {
+      "name": "squared",
+      "type": "boolean",
+      "description": "Remove rounded corners from modal card",
+      "default": false
+    },
+    {
+      "name": "fullscreen", 
+      "type": "boolean",
+      "description": "Make modal fullscreen on mobile",
+      "default": false
+    },
+    {
+      "name": "hide-close",
+      "type": "boolean",
+      "description": "Hide the close button in modal header",
+      "default": false
+    }
+  ],
+  "events": [
+    {
+      "name": "open",
+      "description": "Fired when modal opens",
+      "usage": "x-on:open='handleOpen'"
+    },
+    {
+      "name": "close",
+      "description": "Fired when modal closes",
+      "usage": "x-on:close='handleClose'"
+    }
+  ],
+  "global_functions": [
+    {
+      "name": "$openModal",
+      "description": "Open modal from JavaScript",
+      "usage": "$openModal('modal-name')"
+    },
+    {
+      "name": "$closeModal",
+      "description": "Close modal from JavaScript",
+      "usage": "$closeModal('modal-name')"
     }
   ],
   "best_practices": [
+    "IMPORTANT: Add <x-dialog /> component to your main layout for modal backdrop and container",
+    "Use <x-modal-card> instead of <x-modal> with nested <x-card> for cleaner syntax",
     "Use unique names for each modal instance",
     "Provide clear titles and actions",
-    "Consider mobile viewport sizes when setting max-width",
+    "Consider mobile viewport sizes when setting width",
     "Use persistent sparingly for critical interactions",
-    "Always provide a way to close the modal"
+    "Always provide a way to close the modal",
+    "For custom main scroll containers, add main-container attribute to block scroll when modal opens"
   ],
   "accessibility": [
     "Focus is trapped within modal when open",
@@ -108,5 +209,10 @@
     "Focus returns to trigger element on close"
   ],
   "dependencies": ["button"],
-  "tags": ["modal", "dialog", "overlay", "popup", "window"]
+  "tags": ["modal", "dialog", "overlay", "popup", "window"],
+  "setup_requirements": [
+    "Add <x-dialog /> component to your main layout file",
+    "This component provides the modal backdrop and container",
+    "Without it, modals will appear without backdrop overlay"
+  ]
 }

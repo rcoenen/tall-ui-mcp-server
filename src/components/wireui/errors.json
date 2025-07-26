@@ -1,0 +1,123 @@
+{
+  "name": "errors",
+  "category": "forms",
+  "description": "Error display component for form validation messages",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "field",
+      "type": "string",
+      "description": "Field name to show errors for",
+      "required": false
+    },
+    {
+      "name": "only",
+      "type": "string|array",
+      "description": "Show errors only for specific fields",
+      "required": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Error section title",
+      "default": "Whoops! Something went wrong."
+    },
+    {
+      "name": "show",
+      "type": "boolean",
+      "description": "Force show/hide state",
+      "required": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Custom error content",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "$errors bag integration",
+    "automatic validation display",
+    "Laravel validation support"
+  ],
+  "alpine_directives": [
+    "x-show",
+    "x-transition",
+    "x-data"
+  ],
+  "tailwind_classes": [
+    "rounded-md",
+    "bg-red-50",
+    "p-4",
+    "text-sm",
+    "text-red-800",
+    "list-disc",
+    "list-inside"
+  ],
+  "examples": [
+    {
+      "title": "Basic Error Display",
+      "description": "Show all validation errors",
+      "code": "<x-errors />"
+    },
+    {
+      "title": "Field-Specific Errors",
+      "description": "Show errors for a specific field",
+      "code": "<x-input wire:model=\"email\" label=\"Email\" />\n<x-errors field=\"email\" />"
+    },
+    {
+      "title": "Multiple Field Errors",
+      "description": "Show errors for multiple fields",
+      "code": "<x-errors :only=\"['email', 'password']\" />"
+    },
+    {
+      "title": "Custom Title",
+      "description": "Error display with custom title",
+      "code": "<x-errors title=\"Please correct the following errors:\" />"
+    },
+    {
+      "title": "Inline Field Errors",
+      "description": "Errors displayed with form fields",
+      "code": "<div class=\"space-y-4\">\n    <div>\n        <x-input \n            wire:model=\"user.name\" \n            label=\"Name\" \n            placeholder=\"John Doe\"\n        />\n        <x-errors field=\"user.name\" class=\"mt-1\" />\n    </div>\n    \n    <div>\n        <x-input \n            wire:model=\"user.email\" \n            label=\"Email\" \n            type=\"email\"\n            placeholder=\"john@example.com\"\n        />\n        <x-errors field=\"user.email\" class=\"mt-1\" />\n    </div>\n    \n    <div>\n        <x-password \n            wire:model=\"user.password\" \n            label=\"Password\"\n        />\n        <x-errors field=\"user.password\" class=\"mt-1\" />\n    </div>\n</div>"
+    },
+    {
+      "title": "Summary Error Box",
+      "description": "All errors in a summary box",
+      "code": "@if($errors->any())\n    <x-alert variant=\"error\">\n        <x-slot name=\"title\">\n            <x-errors title=\"Validation Errors\" />\n        </x-slot>\n    </x-alert>\n@endif"
+    },
+    {
+      "title": "Custom Error Display",
+      "description": "Custom styled error messages",
+      "code": "<x-errors>\n    <div class=\"bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative\">\n        <strong class=\"font-bold\">Validation failed!</strong>\n        <ul class=\"mt-2 list-disc list-inside text-sm\">\n            @foreach($errors->all() as $error)\n                <li>{{ $error }}</li>\n            @endforeach\n        </ul>\n    </div>\n</x-errors>"
+    },
+    {
+      "title": "Form with Validation",
+      "description": "Complete form with error handling",
+      "code": "<form wire:submit.prevent=\"save\" class=\"space-y-6\">\n    <!-- General errors -->\n    <x-errors />\n    \n    <!-- Form fields -->\n    <div>\n        <x-input \n            wire:model=\"name\" \n            label=\"Full Name\" \n            error=\"{{ $errors->first('name') }}\"\n        />\n    </div>\n    \n    <div>\n        <x-input \n            wire:model=\"email\" \n            label=\"Email Address\" \n            type=\"email\"\n            error=\"{{ $errors->first('email') }}\"\n        />\n    </div>\n    \n    <div>\n        <x-select \n            wire:model=\"role\" \n            label=\"Role\"\n            placeholder=\"Select a role\"\n            :options=\"['admin', 'user', 'guest']\"\n            error=\"{{ $errors->first('role') }}\"\n        />\n    </div>\n    \n    <x-button type=\"submit\" primary label=\"Save\" />\n</form>",
+      "livewire_context": "public string $name = '';\npublic string $email = '';\npublic string $role = '';\n\nprotected $rules = [\n    'name' => 'required|min:3',\n    'email' => 'required|email|unique:users',\n    'role' => 'required|in:admin,user,guest'\n];\n\npublic function save() {\n    $this->validate();\n    // Save logic\n}"
+    },
+    {
+      "title": "Conditional Error Display",
+      "description": "Show errors based on conditions",
+      "code": "<!-- Show only if there are errors -->\n<div x-data=\"{ hasErrors: @js($errors->any()) }\" x-show=\"hasErrors\">\n    <x-errors />\n</div>\n\n<!-- Show specific error count -->\n@if($errors->count() > 3)\n    <x-alert variant=\"warning\">\n        <x-errors title=\"Multiple validation errors detected\" />\n    </x-alert>\n@else\n    <x-errors />\n@endif"
+    }
+  ],
+  "best_practices": [
+    "Display errors near the relevant form fields",
+    "Use consistent error styling throughout the app",
+    "Provide clear, actionable error messages",
+    "Group related errors together",
+    "Consider accessibility for error announcements"
+  ],
+  "accessibility": [
+    "Use role='alert' for dynamic error messages",
+    "Associate errors with form fields using aria-describedby",
+    "Ensure sufficient color contrast",
+    "Announce errors to screen readers",
+    "Focus management after validation"
+  ],
+  "dependencies": ["alert"],
+  "tags": ["errors", "validation", "form", "messages", "feedback"]
+}

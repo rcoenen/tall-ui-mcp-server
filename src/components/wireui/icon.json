@@ -1,0 +1,139 @@
+{
+  "name": "icon",
+  "category": "display",
+  "description": "Icon component for displaying SVG icons from various icon sets",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Icon name from the icon set",
+      "required": true
+    },
+    {
+      "name": "style",
+      "type": "string",
+      "description": "Icon style variant",
+      "enum": ["outline", "solid", "mini"],
+      "default": "outline"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Icon size",
+      "enum": ["xs", "sm", "md", "lg", "xl"],
+      "default": "md"
+    },
+    {
+      "name": "class",
+      "type": "string",
+      "description": "Additional CSS classes",
+      "required": false
+    },
+    {
+      "name": "spin",
+      "type": "boolean",
+      "description": "Apply spin animation",
+      "default": false
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "description": "Icon color",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "dynamic component loading",
+    "icon library integration"
+  ],
+  "alpine_directives": [
+    "x-show",
+    "x-transition"
+  ],
+  "tailwind_classes": [
+    "w-4",
+    "h-4",
+    "w-5",
+    "h-5",
+    "w-6",
+    "h-6",
+    "w-8",
+    "h-8",
+    "w-10",
+    "h-10",
+    "animate-spin",
+    "text-gray-500",
+    "text-primary-500"
+  ],
+  "examples": [
+    {
+      "title": "Basic Icon",
+      "description": "Simple icon usage",
+      "code": "<x-icon name=\"home\" />"
+    },
+    {
+      "title": "Icon Sizes",
+      "description": "Different icon sizes",
+      "code": "<!-- Extra Small -->\n<x-icon name=\"star\" size=\"xs\" />\n\n<!-- Small -->\n<x-icon name=\"star\" size=\"sm\" />\n\n<!-- Medium (default) -->\n<x-icon name=\"star\" size=\"md\" />\n\n<!-- Large -->\n<x-icon name=\"star\" size=\"lg\" />\n\n<!-- Extra Large -->\n<x-icon name=\"star\" size=\"xl\" />"
+    },
+    {
+      "title": "Icon Styles",
+      "description": "Different icon styles",
+      "code": "<!-- Outline style -->\n<x-icon name=\"heart\" style=\"outline\" />\n\n<!-- Solid style -->\n<x-icon name=\"heart\" style=\"solid\" />\n\n<!-- Mini style (20x20) -->\n<x-icon name=\"heart\" style=\"mini\" />"
+    },
+    {
+      "title": "Colored Icons",
+      "description": "Icons with custom colors",
+      "code": "<!-- Using Tailwind classes -->\n<x-icon name=\"check-circle\" class=\"text-green-500\" />\n<x-icon name=\"x-circle\" class=\"text-red-500\" />\n<x-icon name=\"exclamation-circle\" class=\"text-yellow-500\" />\n\n<!-- Using color prop -->\n<x-icon name=\"star\" color=\"text-yellow-400\" />"
+    },
+    {
+      "title": "Spinning Icon",
+      "description": "Loading spinner icon",
+      "code": "<!-- Spinning refresh icon -->\n<x-icon name=\"arrow-path\" spin class=\"text-gray-400\" />\n\n<!-- Custom loading state -->\n<div wire:loading>\n    <x-icon name=\"arrow-path\" spin />\n</div>"
+    },
+    {
+      "title": "Icon in Button",
+      "description": "Icons used within buttons",
+      "code": "<!-- Icon with text -->\n<x-button>\n    <x-icon name=\"download\" class=\"w-4 h-4 mr-2\" />\n    Download\n</x-button>\n\n<!-- Icon-only button -->\n<x-button icon=\"trash\" negative />"
+    },
+    {
+      "title": "Common Icons",
+      "description": "Frequently used icons",
+      "code": "<!-- Navigation -->\n<x-icon name=\"bars-3\" />\n<x-icon name=\"x-mark\" />\n<x-icon name=\"chevron-right\" />\n<x-icon name=\"arrow-left\" />\n\n<!-- Actions -->\n<x-icon name=\"plus\" />\n<x-icon name=\"pencil\" />\n<x-icon name=\"trash\" />\n<x-icon name=\"document-duplicate\" />\n\n<!-- Status -->\n<x-icon name=\"check\" />\n<x-icon name=\"x-mark\" />\n<x-icon name=\"exclamation-triangle\" />\n<x-icon name=\"information-circle\" />"
+    }
+  ],
+  "icon_libraries": [
+    {
+      "name": "Heroicons",
+      "description": "Default icon library by makers of Tailwind CSS",
+      "url": "https://heroicons.com"
+    },
+    {
+      "name": "Phosphor Icons",
+      "description": "Alternative icon set with more options",
+      "url": "https://phosphoricons.com"
+    }
+  ],
+  "best_practices": [
+    "Use consistent icon sizes throughout your app",
+    "Choose between outline and solid styles consistently",
+    "Add aria-labels for icon-only interactive elements",
+    "Use semantic colors for status icons",
+    "Consider icon weight and visual balance"
+  ],
+  "accessibility": [
+    "Decorative icons should have aria-hidden='true'",
+    "Interactive icons need accessible labels",
+    "Ensure sufficient color contrast",
+    "Don't rely solely on icons to convey meaning"
+  ],
+  "dependencies": [],
+  "setup_requirements": [
+    "WireUI v2.x must be installed and configured",
+    "Heroicons v2 package must be installed",
+    "Tailwind CSS configuration must include WireUI preset"
+  ],
+  "tags": ["icon", "svg", "heroicons", "graphics", "symbols"]
+}

@@ -1,0 +1,193 @@
+{
+  "name": "link",
+  "category": "navigation",
+  "description": "Link component for navigation with consistent styling and states",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "href",
+      "type": "string",
+      "description": "Link destination URL",
+      "required": true
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Link text content",
+      "required": false
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "description": "Link target attribute",
+      "enum": ["_self", "_blank", "_parent", "_top"],
+      "default": "_self"
+    },
+    {
+      "name": "primary",
+      "type": "boolean",
+      "description": "Use primary color scheme",
+      "default": false
+    },
+    {
+      "name": "secondary",
+      "type": "boolean",
+      "description": "Use secondary color scheme",
+      "default": false
+    },
+    {
+      "name": "positive",
+      "type": "boolean",
+      "description": "Use positive/success color scheme (green)",
+      "default": false
+    },
+    {
+      "name": "negative",
+      "type": "boolean",
+      "description": "Use negative/error color scheme (red)",
+      "default": false
+    },
+    {
+      "name": "warning",
+      "type": "boolean",
+      "description": "Use warning color scheme (yellow)",
+      "default": false
+    },
+    {
+      "name": "info",
+      "type": "boolean",
+      "description": "Use info color scheme (blue)",
+      "default": false
+    },
+    {
+      "name": "gray",
+      "type": "boolean",
+      "description": "Use gray color scheme",
+      "default": false
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Text size",
+      "enum": ["xs", "sm", "md", "lg", "xl"],
+      "default": "md"
+    },
+    {
+      "name": "underline",
+      "type": "boolean",
+      "description": "Show underline",
+      "default": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Icon to display before text",
+      "required": false
+    },
+    {
+      "name": "right-icon",
+      "type": "string",
+      "description": "Icon to display after text",
+      "required": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the link",
+      "default": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Link content",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:navigate",
+    "wire:click"
+  ],
+  "alpine_directives": [
+    "x-on:click",
+    "x-bind:class"
+  ],
+  "tailwind_classes": [
+    "text-primary-600",
+    "hover:text-primary-700",
+    "hover:underline",
+    "focus:outline-none",
+    "focus:ring-2",
+    "focus:ring-primary-500",
+    "disabled:opacity-50",
+    "disabled:cursor-not-allowed"
+  ],
+  "examples": [
+    {
+      "title": "Basic Link",
+      "description": "Simple text link",
+      "code": "<x-link href=\"/about\" label=\"About Us\" />"
+    },
+    {
+      "title": "Link with Slot Content",
+      "description": "Link with custom content",
+      "code": "<x-link href=\"/products\">\n    View all <span class=\"font-bold\">products</span>\n</x-link>"
+    },
+    {
+      "title": "External Link",
+      "description": "Link opening in new tab",
+      "code": "<x-link\n    href=\"https://wireui.dev\"\n    label=\"WireUI Documentation\"\n    target=\"_blank\"\n    right-icon=\"arrow-top-right-on-square\"\n/>"
+    },
+    {
+      "title": "Link with Icons",
+      "description": "Links with left and right icons",
+      "code": "<!-- Icon before text -->\n<x-link href=\"/home\" icon=\"home\" label=\"Home\" />\n\n<!-- Icon after text -->\n<x-link href=\"/next\" label=\"Next\" right-icon=\"arrow-right\" />\n\n<!-- Both icons -->\n<x-link href=\"/dashboard\" icon=\"chart-bar-square\" label=\"Dashboard\" right-icon=\"arrow-top-right-on-square\" />"
+    },
+    {
+      "title": "Colored Links",
+      "description": "Links with different color variants",
+      "code": "<!-- Primary (default) -->\n<x-link href=\"#\" label=\"Primary Link\" />\n\n<!-- Secondary -->\n<x-link href=\"#\" label=\"Secondary Link\" secondary />\n\n<!-- Success -->\n<x-link href=\"#\" label=\"Success Link\" positive />\n\n<!-- Danger -->\n<x-link href=\"#\" label=\"Danger Link\" negative />\n\n<!-- Warning -->\n<x-link href=\"#\" label=\"Warning Link\" warning />"
+    },
+    {
+      "title": "Link Sizes",
+      "description": "Different text sizes",
+      "code": "<!-- Extra Small -->\n<x-link href=\"#\" label=\"Extra Small\" size=\"xs\" />\n\n<!-- Small -->\n<x-link href=\"#\" label=\"Small\" size=\"sm\" />\n\n<!-- Medium (default) -->\n<x-link href=\"#\" label=\"Medium\" size=\"md\" />\n\n<!-- Large -->\n<x-link href=\"#\" label=\"Large\" size=\"lg\" />\n\n<!-- Extra Large -->\n<x-link href=\"#\" label=\"Extra Large\" size=\"xl\" />"
+    },
+    {
+      "title": "Underlined Link",
+      "description": "Always underlined link",
+      "code": "<x-link href=\"/terms\" label=\"Terms and Conditions\" underline />"
+    },
+    {
+      "title": "Disabled Link",
+      "description": "Non-interactive link state",
+      "code": "<x-link href=\"/premium\" label=\"Premium Feature\" disabled />"
+    },
+    {
+      "title": "Livewire Navigation",
+      "description": "SPA navigation with Livewire",
+      "code": "<!-- Navigate without full page reload -->\n<x-link href=\"/profile\" label=\"My Profile\" wire:navigate />\n\n<!-- Navigate with loading state -->\n<x-link href=\"/reports\" wire:navigate>\n    <span wire:loading.remove wire:target=\"navigate\">View Reports</span>\n    <span wire:loading wire:target=\"navigate\">Loading...</span>\n</x-link>"
+    }
+  ],
+  "best_practices": [
+    "Use descriptive link text, avoid 'click here'",
+    "Indicate external links with an icon",
+    "Ensure links are visually distinct from regular text",
+    "Use consistent colors for link states",
+    "Consider touch targets for mobile devices"
+  ],
+  "accessibility": [
+    "Use semantic href values",
+    "Provide context for screen readers",
+    "Ensure keyboard navigation works",
+    "Maintain focus styles",
+    "Use aria-label for icon-only links"
+  ],
+  "dependencies": ["icon"],
+  "setup_requirements": [
+    "WireUI v2.x must be installed and configured",
+    "Tailwind CSS configuration must include WireUI preset"
+  ],
+  "tags": ["link", "anchor", "navigation", "href", "url"]
+}

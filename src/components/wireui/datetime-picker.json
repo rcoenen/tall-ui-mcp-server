@@ -1,0 +1,191 @@
+{
+  "name": "datetime-picker",
+  "category": "forms",
+  "description": "Date and time picker component with calendar interface",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Field label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Input placeholder",
+      "default": "Select date and time"
+    },
+    {
+      "name": "display-format",
+      "type": "string",
+      "description": "Date display format",
+      "default": "MM/DD/YYYY HH:mm"
+    },
+    {
+      "name": "parse-format",
+      "type": "string",
+      "description": "Date parsing format",
+      "default": "YYYY-MM-DD HH:mm:ss"
+    },
+    {
+      "name": "without-time",
+      "type": "boolean",
+      "description": "Disable time selection",
+      "default": false
+    },
+    {
+      "name": "without-seconds",
+      "type": "boolean",
+      "description": "Hide seconds in time picker",
+      "default": false
+    },
+    {
+      "name": "time-format",
+      "type": "string",
+      "description": "Time format (12 or 24)",
+      "enum": ["12", "24"],
+      "default": "12"
+    },
+    {
+      "name": "min",
+      "type": "string",
+      "description": "Minimum allowed date",
+      "required": false
+    },
+    {
+      "name": "max",
+      "type": "string",
+      "description": "Maximum allowed date",
+      "required": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the picker",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make picker readonly",
+      "default": false
+    },
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "description": "Allow multiple date selection",
+      "default": false
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "description": "Time interval in minutes",
+      "default": 10
+    },
+    {
+      "name": "clearable",
+      "type": "boolean",
+      "description": "Show clear button",
+      "default": true
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy",
+    "timezone support",
+    "locale aware"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-model",
+    "x-show",
+    "x-transition",
+    "x-on:click"
+  ],
+  "tailwind_classes": [
+    "absolute",
+    "mt-1",
+    "bg-white",
+    "rounded-md",
+    "shadow-lg",
+    "z-10",
+    "p-4"
+  ],
+  "examples": [
+    {
+      "title": "Basic DateTime Picker",
+      "description": "Simple date and time selection",
+      "code": "<x-datetime-picker label=\"Appointment Date\" />"
+    },
+    {
+      "title": "Date Only Picker",
+      "description": "Date picker without time",
+      "code": "<x-datetime-picker \n    wire:model=\"birthdate\"\n    label=\"Date of Birth\"\n    without-time\n    :max=\"now()\"\n/>",
+      "livewire_context": "public ?string $birthdate = null;"
+    },
+    {
+      "title": "Time Format Options",
+      "description": "Different time display formats",
+      "code": "<!-- 24-hour format -->\n<x-datetime-picker \n    label=\"Meeting Time (24h)\"\n    time-format=\"24\"\n    display-format=\"DD/MM/YYYY HH:mm\"\n/>\n\n<!-- Without seconds -->\n<x-datetime-picker \n    label=\"Quick Selection\"\n    without-seconds\n    display-format=\"MMM DD, YYYY h:mm A\"\n/>"
+    },
+    {
+      "title": "Date Range Constraints",
+      "description": "Min and max date restrictions",
+      "code": "<x-datetime-picker \n    wire:model=\"eventDate\"\n    label=\"Event Date\"\n    :min=\"now()->addDay()->format('Y-m-d')\"\n    :max=\"now()->addMonth()->format('Y-m-d')\"\n    hint=\"Select a date within the next month\"\n/>",
+      "livewire_context": "public ?string $eventDate = null;"
+    },
+    {
+      "title": "Multiple Date Selection",
+      "description": "Select multiple dates",
+      "code": "<x-datetime-picker \n    wire:model=\"selectedDates\"\n    label=\"Available Dates\"\n    multiple\n    without-time\n    hint=\"Select all available dates\"\n/>",
+      "livewire_context": "public array $selectedDates = [];"
+    },
+    {
+      "title": "Custom Time Intervals",
+      "description": "Set specific time intervals",
+      "code": "<!-- 15-minute intervals -->\n<x-datetime-picker \n    label=\"15-min slots\"\n    :interval=\"15\"\n/>\n\n<!-- 30-minute intervals -->\n<x-datetime-picker \n    label=\"Half-hour slots\"\n    :interval=\"30\"\n/>\n\n<!-- 5-minute intervals -->\n<x-datetime-picker \n    label=\"Precise timing\"\n    :interval=\"5\"\n/>"
+    },
+    {
+      "title": "Booking System Example",
+      "description": "Complete booking form with datetime",
+      "code": "<form wire:submit.prevent=\"book\">\n    <div class=\"space-y-4\">\n        <x-select \n            wire:model=\"service\"\n            label=\"Service\"\n            placeholder=\"Select a service\"\n            :options=\"[\n                ['id' => 'consultation', 'name' => 'Consultation (1 hour)'],\n                ['id' => 'training', 'name' => 'Training (2 hours)'],\n                ['id' => 'workshop', 'name' => 'Workshop (4 hours)']\n            ]\"\n            option-label=\"name\"\n            option-value=\"id\"\n        />\n        \n        <x-datetime-picker \n            wire:model=\"bookingDate\"\n            label=\"Preferred Date & Time\"\n            :min=\"now()->addHours(24)\"\n            :interval=\"30\"\n            time-format=\"12\"\n            hint=\"Bookings must be made 24 hours in advance\"\n        />\n        \n        <x-textarea \n            wire:model=\"notes\"\n            label=\"Additional Notes\"\n            placeholder=\"Any special requirements...\"\n        />\n        \n        <x-button type=\"submit\" primary label=\"Book Appointment\" />\n    </div>\n</form>",
+      "livewire_context": "public string $service = '';\npublic ?string $bookingDate = null;\npublic string $notes = '';\n\npublic function book() {\n    // Booking logic\n}"
+    },
+    {
+      "title": "Localized DateTime",
+      "description": "Different locale formats",
+      "code": "<!-- US Format -->\n<x-datetime-picker \n    label=\"US Format\"\n    display-format=\"MM/DD/YYYY h:mm A\"\n/>\n\n<!-- EU Format -->\n<x-datetime-picker \n    label=\"EU Format\"\n    display-format=\"DD.MM.YYYY HH:mm\"\n    time-format=\"24\"\n/>\n\n<!-- ISO Format -->\n<x-datetime-picker \n    label=\"ISO Format\"\n    display-format=\"YYYY-MM-DD HH:mm:ss\"\n    time-format=\"24\"\n/>"
+    }
+  ],
+  "best_practices": [
+    "Use appropriate date formats for your locale",
+    "Set min/max dates for valid ranges",
+    "Consider timezone handling for global apps",
+    "Provide clear date format hints",
+    "Use without-time for date-only scenarios"
+  ],
+  "accessibility": [
+    "Keyboard navigation in calendar",
+    "Screen reader announcements",
+    "Clear focus indicators",
+    "Alternative text input option",
+    "ARIA labels for calendar controls"
+  ],
+  "dependencies": ["input", "button", "icon"],
+  "tags": ["datetime", "date", "time", "calendar", "picker", "schedule"]
+}

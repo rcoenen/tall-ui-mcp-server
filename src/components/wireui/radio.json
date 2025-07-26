@@ -1,0 +1,175 @@
+{
+  "name": "radio",
+  "category": "forms",
+  "description": "Radio button component for single selection from multiple options",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Radio button label",
+      "required": false
+    },
+    {
+      "name": "value",
+      "type": "mixed",
+      "description": "Radio button value",
+      "required": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Input ID attribute",
+      "required": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Input name attribute",
+      "required": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the radio button",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make radio button readonly",
+      "default": false
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Default checked state",
+      "default": false
+    },
+    {
+      "name": "left-label",
+      "type": "boolean",
+      "description": "Position label on the left",
+      "default": false
+    },
+    {
+      "name": "lg",
+      "type": "boolean",
+      "description": "Large size variant",
+      "default": false
+    },
+    {
+      "name": "md",
+      "type": "boolean",
+      "description": "Medium size variant",
+      "default": false
+    },
+    {
+      "name": "sm",
+      "type": "boolean",
+      "description": "Small size variant",
+      "default": false
+    },
+    {
+      "name": "xs",
+      "type": "boolean",
+      "description": "Extra small size variant",
+      "default": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "description": "Custom label content",
+      "required": false
+    },
+    {
+      "name": "description",
+      "description": "Additional description text",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy"
+  ],
+  "alpine_directives": [
+    "x-model",
+    "x-on:change",
+    "x-bind:checked"
+  ],
+  "tailwind_classes": [
+    "h-4",
+    "w-4",
+    "text-primary-600",
+    "border-gray-300",
+    "focus:ring-2",
+    "focus:ring-primary-500",
+    "disabled:opacity-50"
+  ],
+  "examples": [
+    {
+      "title": "Basic Radio Group",
+      "description": "Simple radio button group",
+      "code": "<div class=\"space-y-2\">\n    <x-radio wire:model=\"plan\" value=\"basic\" label=\"Basic Plan\" />\n    <x-radio wire:model=\"plan\" value=\"pro\" label=\"Pro Plan\" />\n    <x-radio wire:model=\"plan\" value=\"enterprise\" label=\"Enterprise Plan\" />\n</div>",
+      "livewire_context": "public string $plan = 'basic';"
+    },
+    {
+      "title": "Radio with Descriptions",
+      "description": "Radio buttons with additional info",
+      "code": "<div class=\"space-y-4\">\n    <x-radio wire:model=\"shipping\" value=\"standard\">\n        <x-slot name=\"label\">Standard Shipping</x-slot>\n        <x-slot name=\"description\">5-7 business days - Free</x-slot>\n    </x-radio>\n    \n    <x-radio wire:model=\"shipping\" value=\"express\">\n        <x-slot name=\"label\">Express Shipping</x-slot>\n        <x-slot name=\"description\">2-3 business days - $9.99</x-slot>\n    </x-radio>\n    \n    <x-radio wire:model=\"shipping\" value=\"overnight\">\n        <x-slot name=\"label\">Overnight Shipping</x-slot>\n        <x-slot name=\"description\">Next business day - $24.99</x-slot>\n    </x-radio>\n</div>",
+      "livewire_context": "public string $shipping = 'standard';"
+    },
+    {
+      "title": "Radio Button Sizes",
+      "description": "Different radio button sizes",
+      "code": "<!-- Extra Small -->\n<x-radio xs wire:model=\"size\" value=\"xs\" label=\"Extra Small\" />\n\n<!-- Small -->\n<x-radio sm wire:model=\"size\" value=\"sm\" label=\"Small\" />\n\n<!-- Medium (default) -->\n<x-radio md wire:model=\"size\" value=\"md\" label=\"Medium\" />\n\n<!-- Large -->\n<x-radio lg wire:model=\"size\" value=\"lg\" label=\"Large\" />"
+    },
+    {
+      "title": "Horizontal Radio Group",
+      "description": "Radio buttons in a row",
+      "code": "<div class=\"flex space-x-6\">\n    <x-radio wire:model=\"gender\" value=\"male\" label=\"Male\" />\n    <x-radio wire:model=\"gender\" value=\"female\" label=\"Female\" />\n    <x-radio wire:model=\"gender\" value=\"other\" label=\"Other\" />\n    <x-radio wire:model=\"gender\" value=\"prefer_not\" label=\"Prefer not to say\" />\n</div>",
+      "livewire_context": "public string $gender = '';"
+    },
+    {
+      "title": "Radio Cards",
+      "description": "Radio buttons styled as cards",
+      "code": "<div class=\"grid grid-cols-3 gap-4\">\n    <label class=\"relative border rounded-lg p-4 cursor-pointer hover:bg-gray-50\" \n           :class=\"{ 'border-primary-500 bg-primary-50': subscription === 'monthly' }\">\n        <x-radio \n            wire:model=\"subscription\" \n            value=\"monthly\" \n            class=\"absolute top-4 right-4\"\n        />\n        <div>\n            <h3 class=\"font-medium\">Monthly</h3>\n            <p class=\"text-gray-500\">$9.99/month</p>\n            <p class=\"text-sm text-gray-400 mt-2\">Billed monthly</p>\n        </div>\n    </label>\n    \n    <label class=\"relative border rounded-lg p-4 cursor-pointer hover:bg-gray-50\"\n           :class=\"{ 'border-primary-500 bg-primary-50': subscription === 'yearly' }\">\n        <x-radio \n            wire:model=\"subscription\" \n            value=\"yearly\" \n            class=\"absolute top-4 right-4\"\n        />\n        <div>\n            <h3 class=\"font-medium\">Yearly</h3>\n            <p class=\"text-gray-500\">$99.99/year</p>\n            <p class=\"text-sm text-gray-400 mt-2\">Save 17%</p>\n        </div>\n    </label>\n    \n    <label class=\"relative border rounded-lg p-4 cursor-pointer hover:bg-gray-50\"\n           :class=\"{ 'border-primary-500 bg-primary-50': subscription === 'lifetime' }\">\n        <x-radio \n            wire:model=\"subscription\" \n            value=\"lifetime\" \n            class=\"absolute top-4 right-4\"\n        />\n        <div>\n            <h3 class=\"font-medium\">Lifetime</h3>\n            <p class=\"text-gray-500\">$299.99</p>\n            <p class=\"text-sm text-gray-400 mt-2\">One time payment</p>\n        </div>\n    </label>\n</div>",
+      "livewire_context": "public string $subscription = 'monthly';"
+    },
+    {
+      "title": "Left Label Radio",
+      "description": "Label positioned on the left",
+      "code": "<div class=\"space-y-2\">\n    <x-radio left-label wire:model=\"alignment\" value=\"left\" label=\"Left\" />\n    <x-radio left-label wire:model=\"alignment\" value=\"center\" label=\"Center\" />\n    <x-radio left-label wire:model=\"alignment\" value=\"right\" label=\"Right\" />\n</div>"
+    },
+    {
+      "title": "Disabled Radio Options",
+      "description": "Some options disabled",
+      "code": "<div class=\"space-y-2\">\n    <x-radio wire:model=\"tier\" value=\"free\" label=\"Free Tier\" />\n    <x-radio wire:model=\"tier\" value=\"starter\" label=\"Starter - $9/mo\" />\n    <x-radio wire:model=\"tier\" value=\"pro\" label=\"Pro - $29/mo\" />\n    <x-radio wire:model=\"tier\" value=\"enterprise\" label=\"Enterprise (Coming Soon)\" disabled />\n</div>"
+    },
+    {
+      "title": "Survey Form Example",
+      "description": "Radio groups in a survey",
+      "code": "<form wire:submit.prevent=\"submitSurvey\" class=\"space-y-6\">\n    <div>\n        <h3 class=\"text-lg font-medium mb-3\">How satisfied are you with our service?</h3>\n        <div class=\"space-y-2\">\n            <x-radio wire:model=\"satisfaction\" value=\"very_satisfied\" label=\"Very Satisfied\" />\n            <x-radio wire:model=\"satisfaction\" value=\"satisfied\" label=\"Satisfied\" />\n            <x-radio wire:model=\"satisfaction\" value=\"neutral\" label=\"Neutral\" />\n            <x-radio wire:model=\"satisfaction\" value=\"dissatisfied\" label=\"Dissatisfied\" />\n            <x-radio wire:model=\"satisfaction\" value=\"very_dissatisfied\" label=\"Very Dissatisfied\" />\n        </div>\n    </div>\n    \n    <div>\n        <h3 class=\"text-lg font-medium mb-3\">Would you recommend us to others?</h3>\n        <div class=\"space-y-2\">\n            <x-radio wire:model=\"recommend\" value=\"yes\" label=\"Yes\" />\n            <x-radio wire:model=\"recommend\" value=\"no\" label=\"No\" />\n            <x-radio wire:model=\"recommend\" value=\"maybe\" label=\"Maybe\" />\n        </div>\n    </div>\n    \n    <div>\n        <h3 class=\"text-lg font-medium mb-3\">How did you hear about us?</h3>\n        <div class=\"space-y-2\">\n            <x-radio wire:model=\"source\" value=\"search\" label=\"Search Engine\" />\n            <x-radio wire:model=\"source\" value=\"social\" label=\"Social Media\" />\n            <x-radio wire:model=\"source\" value=\"friend\" label=\"Friend/Colleague\" />\n            <x-radio wire:model=\"source\" value=\"ad\" label=\"Advertisement\" />\n            <x-radio wire:model=\"source\" value=\"other\" label=\"Other\" />\n        </div>\n    </div>\n    \n    <x-button type=\"submit\" primary label=\"Submit Survey\" />\n</form>",
+      "livewire_context": "public string $satisfaction = '';\npublic string $recommend = '';\npublic string $source = '';\n\npublic function submitSurvey() {\n    $this->validate([\n        'satisfaction' => 'required',\n        'recommend' => 'required',\n        'source' => 'required'\n    ]);\n    \n    // Submit logic\n}"
+    }
+  ],
+  "best_practices": [
+    "Always group related radio buttons",
+    "Provide clear, distinct labels",
+    "Use the same wire:model for grouped radios",
+    "Consider layout for mobile devices",
+    "Include a default selection when appropriate"
+  ],
+  "accessibility": [
+    "Use same name attribute for radio groups",
+    "Labels are properly associated",
+    "Keyboard navigation with arrow keys",
+    "Clear focus indicators",
+    "Screen reader announces selection state"
+  ],
+  "dependencies": [],
+  "tags": ["radio", "form", "selection", "choice", "option", "input"]
+}

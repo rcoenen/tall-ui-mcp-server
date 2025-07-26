@@ -1,0 +1,164 @@
+{
+  "name": "phone",
+  "category": "forms",
+  "description": "Phone number input with country code selection and formatting",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Input label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Input placeholder",
+      "default": "Phone number"
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "description": "Default country code",
+      "default": "US"
+    },
+    {
+      "name": "only-countries",
+      "type": "array",
+      "description": "Limit to specific countries",
+      "required": false
+    },
+    {
+      "name": "except-countries",
+      "type": "array",
+      "description": "Exclude specific countries",
+      "required": false
+    },
+    {
+      "name": "emit-formatted",
+      "type": "boolean",
+      "description": "Emit formatted international number",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the input",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make input readonly",
+      "default": false
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy",
+    "country detection",
+    "international formatting"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-model",
+    "x-show",
+    "x-on:change"
+  ],
+  "tailwind_classes": [
+    "pl-16",
+    "form-input"
+  ],
+  "examples": [
+    {
+      "title": "Basic Phone Input",
+      "description": "Simple phone number input",
+      "code": "<x-phone label=\"Phone Number\" />"
+    },
+    {
+      "title": "Phone with Default Country",
+      "description": "Set default country code",
+      "code": "<x-phone \n    wire:model=\"phone\"\n    label=\"Contact Number\"\n    country=\"GB\"\n/>",
+      "livewire_context": "public string $phone = '';"
+    },
+    {
+      "title": "Limited Countries",
+      "description": "Restrict to specific countries",
+      "code": "<x-phone \n    wire:model=\"emergencyContact\"\n    label=\"Emergency Contact\"\n    :only-countries=\"['US', 'CA', 'MX']\"\n    hint=\"North American numbers only\"\n/>"
+    },
+    {
+      "title": "Exclude Countries",
+      "description": "Exclude specific countries",
+      "code": "<x-phone \n    wire:model=\"businessPhone\"\n    label=\"Business Phone\"\n    :except-countries=\"['AF', 'AL']\"\n/>"
+    },
+    {
+      "title": "Emit Formatted Number",
+      "description": "Get internationally formatted number",
+      "code": "<x-phone \n    wire:model=\"international\"\n    label=\"International Number\"\n    emit-formatted\n    hint=\"Saved as: {{ $international }}\"\n/>",
+      "livewire_context": "public string $international = '+1 555 123 4567';"
+    },
+    {
+      "title": "Contact Form Example",
+      "description": "Phone in a complete contact form",
+      "code": "<form wire:submit.prevent=\"saveContact\" class=\"space-y-4\">\n    <div class=\"grid grid-cols-2 gap-4\">\n        <x-input \n            wire:model=\"contact.first_name\"\n            label=\"First Name\"\n        />\n        <x-input \n            wire:model=\"contact.last_name\"\n            label=\"Last Name\"\n        />\n    </div>\n    \n    <x-input \n        wire:model=\"contact.email\"\n        label=\"Email\"\n        type=\"email\"\n    />\n    \n    <div class=\"grid grid-cols-2 gap-4\">\n        <x-phone \n            wire:model=\"contact.phone\"\n            label=\"Primary Phone\"\n            corner-hint=\"Required\"\n        />\n        <x-phone \n            wire:model=\"contact.alt_phone\"\n            label=\"Alternative Phone\"\n        />\n    </div>\n    \n    <x-native-select \n        wire:model=\"contact.phone_type\"\n        label=\"Phone Type\"\n    >\n        <option value=\"mobile\">Mobile</option>\n        <option value=\"home\">Home</option>\n        <option value=\"work\">Work</option>\n    </x-native-select>\n    \n    <x-button type=\"submit\" primary label=\"Save Contact\" />\n</form>",
+      "livewire_context": "public array $contact = [\n    'first_name' => '',\n    'last_name' => '',\n    'email' => '',\n    'phone' => '',\n    'alt_phone' => '',\n    'phone_type' => 'mobile'\n];\n\npublic function saveContact() {\n    // Save logic\n}"
+    },
+    {
+      "title": "Multiple Phone Inputs",
+      "description": "Different phone types",
+      "code": "<div class=\"space-y-4\">\n    <x-phone \n        wire:model=\"phones.mobile\"\n        label=\"Mobile Phone\"\n        placeholder=\"Mobile number\"\n    />\n    \n    <x-phone \n        wire:model=\"phones.office\"\n        label=\"Office Phone\"\n        placeholder=\"Office number with extension\"\n        hint=\"Include extension if applicable\"\n    />\n    \n    <x-phone \n        wire:model=\"phones.fax\"\n        label=\"Fax Number\"\n        placeholder=\"Fax number\"\n    />\n</div>",
+      "livewire_context": "public array $phones = [\n    'mobile' => '',\n    'office' => '',\n    'fax' => ''\n];"
+    },
+    {
+      "title": "Validation Example",
+      "description": "Phone with validation",
+      "code": "<x-phone \n    wire:model=\"phone\"\n    label=\"Phone Number\"\n    :error=\"$errors->first('phone')\"\n/>\n\n@error('phone')\n    <p class=\"mt-1 text-sm text-red-600\">{{ $message }}</p>\n@enderror",
+      "livewire_context": "public string $phone = '';\n\nprotected $rules = [\n    'phone' => 'required|phone'\n];\n\npublic function validatePhone() {\n    $this->validateOnly('phone');\n}"
+    },
+    {
+      "title": "Regional Phone Input",
+      "description": "Different regions with defaults",
+      "code": "<!-- European Union -->\n<x-phone \n    label=\"EU Contact\"\n    :only-countries=\"[\n        'DE', 'FR', 'IT', 'ES', 'NL', 'BE', 'AT', 'GR', 'PT', 'SE',\n        'FI', 'DK', 'PL', 'CZ', 'HU', 'RO', 'BG', 'HR', 'SK', 'SI',\n        'LT', 'LV', 'EE', 'CY', 'LU', 'MT', 'IE'\n    ]\"\n    country=\"DE\"\n/>\n\n<!-- Asia Pacific -->\n<x-phone \n    label=\"APAC Contact\"\n    :only-countries=\"['JP', 'CN', 'KR', 'IN', 'AU', 'NZ', 'SG', 'MY', 'TH', 'ID']\"\n    country=\"JP\"\n/>\n\n<!-- Latin America -->\n<x-phone \n    label=\"LATAM Contact\"\n    :only-countries=\"['MX', 'BR', 'AR', 'CO', 'CL', 'PE', 'VE', 'EC', 'GT', 'CU']\"\n    country=\"BR\"\n/>"
+    }
+  ],
+  "country_data": {
+    "format": "ISO 3166-1 alpha-2",
+    "includes": [
+      "country_code",
+      "country_name",
+      "dial_code",
+      "format_pattern",
+      "flag_emoji"
+    ]
+  },
+  "best_practices": [
+    "Set appropriate default country based on user location",
+    "Use only-countries for region-specific forms",
+    "Consider emit-formatted for backend storage",
+    "Provide clear formatting examples",
+    "Handle international formats properly"
+  ],
+  "accessibility": [
+    "Country selector is keyboard navigable",
+    "Phone format is announced to screen readers",
+    "Clear labels for country selection",
+    "Error messages explain format issues",
+    "Support for autocomplete attributes"
+  ],
+  "dependencies": ["input", "dropdown"],
+  "tags": ["phone", "telephone", "mobile", "contact", "international"]
+}

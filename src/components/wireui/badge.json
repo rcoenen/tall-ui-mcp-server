@@ -1,0 +1,211 @@
+{
+  "name": "badge",
+  "category": "display",
+  "description": "Badge component for labels, tags, and status indicators",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Badge text content",
+      "required": false
+    },
+    {
+      "name": "primary",
+      "type": "boolean",
+      "description": "Use primary color scheme",
+      "default": false
+    },
+    {
+      "name": "secondary",
+      "type": "boolean",
+      "description": "Use secondary color scheme",
+      "default": false
+    },
+    {
+      "name": "positive",
+      "type": "boolean",
+      "description": "Use positive/success color scheme (green)",
+      "default": false
+    },
+    {
+      "name": "negative",
+      "type": "boolean",
+      "description": "Use negative/error color scheme (red)",
+      "default": false
+    },
+    {
+      "name": "warning",
+      "type": "boolean",
+      "description": "Use warning color scheme (yellow)",
+      "default": false
+    },
+    {
+      "name": "info",
+      "type": "boolean",
+      "description": "Use info color scheme (blue)",
+      "default": false
+    },
+    {
+      "name": "gray",
+      "type": "boolean",
+      "description": "Use gray color scheme",
+      "default": false
+    },
+    {
+      "name": "slate",
+      "type": "boolean",
+      "description": "Use slate color scheme",
+      "default": false
+    },
+    {
+      "name": "neutral",
+      "type": "boolean",
+      "description": "Use neutral color scheme",
+      "default": false
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Badge size",
+      "enum": ["xs", "sm", "md", "lg"],
+      "default": "md"
+    },
+    {
+      "name": "flat",
+      "type": "boolean",
+      "description": "Use flat style without background",
+      "default": false
+    },
+    {
+      "name": "outline",
+      "type": "boolean",
+      "description": "Use outline style",
+      "default": false
+    },
+    {
+      "name": "solid",
+      "type": "boolean",
+      "description": "Use solid background style",
+      "default": false
+    },
+    {
+      "name": "rounded",
+      "type": "string",
+      "description": "Border radius style",
+      "enum": ["none", "sm", "base", "md", "lg", "xl", "2xl", "3xl", "full"],
+      "default": "full"
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Icon to display before label",
+      "required": false
+    },
+    {
+      "name": "right-icon",
+      "type": "string",
+      "description": "Icon to display after label",
+      "required": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Badge content",
+      "required": false
+    },
+    {
+      "name": "prepend",
+      "description": "Content before the label",
+      "required": false
+    },
+    {
+      "name": "append",
+      "description": "Content after the label",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:click",
+    "wire:loading"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-on:click",
+    "x-show"
+  ],
+  "tailwind_classes": [
+    "inline-flex",
+    "items-center",
+    "px-2",
+    "py-0.5",
+    "text-xs",
+    "font-medium",
+    "rounded-full",
+    "bg-primary-100",
+    "text-primary-800"
+  ],
+  "examples": [
+    {
+      "title": "Basic Badge",
+      "description": "Simple badge with default styling",
+      "code": "<x-badge label=\"New\" />"
+    },
+    {
+      "title": "Colored Badges",
+      "description": "Badges with different color variants",
+      "code": "<!-- Primary -->\n<x-badge label=\"Primary\" primary />\n\n<!-- Success -->\n<x-badge label=\"Active\" positive />\n\n<!-- Warning -->\n<x-badge label=\"Pending\" warning />\n\n<!-- Danger -->\n<x-badge label=\"Expired\" negative />\n\n<!-- Info -->\n<x-badge label=\"Info\" info />"
+    },
+    {
+      "title": "Badge Sizes",
+      "description": "Different badge sizes",
+      "code": "<!-- Extra Small -->\n<x-badge label=\"XS\" size=\"xs\" />\n\n<!-- Small -->\n<x-badge label=\"Small\" size=\"sm\" />\n\n<!-- Medium (default) -->\n<x-badge label=\"Medium\" size=\"md\" />\n\n<!-- Large -->\n<x-badge label=\"Large\" size=\"lg\" />"
+    },
+    {
+      "title": "Badge with Icon",
+      "description": "Badge with icon and text",
+      "code": "<!-- Icon before text -->\n<x-badge icon=\"check\" label=\"Verified\" positive />\n\n<!-- Icon after text -->\n<x-badge label=\"Settings\" right-icon=\"cog-6-tooth\" gray />\n\n<!-- Both icons -->\n<x-badge icon=\"star\" label=\"Featured\" right-icon=\"arrow-right\" warning />"
+    },
+    {
+      "title": "Badge Styles",
+      "description": "Different badge styles",
+      "code": "<!-- Solid style -->\n<x-badge label=\"Solid\" solid />\n\n<!-- Outline style -->\n<x-badge label=\"Outline\" outline primary />\n\n<!-- Flat style -->\n<x-badge label=\"Flat\" flat secondary />"
+    },
+    {
+      "title": "Custom Rounded Badge",
+      "description": "Badge with custom border radius",
+      "code": "<!-- Square badge -->\n<x-badge label=\"Square\" rounded=\"none\" />\n\n<!-- Slightly rounded -->\n<x-badge label=\"Rounded\" rounded=\"md\" />\n\n<!-- Pill shape (default) -->\n<x-badge label=\"Pill\" rounded=\"full\" />"
+    },
+    {
+      "title": "Badge with Dot Indicator",
+      "description": "Badge with status dot",
+      "code": "<x-badge positive>\n    <x-slot name=\"prepend\">\n        <span class=\"w-1.5 h-1.5 bg-green-400 rounded-full\"></span>\n    </x-slot>\n    Online\n</x-badge>"
+    },
+    {
+      "title": "Clickable Badge",
+      "description": "Badge as interactive element",
+      "code": "<x-badge\n    label=\"Click me\"\n    info\n    class=\"cursor-pointer\"\n    wire:click=\"selectTag('example')\"\n/>"
+    }
+  ],
+  "best_practices": [
+    "Use semantic colors (positive for active, negative for errors)",
+    "Keep badge text short and concise",
+    "Use consistent sizing within the same context",
+    "Consider contrast ratios for accessibility",
+    "Group related badges together"
+  ],
+  "accessibility": [
+    "Ensure sufficient color contrast for all variants",
+    "Use aria-label for icon-only badges",
+    "Consider badge context for screen readers",
+    "Avoid relying solely on color to convey meaning"
+  ],
+  "dependencies": ["icon"],
+  "setup_requirements": [
+    "WireUI v2.x must be installed and configured",
+    "Tailwind CSS configuration must include WireUI preset"
+  ],
+  "tags": ["badge", "tag", "label", "status", "indicator", "chip"]
+}

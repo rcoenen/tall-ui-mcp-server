@@ -1,0 +1,173 @@
+{
+  "name": "alert",
+  "category": "feedback",
+  "description": "Alert component for displaying messages, warnings, and notifications",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Alert title text",
+      "required": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Alert description or body text",
+      "required": false
+    },
+    {
+      "name": "info",
+      "type": "boolean",
+      "description": "Use info color scheme (blue)",
+      "default": false
+    },
+    {
+      "name": "success",
+      "type": "boolean",
+      "description": "Use success color scheme (green)",
+      "default": false
+    },
+    {
+      "name": "warning",
+      "type": "boolean",
+      "description": "Use warning color scheme (yellow)",
+      "default": false
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "description": "Use error color scheme (red)",
+      "default": false
+    },
+    {
+      "name": "neutral",
+      "type": "boolean",
+      "description": "Use neutral color scheme (gray)",
+      "default": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Custom icon name",
+      "required": false
+    },
+    {
+      "name": "iconless",
+      "type": "boolean",
+      "description": "Hide the icon",
+      "default": false
+    },
+    {
+      "name": "padding",
+      "type": "string",
+      "description": "Padding size",
+      "enum": ["none", "sm", "md", "lg"],
+      "default": "md"
+    },
+    {
+      "name": "rounded",
+      "type": "string",
+      "description": "Border radius style",
+      "enum": ["none", "sm", "base", "md", "lg", "xl", "2xl", "3xl", "full"],
+      "default": "lg"
+    },
+    {
+      "name": "shadow",
+      "type": "string",
+      "description": "Shadow style",
+      "enum": ["none", "sm", "base", "md", "lg", "xl"],
+      "default": "none"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Alert content",
+      "required": false
+    },
+    {
+      "name": "title",
+      "description": "Custom title content with markup",
+      "required": false
+    },
+    {
+      "name": "actions",
+      "description": "Action buttons or links",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:click",
+    "x-show",
+    "x-transition"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-show",
+    "x-transition",
+    "x-on:click"
+  ],
+  "tailwind_classes": [
+    "bg-blue-50",
+    "border-blue-200",
+    "text-blue-800",
+    "bg-green-50",
+    "border-green-200",
+    "text-green-800",
+    "bg-yellow-50",
+    "border-yellow-200",
+    "text-yellow-800",
+    "bg-red-50",
+    "border-red-200",
+    "text-red-800"
+  ],
+  "examples": [
+    {
+      "title": "Basic Alert",
+      "description": "Simple informational alert",
+      "code": "<x-alert title=\"Information\">\n    This is an informational message for the user.\n</x-alert>"
+    },
+    {
+      "title": "Success Alert with Description",
+      "description": "Success alert with title and description",
+      "code": "<x-alert success title=\"Success!\" description=\"Your changes have been saved successfully.\" />"
+    },
+    {
+      "title": "Warning Alert with Actions",
+      "description": "Warning alert with action buttons",
+      "code": "<x-alert warning title=\"Account Expiring\">\n    <x-slot name=\"description\">\n        Your subscription will expire in 5 days. Please renew to continue.\n    </x-slot>\n    \n    <x-slot name=\"actions\">\n        <x-button flat sm label=\"Dismiss\" x-on:click=\"$el.closest('[role=alert]').remove()\" />\n        <x-button primary sm label=\"Renew Now\" href=\"/billing\" />\n    </x-slot>\n</x-alert>"
+    },
+    {
+      "title": "Error Alert without Icon",
+      "description": "Error alert with custom styling",
+      "code": "<x-alert error iconless shadow=\"md\" rounded=\"xl\">\n    <x-slot name=\"title\">\n        <span class=\"font-bold\">Error Processing Payment</span>\n    </x-slot>\n    Please check your payment details and try again.\n</x-alert>"
+    },
+    {
+      "title": "Dismissible Alert with Alpine",
+      "description": "Alert that can be dismissed",
+      "code": "<div x-data=\"{ show: true }\">\n    <x-alert\n        x-show=\"show\"\n        x-transition\n        info\n        title=\"New Feature Available\"\n    >\n        Check out our new dashboard analytics!\n        \n        <x-slot name=\"actions\">\n            <x-button\n                flat\n                xs\n                label=\"Dismiss\"\n                x-on:click=\"show = false\"\n            />\n        </x-slot>\n    </x-alert>\n</div>"
+    }
+  ],
+  "best_practices": [
+    "Use semantic variants (success for positive, error for negative)",
+    "Keep alert messages concise and actionable",
+    "Provide clear actions when user response is needed",
+    "Use appropriate icons to reinforce the message type",
+    "Consider dismissible alerts for non-critical information"
+  ],
+  "accessibility": [
+    "Uses role='alert' for screen reader announcements",
+    "Proper color contrast for all variants",
+    "Icons have appropriate aria-labels",
+    "Focusable actions within alerts"
+  ],
+  "dependencies": ["icon", "button"],
+  "setup_requirements": [
+    "WireUI v2.x must be installed and configured",
+    "Tailwind CSS configuration must include WireUI preset",
+    "Alpine.js must be available globally"
+  ],
+  "tags": ["alert", "notification", "message", "warning", "error", "success", "info"]
+}

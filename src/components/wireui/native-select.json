@@ -1,0 +1,178 @@
+{
+  "name": "native-select",
+  "category": "forms",
+  "description": "Native HTML select input with consistent styling",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Select label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Placeholder option text",
+      "default": "Select an option"
+    },
+    {
+      "name": "options",
+      "type": "array",
+      "description": "Array of options",
+      "required": false
+    },
+    {
+      "name": "option-value",
+      "type": "string",
+      "description": "Option value key",
+      "default": "value"
+    },
+    {
+      "name": "option-label",
+      "type": "string",
+      "description": "Option label key",
+      "default": "label"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the select",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make select readonly",
+      "default": false
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Left icon",
+      "required": false
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "description": "Select prefix",
+      "required": false
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "Select suffix",
+      "required": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Custom options content",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy"
+  ],
+  "alpine_directives": [
+    "x-model",
+    "x-on:change",
+    "x-bind:disabled"
+  ],
+  "tailwind_classes": [
+    "form-select",
+    "border-gray-300",
+    "focus:border-primary-500",
+    "focus:ring-primary-500",
+    "rounded-md",
+    "shadow-sm"
+  ],
+  "examples": [
+    {
+      "title": "Basic Native Select",
+      "description": "Simple select with options",
+      "code": "<x-native-select label=\"Country\" placeholder=\"Select your country\">\n    <option value=\"us\">United States</option>\n    <option value=\"ca\">Canada</option>\n    <option value=\"mx\">Mexico</option>\n</x-native-select>"
+    },
+    {
+      "title": "Select with Options Array",
+      "description": "Using options prop",
+      "code": "<x-native-select \n    wire:model=\"selectedSize\"\n    label=\"Size\"\n    :options=\"[\n        ['value' => 'xs', 'label' => 'Extra Small'],\n        ['value' => 'sm', 'label' => 'Small'],\n        ['value' => 'md', 'label' => 'Medium'],\n        ['value' => 'lg', 'label' => 'Large'],\n        ['value' => 'xl', 'label' => 'Extra Large']\n    ]\"\n/>",
+      "livewire_context": "public string $selectedSize = '';"
+    },
+    {
+      "title": "Select with Custom Keys",
+      "description": "Custom value and label keys",
+      "code": "<x-native-select \n    wire:model=\"userId\"\n    label=\"Assign to User\"\n    option-value=\"id\"\n    option-label=\"name\"\n    :options=\"$users\"\n/>",
+      "livewire_context": "public $userId = null;\npublic $users = [\n    ['id' => 1, 'name' => 'John Doe'],\n    ['id' => 2, 'name' => 'Jane Smith'],\n    ['id' => 3, 'name' => 'Bob Johnson']\n];"
+    },
+    {
+      "title": "Select with Icon and Hints",
+      "description": "Enhanced select with extras",
+      "code": "<x-native-select \n    wire:model=\"priority\"\n    label=\"Priority Level\"\n    icon=\"flag\"\n    hint=\"Select the task priority\"\n    corner-hint=\"Required\"\n>\n    <option value=\"low\">Low Priority</option>\n    <option value=\"medium\">Medium Priority</option>\n    <option value=\"high\">High Priority</option>\n    <option value=\"urgent\">Urgent</option>\n</x-native-select>"
+    },
+    {
+      "title": "Grouped Options",
+      "description": "Select with option groups",
+      "code": "<x-native-select label=\"Select Product\">\n    <optgroup label=\"Electronics\">\n        <option value=\"laptop\">Laptop</option>\n        <option value=\"phone\">Smartphone</option>\n        <option value=\"tablet\">Tablet</option>\n    </optgroup>\n    <optgroup label=\"Accessories\">\n        <option value=\"case\">Phone Case</option>\n        <option value=\"charger\">Charger</option>\n        <option value=\"cable\">Cable</option>\n    </optgroup>\n</x-native-select>"
+    },
+    {
+      "title": "Select with Prefix/Suffix",
+      "description": "Select with additional context",
+      "code": "<x-native-select \n    wire:model=\"discount\"\n    label=\"Discount\"\n    prefix=\"Save\"\n    suffix=\"%\"\n>\n    <option value=\"5\">5</option>\n    <option value=\"10\">10</option>\n    <option value=\"15\">15</option>\n    <option value=\"20\">20</option>\n    <option value=\"25\">25</option>\n</x-native-select>"
+    },
+    {
+      "title": "Multiple Select",
+      "description": "Allow multiple selections",
+      "code": "<x-native-select \n    wire:model=\"selectedTags\"\n    label=\"Tags\"\n    multiple\n    hint=\"Hold Ctrl/Cmd to select multiple\"\n>\n    <option value=\"important\">Important</option>\n    <option value=\"urgent\">Urgent</option>\n    <option value=\"review\">Needs Review</option>\n    <option value=\"approved\">Approved</option>\n    <option value=\"pending\">Pending</option>\n</x-native-select>",
+      "livewire_context": "public array $selectedTags = [];"
+    },
+    {
+      "title": "Disabled States",
+      "description": "Various disabled configurations",
+      "code": "<!-- Fully disabled -->\n<x-native-select \n    label=\"Disabled Select\"\n    disabled\n>\n    <option>Option 1</option>\n    <option>Option 2</option>\n</x-native-select>\n\n<!-- Specific options disabled -->\n<x-native-select label=\"Subscription Plan\">\n    <option value=\"free\">Free Plan</option>\n    <option value=\"basic\">Basic Plan</option>\n    <option value=\"pro\" disabled>Pro Plan (Coming Soon)</option>\n    <option value=\"enterprise\" disabled>Enterprise (Contact Sales)</option>\n</x-native-select>"
+    },
+    {
+      "title": "Dynamic Options from Database",
+      "description": "Populate from Eloquent models",
+      "code": "<x-native-select \n    wire:model=\"categoryId\"\n    label=\"Category\"\n    placeholder=\"Choose a category\"\n    :options=\"\\App\\Models\\Category::pluck('name', 'id')\"\n/>"
+    },
+    {
+      "title": "Complete Form Example",
+      "description": "Select in a full form context",
+      "code": "<form wire:submit.prevent=\"save\" class=\"space-y-4\">\n    <x-input wire:model=\"product.name\" label=\"Product Name\" />\n    \n    <x-native-select \n        wire:model=\"product.category\"\n        label=\"Category\"\n        :options=\"$categories\"\n    />\n    \n    <x-native-select \n        wire:model=\"product.status\"\n        label=\"Status\"\n    >\n        <option value=\"draft\">Draft</option>\n        <option value=\"active\">Active</option>\n        <option value=\"archived\">Archived</option>\n    </x-native-select>\n    \n    <x-currency \n        wire:model=\"product.price\"\n        label=\"Price\"\n    />\n    \n    <x-button type=\"submit\" primary label=\"Save Product\" />\n</form>",
+      "livewire_context": "public array $product = [\n    'name' => '',\n    'category' => '',\n    'status' => 'draft',\n    'price' => 0\n];\n\npublic $categories = [];\n\npublic function mount() {\n    $this->categories = Category::pluck('name', 'id')->toArray();\n}"
+    }
+  ],
+  "best_practices": [
+    "Always include a placeholder for better UX",
+    "Use descriptive labels for accessibility",
+    "Group related options when appropriate",
+    "Consider the mobile experience",
+    "Validate selected values on the backend"
+  ],
+  "accessibility": [
+    "Native select is keyboard accessible by default",
+    "Screen readers work well with native selects",
+    "Labels are properly associated",
+    "Use optgroup for better organization",
+    "Provide clear option text"
+  ],
+  "dependencies": ["icon"],
+  "tags": ["select", "dropdown", "native", "form", "options", "choice"]
+}

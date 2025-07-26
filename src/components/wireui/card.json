@@ -1,0 +1,152 @@
+{
+  "name": "card",
+  "category": "layout",
+  "description": "Card component for grouping related content with optional header and footer",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Card title text",
+      "required": false
+    },
+    {
+      "name": "subtitle",
+      "type": "string",
+      "description": "Card subtitle text",
+      "required": false
+    },
+    {
+      "name": "shadow",
+      "type": "string",
+      "description": "Shadow depth",
+      "enum": ["none", "sm", "base", "md", "lg", "xl", "2xl"],
+      "default": "base"
+    },
+    {
+      "name": "padding",
+      "type": "string",
+      "description": "Internal padding",
+      "enum": ["none", "sm", "md", "lg", "xl"],
+      "default": "md"
+    },
+    {
+      "name": "rounded",
+      "type": "string",
+      "description": "Border radius",
+      "enum": ["none", "sm", "base", "md", "lg", "xl", "2xl", "3xl"],
+      "default": "lg"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "description": "Background color",
+      "enum": ["white", "gray", "primary", "secondary"],
+      "default": "white"
+    },
+    {
+      "name": "bordered",
+      "type": "boolean",
+      "description": "Show border",
+      "default": false
+    },
+    {
+      "name": "headerless",
+      "type": "boolean",
+      "description": "Hide header section",
+      "default": false
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Card body content",
+      "required": true
+    },
+    {
+      "name": "header",
+      "description": "Custom header content",
+      "required": false
+    },
+    {
+      "name": "footer",
+      "description": "Card footer content",
+      "required": false
+    },
+    {
+      "name": "action",
+      "description": "Action buttons in header",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:loading",
+    "wire:target"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-show",
+    "x-transition"
+  ],
+  "tailwind_classes": [
+    "bg-white",
+    "shadow-sm",
+    "rounded-lg",
+    "divide-y",
+    "divide-gray-200",
+    "overflow-hidden"
+  ],
+  "examples": [
+    {
+      "title": "Basic Card",
+      "description": "Simple card with title and content",
+      "code": "<x-card title=\"User Profile\">\n    <p>This is the card content area where you can place any information.</p>\n</x-card>"
+    },
+    {
+      "title": "Card with Subtitle and Footer",
+      "description": "Complete card structure",
+      "code": "<x-card title=\"Monthly Report\" subtitle=\"January 2024\">\n    <div class=\"space-y-4\">\n        <p>Revenue: $10,000</p>\n        <p>Expenses: $6,000</p>\n        <p>Profit: $4,000</p>\n    </div>\n    \n    <x-slot name=\"footer\">\n        <div class=\"flex justify-end space-x-2\">\n            <x-button flat label=\"Export\" />\n            <x-button primary label=\"View Details\" />\n        </div>\n    </x-slot>\n</x-card>"
+    },
+    {
+      "title": "Card with Custom Header",
+      "description": "Card with custom header slot",
+      "code": "<x-card>\n    <x-slot name=\"header\">\n        <div class=\"flex items-center justify-between\">\n            <h3 class=\"text-lg font-medium\">Custom Header</h3>\n            <x-dropdown>\n                <x-dropdown.item label=\"Edit\" />\n                <x-dropdown.item label=\"Delete\" />\n            </x-dropdown>\n        </div>\n    </x-slot>\n    \n    <p>Card content goes here.</p>\n</x-card>"
+    },
+    {
+      "title": "Bordered Card without Shadow",
+      "description": "Card with border and no shadow",
+      "code": "<x-card\n    title=\"Settings\"\n    bordered\n    shadow=\"none\"\n>\n    <div class=\"space-y-4\">\n        <x-toggle label=\"Email notifications\" />\n        <x-toggle label=\"SMS alerts\" />\n    </div>\n</x-card>"
+    },
+    {
+      "title": "Colored Card",
+      "description": "Card with colored background",
+      "code": "<x-card\n    title=\"Premium Feature\"\n    color=\"primary\"\n    class=\"text-white\"\n>\n    <p class=\"text-primary-100\">Upgrade to access this premium feature.</p>\n    \n    <x-slot name=\"footer\">\n        <x-button white label=\"Upgrade Now\" />\n    </x-slot>\n</x-card>"
+    },
+    {
+      "title": "Card with Actions",
+      "description": "Card with action buttons in header",
+      "code": "<x-card title=\"Team Members\">\n    <x-slot name=\"action\">\n        <x-button sm flat icon=\"plus\" label=\"Add Member\" />\n    </x-slot>\n    \n    <div class=\"space-y-3\">\n        <div class=\"flex items-center space-x-3\">\n            <x-avatar src=\"/img/user1.jpg\" />\n            <span>John Doe</span>\n        </div>\n        <div class=\"flex items-center space-x-3\">\n            <x-avatar src=\"/img/user2.jpg\" />\n            <span>Jane Smith</span>\n        </div>\n    </div>\n</x-card>"
+    },
+    {
+      "title": "Loading Card",
+      "description": "Card with loading state",
+      "code": "<x-card title=\"Loading Data\" wire:loading.class=\"opacity-50\">\n    <div wire:loading>\n        <div class=\"flex justify-center py-8\">\n            <x-icon name=\"refresh\" class=\"w-8 h-8 animate-spin text-gray-400\" />\n        </div>\n    </div>\n    \n    <div wire:loading.remove>\n        <!-- Content shown when not loading -->\n        <p>Data loaded successfully!</p>\n    </div>\n</x-card>"
+    }
+  ],
+  "best_practices": [
+    "Use cards to group related content",
+    "Keep card titles concise and descriptive",
+    "Use consistent shadow and padding across your app",
+    "Consider mobile responsiveness for card layouts",
+    "Avoid nesting cards within cards"
+  ],
+  "accessibility": [
+    "Use semantic HTML structure",
+    "Ensure proper heading hierarchy",
+    "Cards should have descriptive titles",
+    "Interactive elements must be keyboard accessible"
+  ],
+  "dependencies": ["button", "icon", "avatar", "dropdown", "toggle"],
+  "tags": ["card", "container", "panel", "box", "section", "layout"]
+}

@@ -6,11 +6,58 @@
   "wireui_version": "^2.4",
   "props": [
     {
-      "name": "variant",
-      "type": "string",
-      "description": "Visual style variant of the button",
-      "enum": ["primary", "secondary", "positive", "negative", "warning", "info", "dark", "flat", "outline"],
-      "default": "primary"
+      "name": "primary",
+      "type": "boolean",
+      "description": "Use primary color scheme",
+      "default": false
+    },
+    {
+      "name": "secondary",
+      "type": "boolean",
+      "description": "Use secondary color scheme",
+      "default": false
+    },
+    {
+      "name": "positive",
+      "type": "boolean",
+      "description": "Use positive/success color scheme (green)",
+      "default": false
+    },
+    {
+      "name": "negative",
+      "type": "boolean",
+      "description": "Use negative/danger color scheme (red)",
+      "default": false
+    },
+    {
+      "name": "warning",
+      "type": "boolean",
+      "description": "Use warning color scheme (yellow)",
+      "default": false
+    },
+    {
+      "name": "info",
+      "type": "boolean",
+      "description": "Use info color scheme (blue)",
+      "default": false
+    },
+    {
+      "name": "dark",
+      "type": "boolean",
+      "description": "Use dark color scheme",
+      "default": false
+    },
+    {
+      "name": "flat",
+      "type": "boolean",
+      "description": "Use flat style (no background)",
+      "default": false
+    },
+    {
+      "name": "outline",
+      "type": "boolean",
+      "description": "Use outline style",
+      "default": false
     },
     {
       "name": "size",
@@ -97,7 +144,7 @@
     {
       "title": "Outline Button with Right Icon",
       "description": "Outline variant with icon on the right",
-      "code": "<x-button variant=\"outline\" right-icon=\"arrow-right\">\n    Next Step\n</x-button>"
+      "code": "<x-button outline right-icon=\"arrow-right\">\n    Next Step\n</x-button>"
     }
   ],
   "best_practices": [
@@ -113,5 +160,9 @@
     "Focus states must be clearly visible"
   ],
   "dependencies": [],
+  "setup_requirements": [
+    "WireUI v2.x must be installed and configured",
+    "Tailwind CSS configuration must include WireUI preset"
+  ],
   "tags": ["button", "action", "click", "submit", "form", "interactive"]
 }

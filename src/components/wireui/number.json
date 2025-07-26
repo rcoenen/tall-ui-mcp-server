@@ -1,0 +1,196 @@
+{
+  "name": "number",
+  "category": "forms",
+  "description": "Numeric input component with increment/decrement controls",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Input label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Input placeholder",
+      "default": "0"
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "description": "Minimum value",
+      "required": false
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "Maximum value",
+      "required": false
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "description": "Step increment",
+      "default": 1
+    },
+    {
+      "name": "precision",
+      "type": "number",
+      "description": "Decimal precision",
+      "default": 0
+    },
+    {
+      "name": "thousands",
+      "type": "string",
+      "description": "Thousands separator",
+      "required": false
+    },
+    {
+      "name": "decimal",
+      "type": "string",
+      "description": "Decimal separator",
+      "default": "."
+    },
+    {
+      "name": "chevron-icons",
+      "type": "boolean",
+      "description": "Use chevron icons for controls",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the input",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make input readonly",
+      "default": false
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Left icon",
+      "required": false
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "description": "Input prefix",
+      "required": false
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "Input suffix",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy",
+    "increment/decrement buttons",
+    "keyboard controls"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-model",
+    "x-on:click",
+    "x-on:keydown"
+  ],
+  "tailwind_classes": [
+    "appearance-none",
+    "text-center",
+    "tabular-nums"
+  ],
+  "examples": [
+    {
+      "title": "Basic Number Input",
+      "description": "Simple numeric input",
+      "code": "<x-number label=\"Quantity\" placeholder=\"0\" />"
+    },
+    {
+      "title": "Number with Min/Max",
+      "description": "Constrained number input",
+      "code": "<x-number \n    wire:model=\"age\"\n    label=\"Age\"\n    :min=\"18\"\n    :max=\"100\"\n    hint=\"Must be 18 or older\"\n/>",
+      "livewire_context": "public int $age = 18;"
+    },
+    {
+      "title": "Decimal Number Input",
+      "description": "Number with decimal places",
+      "code": "<x-number \n    wire:model=\"weight\"\n    label=\"Weight (kg)\"\n    :precision=\"2\"\n    :step=\"0.1\"\n    suffix=\"kg\"\n/>",
+      "livewire_context": "public float $weight = 0.0;"
+    },
+    {
+      "title": "Number with Step",
+      "description": "Custom step increments",
+      "code": "<!-- Step by 5 -->\n<x-number \n    label=\"Minutes\"\n    :step=\"5\"\n    :min=\"0\"\n    :max=\"60\"\n/>\n\n<!-- Step by 0.25 -->\n<x-number \n    label=\"Hours\"\n    :step=\"0.25\"\n    :precision=\"2\"\n    :min=\"0\"\n    :max=\"24\"\n/>\n\n<!-- Step by 100 -->\n<x-number \n    label=\"Budget\"\n    :step=\"100\"\n    :min=\"0\"\n    prefix=\"$\"\n/>"
+    },
+    {
+      "title": "Chevron Icon Controls",
+      "description": "Alternative control style",
+      "code": "<x-number \n    wire:model=\"rating\"\n    label=\"Rating\"\n    chevron-icons\n    :min=\"1\"\n    :max=\"5\"\n    hint=\"Rate from 1 to 5\"\n/>"
+    },
+    {
+      "title": "Formatted Display",
+      "description": "Number with thousand separators",
+      "code": "<x-number \n    wire:model=\"population\"\n    label=\"Population\"\n    thousands=\",\"\n    :min=\"0\"\n    icon=\"users\"\n/>",
+      "livewire_context": "public int $population = 1000000;"
+    },
+    {
+      "title": "Shopping Cart Example",
+      "description": "Quantity selector in e-commerce",
+      "code": "<div class=\"flex items-end space-x-4\">\n    <x-number \n        wire:model=\"quantity\"\n        label=\"Quantity\"\n        :min=\"1\"\n        :max=\"$product->stock\"\n        hint=\"{{ $product->stock }} in stock\"\n    />\n    \n    <div>\n        <span class=\"text-sm text-gray-500\">Total</span>\n        <p class=\"text-lg font-semibold\">\n            ${{ number_format($quantity * $product->price, 2) }}\n        </p>\n    </div>\n</div>",
+      "livewire_context": "public int $quantity = 1;\npublic $product;"
+    },
+    {
+      "title": "Temperature Input",
+      "description": "With prefix and suffix",
+      "code": "<x-number \n    wire:model=\"temperature\"\n    label=\"Temperature\"\n    :precision=\"1\"\n    :step=\"0.5\"\n    :min=\"-50\"\n    :max=\"50\"\n    suffix=\"°C\"\n    hint=\"Normal range: 18-24°C\"\n/>"
+    },
+    {
+      "title": "Percentage Input",
+      "description": "Percentage with constraints",
+      "code": "<x-number \n    wire:model=\"discount\"\n    label=\"Discount Percentage\"\n    :min=\"0\"\n    :max=\"100\"\n    :step=\"5\"\n    suffix=\"%\"\n    icon=\"tag\"\n/>"
+    },
+    {
+      "title": "Form with Multiple Numbers",
+      "description": "Complex form example",
+      "code": "<form wire:submit.prevent=\"calculate\" class=\"space-y-4\">\n    <div class=\"grid grid-cols-2 gap-4\">\n        <x-number \n            wire:model=\"dimensions.length\"\n            label=\"Length\"\n            suffix=\"cm\"\n            :min=\"1\"\n        />\n        \n        <x-number \n            wire:model=\"dimensions.width\"\n            label=\"Width\"\n            suffix=\"cm\"\n            :min=\"1\"\n        />\n    </div>\n    \n    <x-number \n        wire:model=\"dimensions.height\"\n        label=\"Height\"\n        suffix=\"cm\"\n        :min=\"1\"\n    />\n    \n    <x-number \n        wire:model=\"weight\"\n        label=\"Weight\"\n        suffix=\"kg\"\n        :precision=\"2\"\n        :step=\"0.1\"\n        :min=\"0.1\"\n    />\n    \n    <div class=\"pt-4 border-t\">\n        <p class=\"text-sm text-gray-500\">Volume</p>\n        <p class=\"text-lg font-medium\">{{ $volume }} cm³</p>\n    </div>\n    \n    <x-button type=\"submit\" primary label=\"Calculate Shipping\" />\n</form>",
+      "livewire_context": "public array $dimensions = [\n    'length' => 0,\n    'width' => 0,\n    'height' => 0\n];\npublic float $weight = 0;\npublic float $volume = 0;\n\npublic function calculate() {\n    $this->volume = $this->dimensions['length'] * \n                   $this->dimensions['width'] * \n                   $this->dimensions['height'];\n}"
+    }
+  ],
+  "best_practices": [
+    "Set appropriate min/max values",
+    "Use step values that make sense for the context",
+    "Consider precision for decimal values",
+    "Provide clear units with prefix/suffix",
+    "Include helpful hints for valid ranges"
+  ],
+  "accessibility": [
+    "Keyboard arrow keys increment/decrement",
+    "Number input type for mobile keyboards",
+    "Clear labels and descriptions",
+    "Announce value changes to screen readers",
+    "Ensure controls are keyboard accessible"
+  ],
+  "dependencies": ["icon", "button"],
+  "tags": ["number", "numeric", "quantity", "increment", "decrement", "stepper"]
+}

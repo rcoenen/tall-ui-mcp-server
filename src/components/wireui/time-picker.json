@@ -1,0 +1,182 @@
+{
+  "name": "time-picker",
+  "category": "forms",
+  "description": "Time selection component with 12/24 hour format support",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Field label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Input placeholder",
+      "default": "Select time"
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "description": "Time format (12 or 24)",
+      "enum": ["12", "24"],
+      "default": "12"
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "description": "Minute intervals",
+      "enum": ["1", "5", "10", "15", "30", "60"],
+      "default": 15
+    },
+    {
+      "name": "min-time",
+      "type": "string",
+      "description": "Minimum selectable time",
+      "required": false
+    },
+    {
+      "name": "max-time",
+      "type": "string",
+      "description": "Maximum selectable time",
+      "required": false
+    },
+    {
+      "name": "without-seconds",
+      "type": "boolean",
+      "description": "Hide seconds selection",
+      "default": true
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the picker",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make picker readonly",
+      "default": false
+    },
+    {
+      "name": "clearable",
+      "type": "boolean",
+      "description": "Show clear button",
+      "default": true
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Left icon",
+      "default": "clock"
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy",
+    "time validation"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-model",
+    "x-show",
+    "x-on:click",
+    "x-on:change"
+  ],
+  "tailwind_classes": [
+    "absolute",
+    "mt-1",
+    "bg-white",
+    "rounded-md",
+    "shadow-lg",
+    "p-4",
+    "grid",
+    "grid-cols-3",
+    "gap-2"
+  ],
+  "examples": [
+    {
+      "title": "Basic Time Picker",
+      "description": "Simple time selection",
+      "code": "<x-time-picker label=\"Appointment Time\" />"
+    },
+    {
+      "title": "24-Hour Format",
+      "description": "Military time format",
+      "code": "<x-time-picker \n    wire:model=\"meetingTime\"\n    label=\"Meeting Time\"\n    format=\"24\"\n    placeholder=\"HH:MM\"\n/>",
+      "livewire_context": "public ?string $meetingTime = null;"
+    },
+    {
+      "title": "With Time Constraints",
+      "description": "Limited time range",
+      "code": "<x-time-picker \n    wire:model=\"appointmentTime\"\n    label=\"Available Slots\"\n    min-time=\"09:00\"\n    max-time=\"17:00\"\n    :interval=\"30\"\n    hint=\"Business hours only (9 AM - 5 PM)\"\n/>",
+      "livewire_context": "public ?string $appointmentTime = null;"
+    },
+    {
+      "title": "Fine-Grained Intervals",
+      "description": "Small time increments",
+      "code": "<!-- 5-minute intervals -->\n<x-time-picker \n    label=\"Precise Time\"\n    :interval=\"5\"\n/>\n\n<!-- 1-minute intervals -->\n<x-time-picker \n    label=\"Exact Time\"\n    :interval=\"1\"\n    hint=\"Select exact minute\"\n/>"
+    },
+    {
+      "title": "With Seconds",
+      "description": "Include seconds selection",
+      "code": "<x-time-picker \n    wire:model=\"preciseTime\"\n    label=\"Precise Timing\"\n    :without-seconds=\"false\"\n    format=\"24\"\n    placeholder=\"HH:MM:SS\"\n/>"
+    },
+    {
+      "title": "Schedule Form Example",
+      "description": "Multiple time pickers in a form",
+      "code": "<form wire:submit.prevent=\"saveSchedule\" class=\"space-y-4\">\n    <x-input \n        wire:model=\"schedule.title\"\n        label=\"Event Title\"\n        placeholder=\"Meeting name\"\n    />\n    \n    <div class=\"grid grid-cols-2 gap-4\">\n        <x-time-picker \n            wire:model=\"schedule.start_time\"\n            label=\"Start Time\"\n            :interval=\"15\"\n        />\n        \n        <x-time-picker \n            wire:model=\"schedule.end_time\"\n            label=\"End Time\"\n            :interval=\"15\"\n            :min-time=\"$schedule['start_time']\"\n        />\n    </div>\n    \n    <x-select \n        wire:model=\"schedule.timezone\"\n        label=\"Timezone\"\n        :options=\"[\n            ['value' => 'UTC', 'label' => 'UTC'],\n            ['value' => 'America/New_York', 'label' => 'Eastern Time'],\n            ['value' => 'America/Chicago', 'label' => 'Central Time'],\n            ['value' => 'America/Denver', 'label' => 'Mountain Time'],\n            ['value' => 'America/Los_Angeles', 'label' => 'Pacific Time']\n        ]\"\n    />\n    \n    <x-button type=\"submit\" primary label=\"Save Schedule\" />\n</form>",
+      "livewire_context": "public array $schedule = [\n    'title' => '',\n    'start_time' => '',\n    'end_time' => '',\n    'timezone' => 'UTC'\n];\n\npublic function saveSchedule() {\n    $this->validate([\n        'schedule.title' => 'required',\n        'schedule.start_time' => 'required',\n        'schedule.end_time' => 'required|after:schedule.start_time',\n        'schedule.timezone' => 'required'\n    ]);\n    \n    // Save logic\n}"
+    },
+    {
+      "title": "Business Hours Selector",
+      "description": "Set opening hours",
+      "code": "<div class=\"space-y-4\">\n    @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as $day)\n        <div class=\"flex items-center space-x-4\">\n            <span class=\"w-24 text-sm font-medium\">{{ $day }}</span>\n            \n            <x-time-picker \n                wire:model=\"hours.{{ strtolower($day) }}.open\"\n                placeholder=\"Open\"\n                :interval=\"30\"\n                min-time=\"06:00\"\n                max-time=\"22:00\"\n            />\n            \n            <span class=\"text-gray-500\">to</span>\n            \n            <x-time-picker \n                wire:model=\"hours.{{ strtolower($day) }}.close\"\n                placeholder=\"Close\"\n                :interval=\"30\"\n                min-time=\"06:00\"\n                max-time=\"23:00\"\n            />\n            \n            <x-checkbox \n                wire:model=\"hours.{{ strtolower($day) }}.closed\"\n                label=\"Closed\"\n            />\n        </div>\n    @endforeach\n</div>",
+      "livewire_context": "public array $hours = [\n    'monday' => ['open' => '09:00', 'close' => '17:00', 'closed' => false],\n    'tuesday' => ['open' => '09:00', 'close' => '17:00', 'closed' => false],\n    'wednesday' => ['open' => '09:00', 'close' => '17:00', 'closed' => false],\n    'thursday' => ['open' => '09:00', 'close' => '17:00', 'closed' => false],\n    'friday' => ['open' => '09:00', 'close' => '17:00', 'closed' => false]\n];"
+    },
+    {
+      "title": "Reminder Time",
+      "description": "Set notification time",
+      "code": "<div class=\"space-y-4\">\n    <x-toggle \n        wire:model=\"reminder.enabled\"\n        label=\"Enable reminder\"\n    />\n    \n    <div x-show=\"$wire.reminder.enabled\" x-transition>\n        <x-time-picker \n            wire:model=\"reminder.time\"\n            label=\"Reminder Time\"\n            hint=\"You'll receive a notification at this time\"\n            icon=\"bell\"\n        />\n    </div>\n</div>",
+      "livewire_context": "public array $reminder = [\n    'enabled' => false,\n    'time' => '09:00'\n];"
+    },
+    {
+      "title": "Shift Scheduling",
+      "description": "Employee shift times",
+      "code": "<x-card title=\"Shift Schedule\">\n    <div class=\"space-y-4\">\n        <x-native-select \n            wire:model=\"shift.type\"\n            label=\"Shift Type\"\n        >\n            <option value=\"morning\">Morning Shift</option>\n            <option value=\"afternoon\">Afternoon Shift</option>\n            <option value=\"night\">Night Shift</option>\n            <option value=\"custom\">Custom Hours</option>\n        </x-native-select>\n        \n        @if($shift['type'] === 'custom')\n            <div class=\"grid grid-cols-2 gap-4\">\n                <x-time-picker \n                    wire:model=\"shift.start\"\n                    label=\"Start Time\"\n                    format=\"24\"\n                />\n                \n                <x-time-picker \n                    wire:model=\"shift.end\"\n                    label=\"End Time\"\n                    format=\"24\"\n                />\n            </div>\n        @else\n            <p class=\"text-sm text-gray-600\">\n                @switch($shift['type'])\n                    @case('morning')\n                        06:00 - 14:00\n                        @break\n                    @case('afternoon')\n                        14:00 - 22:00\n                        @break\n                    @case('night')\n                        22:00 - 06:00\n                        @break\n                @endswitch\n            </p>\n        @endif\n    </div>\n</x-card>",
+      "livewire_context": "public array $shift = [\n    'type' => 'morning',\n    'start' => '',\n    'end' => ''\n];"
+    }
+  ],
+  "best_practices": [
+    "Use appropriate intervals for the use case",
+    "Set min/max times for business constraints",
+    "Consider timezone handling for global apps",
+    "Use 24-hour format for clarity when needed",
+    "Provide clear placeholders and hints"
+  ],
+  "accessibility": [
+    "Keyboard navigation for time selection",
+    "Screen reader announcements for selected time",
+    "Clear labels and instructions",
+    "Focus management in picker dropdown",
+    "ARIA attributes for time controls"
+  ],
+  "dependencies": ["input", "icon", "button"],
+  "tags": ["time", "picker", "clock", "schedule", "hours", "minutes"]
+}

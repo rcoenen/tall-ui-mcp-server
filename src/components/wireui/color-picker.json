@@ -1,0 +1,123 @@
+{
+  "name": "color-picker",
+  "category": "forms",
+  "description": "Color picker component with preset colors and custom color input",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Field label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Input placeholder",
+      "default": "#000000"
+    },
+    {
+      "name": "colors",
+      "type": "array",
+      "description": "Array of preset colors",
+      "default": ["#000000", "#ffffff", "#ef4444", "#f59e0b", "#10b981", "#3b82f6", "#6366f1", "#8b5cf6", "#ec4899"]
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the color picker",
+      "default": false
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    },
+    {
+      "name": "custom-colors",
+      "type": "boolean",
+      "description": "Allow custom color input",
+      "default": true
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-model",
+    "x-show",
+    "x-on:click",
+    "x-on:click.away"
+  ],
+  "tailwind_classes": [
+    "grid",
+    "grid-cols-5",
+    "gap-2",
+    "w-6",
+    "h-6",
+    "rounded",
+    "ring-2",
+    "ring-offset-2"
+  ],
+  "examples": [
+    {
+      "title": "Basic Color Picker",
+      "description": "Simple color picker with default presets",
+      "code": "<x-color-picker label=\"Theme Color\" />"
+    },
+    {
+      "title": "Color Picker with Livewire",
+      "description": "Bound to Livewire property",
+      "code": "<x-color-picker \n    wire:model=\"brandColor\" \n    label=\"Brand Color\"\n    hint=\"Select your brand's primary color\"\n/>",
+      "livewire_context": "public string $brandColor = '#3b82f6';"
+    },
+    {
+      "title": "Custom Color Presets",
+      "description": "Color picker with custom preset colors",
+      "code": "<x-color-picker \n    label=\"Status Color\"\n    :colors=\"[\n        '#10b981', // green\n        '#f59e0b', // yellow\n        '#ef4444', // red\n        '#3b82f6', // blue\n        '#6b7280', // gray\n    ]\"\n/>"
+    },
+    {
+      "title": "Without Custom Colors",
+      "description": "Only allow preset color selection",
+      "code": "<x-color-picker \n    label=\"Category Color\"\n    :custom-colors=\"false\"\n    :colors=\"[\n        '#dc2626',\n        '#ea580c',\n        '#facc15',\n        '#84cc16',\n        '#22c55e',\n        '#14b8a6',\n        '#06b6d4',\n        '#0ea5e9',\n        '#6366f1',\n        '#a855f7',\n        '#ec4899'\n    ]\"\n/>"
+    },
+    {
+      "title": "Color Picker in Form",
+      "description": "Color picker as part of a form",
+      "code": "<form wire:submit.prevent=\"save\">\n    <div class=\"space-y-4\">\n        <x-input wire:model=\"tag.name\" label=\"Tag Name\" />\n        \n        <x-color-picker \n            wire:model=\"tag.color\" \n            label=\"Tag Color\"\n            corner-hint=\"Required\"\n        />\n        \n        <div class=\"flex items-center space-x-2\">\n            <span>Preview:</span>\n            <x-badge \n                :label=\"$tag['name'] ?: 'Tag Name'\" \n                :style=\"'background-color: ' . $tag['color']\"\n            />\n        </div>\n        \n        <x-button type=\"submit\" primary label=\"Save Tag\" />\n    </div>\n</form>",
+      "livewire_context": "public array $tag = [\n    'name' => '',\n    'color' => '#3b82f6'\n];\n\npublic function save() {\n    // Save logic\n}"
+    },
+    {
+      "title": "Disabled Color Picker",
+      "description": "Color picker in disabled state",
+      "code": "<x-color-picker \n    label=\"System Color\" \n    value=\"#6366f1\"\n    disabled\n    hint=\"This color is set by the system\"\n/>"
+    }
+  ],
+  "best_practices": [
+    "Provide a good range of preset colors",
+    "Include accessibility considerations for color contrast",
+    "Show color preview near the picker",
+    "Allow hex input for precise color selection",
+    "Consider colorblind-friendly palettes"
+  ],
+  "accessibility": [
+    "Keyboard navigation for color selection",
+    "Screen reader announcements for selected color",
+    "Sufficient contrast for color swatches",
+    "Alternative text input for color values",
+    "Focus indicators on color options"
+  ],
+  "dependencies": ["input"],
+  "tags": ["color", "picker", "palette", "theme", "customization"]
+}

@@ -1,0 +1,175 @@
+{
+  "name": "dropdown",
+  "category": "navigation",
+  "description": "Dropdown menu component with items, dividers, and nested menus",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "align",
+      "type": "string",
+      "description": "Menu alignment relative to trigger",
+      "enum": ["left", "right", "center"],
+      "default": "left"
+    },
+    {
+      "name": "width",
+      "type": "string",
+      "description": "Dropdown width",
+      "enum": ["auto", "48", "56", "64", "72", "80", "96"],
+      "default": "48"
+    },
+    {
+      "name": "height",
+      "type": "string",
+      "description": "Maximum height before scrolling",
+      "enum": ["auto", "48", "56", "64", "72", "80", "96"],
+      "default": "auto"
+    },
+    {
+      "name": "persistent",
+      "type": "boolean",
+      "description": "Keep dropdown open on item click",
+      "default": false
+    },
+    {
+      "name": "trigger",
+      "type": "string",
+      "description": "Trigger event",
+      "enum": ["click", "hover"],
+      "default": "click"
+    }
+  ],
+  "slots": [
+    {
+      "name": "trigger",
+      "description": "Element that triggers the dropdown",
+      "required": true
+    },
+    {
+      "name": "default",
+      "description": "Dropdown menu content",
+      "required": true
+    }
+  ],
+  "subcomponents": [
+    {
+      "name": "dropdown.item",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Item text"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Item icon"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disable item"
+        },
+        {
+          "name": "separator",
+          "type": "boolean",
+          "description": "Show separator after item"
+        }
+      ]
+    },
+    {
+      "name": "dropdown.header",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Header text"
+        }
+      ]
+    }
+  ],
+  "wireui_features": [
+    "wire:click",
+    "wire:loading",
+    "x-on:click"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-show",
+    "x-transition",
+    "x-on:click",
+    "x-on:click.away",
+    "x-on:keydown.escape"
+  ],
+  "tailwind_classes": [
+    "relative",
+    "inline-block",
+    "absolute",
+    "mt-2",
+    "rounded-md",
+    "shadow-lg",
+    "bg-white",
+    "ring-1",
+    "ring-black",
+    "ring-opacity-5"
+  ],
+  "examples": [
+    {
+      "title": "Basic Dropdown",
+      "description": "Simple dropdown with items",
+      "code": "<x-dropdown>\n    <x-slot name=\"trigger\">\n        <x-button>Options</x-button>\n    </x-slot>\n    \n    <x-dropdown.item label=\"Edit\" />\n    <x-dropdown.item label=\"Duplicate\" />\n    <x-dropdown.item label=\"Delete\" separator />\n    <x-dropdown.item label=\"Report\" />\n</x-dropdown>"
+    },
+    {
+      "title": "Dropdown with Icons",
+      "description": "Menu items with icons",
+      "code": "<x-dropdown>\n    <x-slot name=\"trigger\">\n        <x-button icon=\"ellipsis-vertical\" flat />\n    </x-slot>\n    \n    <x-dropdown.item icon=\"pencil\" label=\"Edit\" />\n    <x-dropdown.item icon=\"document-duplicate\" label=\"Copy\" />\n    <x-dropdown.item icon=\"trash\" label=\"Delete\" />\n</x-dropdown>"
+    },
+    {
+      "title": "Dropdown with Header",
+      "description": "Dropdown with section headers",
+      "code": "<x-dropdown>\n    <x-slot name=\"trigger\">\n        <x-button>Account</x-button>\n    </x-slot>\n    \n    <x-dropdown.header label=\"Signed in as user@example.com\" />\n    <x-dropdown.item icon=\"user\" label=\"Profile\" />\n    <x-dropdown.item icon=\"cog-6-tooth\" label=\"Settings\" separator />\n    <x-dropdown.header label=\"Teams\" />\n    <x-dropdown.item label=\"Team Alpha\" />\n    <x-dropdown.item label=\"Team Beta\" separator />\n    <x-dropdown.item icon=\"arrow-right-on-rectangle\" label=\"Sign out\" />\n</x-dropdown>"
+    },
+    {
+      "title": "Dropdown with Livewire Actions",
+      "description": "Dropdown items with wire:click",
+      "code": "<x-dropdown>\n    <x-slot name=\"trigger\">\n        <x-button>Actions</x-button>\n    </x-slot>\n    \n    <x-dropdown.item\n        label=\"View\"\n        wire:click=\"view({{ $item->id }})\"\n    />\n    <x-dropdown.item\n        label=\"Edit\"\n        wire:click=\"edit({{ $item->id }})\"\n    />\n    <x-dropdown.item\n        label=\"Delete\"\n        wire:click=\"delete({{ $item->id }})\"\n        wire:confirm=\"Are you sure?\"\n    />\n</x-dropdown>"
+    },
+    {
+      "title": "Right Aligned Dropdown",
+      "description": "Dropdown aligned to the right",
+      "code": "<div class=\"flex justify-end\">\n    <x-dropdown align=\"right\">\n        <x-slot name=\"trigger\">\n            <x-avatar src=\"/img/user.jpg\" />\n        </x-slot>\n        \n        <x-dropdown.item icon=\"user\" label=\"My Profile\" />\n        <x-dropdown.item icon=\"bell\" label=\"Notifications\" />\n        <x-dropdown.item icon=\"arrow-right-on-rectangle\" label=\"Logout\" />\n    </x-dropdown>\n</div>"
+    },
+    {
+      "title": "Persistent Dropdown",
+      "description": "Dropdown that stays open",
+      "code": "<x-dropdown persistent>\n    <x-slot name=\"trigger\">\n        <x-button>Filter</x-button>\n    </x-slot>\n    \n    <div class=\"p-4\">\n        <x-checkbox label=\"Active\" />\n        <x-checkbox label=\"Archived\" />\n        <x-checkbox label=\"Deleted\" />\n        \n        <div class=\"mt-4 flex justify-end space-x-2\">\n            <x-button sm flat label=\"Clear\" />\n            <x-button sm primary label=\"Apply\" />\n        </div>\n    </div>\n</x-dropdown>"
+    },
+    {
+      "title": "Hover Dropdown",
+      "description": "Dropdown triggered on hover",
+      "code": "<x-dropdown trigger=\"hover\">\n    <x-slot name=\"trigger\">\n        <x-button>Hover Me</x-button>\n    </x-slot>\n    \n    <x-dropdown.item label=\"Quick action 1\" />\n    <x-dropdown.item label=\"Quick action 2\" />\n    <x-dropdown.item label=\"Quick action 3\" />\n</x-dropdown>"
+    }
+  ],
+  "best_practices": [
+    "Keep dropdown items concise and action-oriented",
+    "Use icons to improve visual recognition",
+    "Group related items with headers or separators",
+    "Avoid deeply nested dropdowns",
+    "Consider mobile touch targets"
+  ],
+  "accessibility": [
+    "Keyboard navigation with arrow keys",
+    "Escape key closes dropdown",
+    "Focus management on open/close",
+    "ARIA attributes for screen readers",
+    "Proper role and aria-expanded states"
+  ],
+  "dependencies": ["button", "icon", "avatar", "checkbox"],
+  "setup_requirements": [
+    "WireUI v2.x must be installed and configured",
+    "Tailwind CSS configuration must include WireUI preset",
+    "Alpine.js must be available globally"
+  ],
+  "tags": ["dropdown", "menu", "select", "popover", "actions", "navigation"]
+}

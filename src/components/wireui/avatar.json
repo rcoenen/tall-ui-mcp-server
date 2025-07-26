@@ -1,0 +1,152 @@
+{
+  "name": "avatar",
+  "category": "media",
+  "description": "Avatar component for displaying user images or initials",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "description": "Image source URL",
+      "required": false
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "description": "Alternative text for the image",
+      "required": false
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Text label to display when no image",
+      "required": false
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Avatar size",
+      "enum": ["xs", "sm", "md", "lg", "xl", "2xl"],
+      "default": "md"
+    },
+    {
+      "name": "rounded",
+      "type": "string",
+      "description": "Border radius style",
+      "enum": ["none", "sm", "base", "md", "lg", "xl", "2xl", "3xl", "full"],
+      "default": "full"
+    },
+    {
+      "name": "border",
+      "type": "boolean",
+      "description": "Show border around avatar",
+      "default": false
+    },
+    {
+      "name": "squared",
+      "type": "boolean",
+      "description": "Square shape instead of circle",
+      "default": false
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "description": "Background color when showing initials",
+      "enum": ["primary", "secondary", "positive", "negative", "warning", "info", "gray"],
+      "default": "gray"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Custom content to display in avatar",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "description": "Placeholder content when no image",
+      "required": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:loading"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-show",
+    "x-on:error"
+  ],
+  "tailwind_classes": [
+    "w-8",
+    "h-8",
+    "w-10",
+    "h-10",
+    "w-12",
+    "h-12",
+    "w-14",
+    "h-14",
+    "w-16",
+    "h-16",
+    "w-20",
+    "h-20",
+    "rounded-full",
+    "ring-2",
+    "ring-white",
+    "bg-gray-500",
+    "text-white"
+  ],
+  "examples": [
+    {
+      "title": "Basic Avatar with Image",
+      "description": "Simple avatar with user image",
+      "code": "<x-avatar src=\"/img/user.jpg\" alt=\"John Doe\" />"
+    },
+    {
+      "title": "Avatar with Initials",
+      "description": "Avatar showing user initials",
+      "code": "<x-avatar label=\"JD\" color=\"primary\" />"
+    },
+    {
+      "title": "Different Sizes",
+      "description": "Avatars in various sizes",
+      "code": "<!-- Extra Small -->\n<x-avatar size=\"xs\" src=\"/img/user.jpg\" />\n\n<!-- Small -->\n<x-avatar size=\"sm\" src=\"/img/user.jpg\" />\n\n<!-- Medium (default) -->\n<x-avatar size=\"md\" src=\"/img/user.jpg\" />\n\n<!-- Large -->\n<x-avatar size=\"lg\" src=\"/img/user.jpg\" />\n\n<!-- Extra Large -->\n<x-avatar size=\"xl\" src=\"/img/user.jpg\" />\n\n<!-- 2X Large -->\n<x-avatar size=\"2xl\" src=\"/img/user.jpg\" />"
+    },
+    {
+      "title": "Squared Avatar with Border",
+      "description": "Square avatar with border styling",
+      "code": "<x-avatar\n    src=\"/img/team-member.jpg\"\n    squared\n    border\n    rounded=\"lg\"\n    size=\"lg\"\n/>"
+    },
+    {
+      "title": "Avatar Group",
+      "description": "Multiple avatars overlapped",
+      "code": "<div class=\"flex -space-x-2\">\n    <x-avatar src=\"/img/user1.jpg\" border />\n    <x-avatar src=\"/img/user2.jpg\" border />\n    <x-avatar src=\"/img/user3.jpg\" border />\n    <x-avatar label=\"+5\" color=\"secondary\" border />\n</div>"
+    },
+    {
+      "title": "Avatar with Custom Placeholder",
+      "description": "Custom placeholder content",
+      "code": "<x-avatar size=\"lg\">\n    <x-slot name=\"placeholder\">\n        <x-icon name=\"user\" class=\"w-8 h-8 text-gray-400\" />\n    </x-slot>\n</x-avatar>"
+    },
+    {
+      "title": "Avatar with Status Indicator",
+      "description": "Avatar with online status dot",
+      "code": "<div class=\"relative inline-block\">\n    <x-avatar src=\"/img/user.jpg\" size=\"lg\" />\n    <span class=\"absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-400 ring-2 ring-white\"></span>\n</div>"
+    }
+  ],
+  "best_practices": [
+    "Always provide alt text for accessibility",
+    "Use consistent sizes across your application",
+    "Consider lazy loading for large avatar lists",
+    "Provide fallback initials when images fail to load",
+    "Use semantic colors for different user types or states"
+  ],
+  "accessibility": [
+    "Image avatars must have descriptive alt text",
+    "Initial avatars use aria-label for screen readers",
+    "Decorative avatars should use role='presentation'",
+    "Ensure sufficient color contrast for initials"
+  ],
+  "dependencies": ["icon"],
+  "tags": ["avatar", "user", "profile", "image", "initials", "photo"]
+}

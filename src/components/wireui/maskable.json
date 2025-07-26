@@ -1,0 +1,186 @@
+{
+  "name": "maskable",
+  "category": "forms",
+  "description": "Input component with customizable input masking for formatted data entry",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Input label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Input placeholder",
+      "required": false
+    },
+    {
+      "name": "mask",
+      "type": "string|array",
+      "description": "Input mask pattern or array of patterns",
+      "required": true
+    },
+    {
+      "name": "emit-formatted",
+      "type": "boolean",
+      "description": "Emit the formatted value with mask",
+      "default": false
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Left icon",
+      "required": false
+    },
+    {
+      "name": "right-icon",
+      "type": "string",
+      "description": "Right icon",
+      "required": false
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "description": "Input prefix",
+      "required": false
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "Input suffix",
+      "required": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the input",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make input readonly",
+      "default": false
+    }
+  ],
+  "mask_tokens": [
+    {
+      "token": "#",
+      "description": "Numeric (0-9)"
+    },
+    {
+      "token": "X",
+      "description": "Alphanumeric (A-Z, a-z, 0-9)"
+    },
+    {
+      "token": "S",
+      "description": "Alphabetic (A-Z, a-z)"
+    },
+    {
+      "token": "A",
+      "description": "Alphabetic uppercase (A-Z)"
+    },
+    {
+      "token": "a",
+      "description": "Alphabetic lowercase (a-z)"
+    },
+    {
+      "token": "!",
+      "description": "Escape character"
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy",
+    "Alpine.js mask integration"
+  ],
+  "alpine_directives": [
+    "x-mask",
+    "x-mask:dynamic",
+    "x-model",
+    "x-on:input"
+  ],
+  "tailwind_classes": [
+    "standard input classes"
+  ],
+  "examples": [
+    {
+      "title": "Phone Number Mask",
+      "description": "US phone number format",
+      "code": "<x-maskable \n    wire:model=\"phone\"\n    label=\"Phone Number\"\n    mask=\"(###) ###-####\"\n    placeholder=\"(555) 123-4567\"\n    icon=\"phone\"\n/>"
+    },
+    {
+      "title": "Credit Card Mask",
+      "description": "Credit card number formatting",
+      "code": "<x-maskable \n    wire:model=\"creditCard\"\n    label=\"Credit Card Number\"\n    mask=\"#### #### #### ####\"\n    placeholder=\"1234 5678 9012 3456\"\n    icon=\"credit-card\"\n/>"
+    },
+    {
+      "title": "Date Mask",
+      "description": "Date input with mask",
+      "code": "<x-maskable \n    wire:model=\"date\"\n    label=\"Date\"\n    mask=\"##/##/####\"\n    placeholder=\"MM/DD/YYYY\"\n    hint=\"Enter date in MM/DD/YYYY format\"\n/>"
+    },
+    {
+      "title": "Social Security Number",
+      "description": "SSN format with dashes",
+      "code": "<x-maskable \n    wire:model=\"ssn\"\n    label=\"Social Security Number\"\n    mask=\"###-##-####\"\n    placeholder=\"123-45-6789\"\n    type=\"password\"\n/>"
+    },
+    {
+      "title": "Dynamic Mask",
+      "description": "Multiple mask patterns",
+      "code": "<x-maskable \n    wire:model=\"cpfCnpj\"\n    label=\"CPF/CNPJ\"\n    :mask=\"['###.###.###-##', '##.###.###/####-##']\"\n    placeholder=\"CPF or CNPJ\"\n    hint=\"Brazilian tax ID\"\n/>"
+    },
+    {
+      "title": "Alphanumeric Masks",
+      "description": "Letters and numbers",
+      "code": "<!-- License Plate -->\n<x-maskable \n    label=\"License Plate\"\n    mask=\"AAA-####\"\n    placeholder=\"ABC-1234\"\n/>\n\n<!-- Product Code -->\n<x-maskable \n    label=\"Product Code\"\n    mask=\"XX-####-XX\"\n    placeholder=\"AB-1234-CD\"\n/>\n\n<!-- Passport Number -->\n<x-maskable \n    label=\"Passport Number\"\n    mask=\"A#######\"\n    placeholder=\"A1234567\"\n/>"
+    },
+    {
+      "title": "Emit Formatted Value",
+      "description": "Get value with formatting",
+      "code": "<x-maskable \n    wire:model=\"formattedPhone\"\n    label=\"Contact Number\"\n    mask=\"+1 (###) ###-####\"\n    emit-formatted\n    hint=\"Value saved as: {{ $formattedPhone }}\"\n/>",
+      "livewire_context": "public string $formattedPhone = '+1 (555) 123-4567';"
+    },
+    {
+      "title": "Complex Form Example",
+      "description": "Multiple masked inputs in a form",
+      "code": "<form wire:submit.prevent=\"submit\" class=\"space-y-4\">\n    <x-maskable \n        wire:model=\"zipCode\"\n        label=\"ZIP Code\"\n        mask=\"#####-####\"\n        placeholder=\"12345-6789\"\n    />\n    \n    <x-maskable \n        wire:model=\"taxId\"\n        label=\"Tax ID\"\n        mask=\"##-#######\"\n        placeholder=\"12-3456789\"\n    />\n    \n    <x-maskable \n        wire:model=\"accountNumber\"\n        label=\"Account Number\"\n        mask=\"####-####-####\"\n        placeholder=\"1234-5678-9012\"\n        prefix=\"ACCT\"\n    />\n    \n    <x-maskable \n        wire:model=\"routingNumber\"\n        label=\"Routing Number\"\n        mask=\"#########\"\n        placeholder=\"123456789\"\n        icon=\"library\"\n    />\n    \n    <x-button type=\"submit\" primary label=\"Submit\" />\n</form>"
+    },
+    {
+      "title": "Time Input Mask",
+      "description": "Time format masking",
+      "code": "<!-- 24-hour format -->\n<x-maskable \n    label=\"Time (24h)\"\n    mask=\"##:##\"\n    placeholder=\"23:59\"\n/>\n\n<!-- 12-hour with seconds -->\n<x-maskable \n    label=\"Time (12h)\"\n    mask=\"##:##:## AA\"\n    placeholder=\"12:30:45 PM\"\n/>"
+    }
+  ],
+  "best_practices": [
+    "Choose appropriate mask patterns for data types",
+    "Provide clear placeholders showing the format",
+    "Use hints to explain expected format",
+    "Consider emit-formatted for display values",
+    "Test masks with various input scenarios"
+  ],
+  "accessibility": [
+    "Clear format instructions for screen readers",
+    "Placeholder text describes expected format",
+    "Error messages explain format requirements",
+    "Keyboard navigation works smoothly",
+    "Consider providing format examples"
+  ],
+  "dependencies": ["input"],
+  "tags": ["mask", "format", "input", "pattern", "validation"]
+}

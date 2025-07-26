@@ -1,0 +1,187 @@
+{
+  "name": "currency",
+  "category": "forms",
+  "description": "Currency input component with formatting and decimal support",
+  "version": "1.0.0",
+  "wireui_version": "^2.4",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Input label",
+      "required": false
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Input placeholder",
+      "default": "0.00"
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "description": "Currency symbol prefix",
+      "default": "$"
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "Currency code suffix",
+      "required": false
+    },
+    {
+      "name": "thousands",
+      "type": "string",
+      "description": "Thousands separator",
+      "default": ","
+    },
+    {
+      "name": "decimal",
+      "type": "string",
+      "description": "Decimal separator",
+      "default": "."
+    },
+    {
+      "name": "precision",
+      "type": "number",
+      "description": "Number of decimal places",
+      "default": 2
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "description": "Minimum value",
+      "required": false
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "Maximum value",
+      "required": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Disable the input",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Make input readonly",
+      "default": false
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Helper text",
+      "required": false
+    },
+    {
+      "name": "corner-hint",
+      "type": "string",
+      "description": "Corner hint text",
+      "required": false
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "description": "Left icon",
+      "required": false
+    },
+    {
+      "name": "right-icon",
+      "type": "string",
+      "description": "Right icon",
+      "required": false
+    },
+    {
+      "name": "emit-formatted",
+      "type": "boolean",
+      "description": "Emit formatted value instead of raw number",
+      "default": false
+    }
+  ],
+  "wireui_features": [
+    "wire:model",
+    "wire:model.defer",
+    "wire:model.lazy",
+    "automatic formatting",
+    "numeric validation"
+  ],
+  "alpine_directives": [
+    "x-data",
+    "x-model",
+    "x-on:input",
+    "x-on:blur",
+    "x-mask:dynamic"
+  ],
+  "tailwind_classes": [
+    "pl-7",
+    "pr-12",
+    "text-right",
+    "tabular-nums"
+  ],
+  "examples": [
+    {
+      "title": "Basic Currency Input",
+      "description": "Simple currency input with dollar sign",
+      "code": "<x-currency label=\"Price\" placeholder=\"0.00\" prefix=\"$\" />"
+    },
+    {
+      "title": "Currency with Livewire Binding",
+      "description": "Two-way binding with automatic formatting",
+      "code": "<x-currency \n    wire:model=\"product.price\" \n    label=\"Product Price\"\n    hint=\"Enter price without tax\"\n    prefix=\"$\"\n/>",
+      "livewire_context": "public array $product = [\n    'price' => 99.99\n];"
+    },
+    {
+      "title": "Different Currency Formats",
+      "description": "Various currency configurations",
+      "code": "<!-- Euro with suffix -->\n<x-currency \n    label=\"Price in Euros\"\n    prefix=\"€\"\n    suffix=\"EUR\"\n    thousands=\".\"\n    decimal=\",\"\n/>\n\n<!-- British Pound -->\n<x-currency \n    label=\"Price in Pounds\"\n    prefix=\"£\"\n    suffix=\"GBP\"\n/>\n\n<!-- Japanese Yen (no decimals) -->\n<x-currency \n    label=\"Price in Yen\"\n    prefix=\"¥\"\n    :precision=\"0\"\n/>"
+    },
+    {
+      "title": "Currency with Min/Max",
+      "description": "Currency input with value constraints",
+      "code": "<x-currency \n    wire:model=\"discount.amount\"\n    label=\"Discount Amount\"\n    :min=\"0\"\n    :max=\"1000\"\n    hint=\"Maximum discount: $1,000\"\n/>",
+      "livewire_context": "public array $discount = [\n    'amount' => 0\n];"
+    },
+    {
+      "title": "Currency with Icons",
+      "description": "Currency input with visual enhancements",
+      "code": "<x-currency \n    label=\"Total Revenue\"\n    icon=\"currency-dollar\"\n    right-icon=\"arrow-trending-up\"\n    prefix=\"$\"\n    corner-hint=\"YTD\"\n/>"
+    },
+    {
+      "title": "Emit Formatted Value",
+      "description": "Get formatted string instead of number",
+      "code": "<x-currency \n    wire:model=\"formattedPrice\"\n    label=\"Display Price\"\n    emit-formatted\n    hint=\"Value saved as: {{ $formattedPrice }}\"\n/>",
+      "livewire_context": "public string $formattedPrice = '$1,234.56';"
+    },
+    {
+      "title": "Currency in Form Context",
+      "description": "Multiple currency fields in a form",
+      "code": "<form wire:submit.prevent=\"calculate\">\n    <div class=\"space-y-4\">\n        <x-currency \n            wire:model=\"invoice.subtotal\"\n            label=\"Subtotal\"\n            readonly\n        />\n        \n        <x-currency \n            wire:model=\"invoice.tax\"\n            label=\"Tax (10%)\"\n            readonly\n            hint=\"Calculated automatically\"\n        />\n        \n        <x-currency \n            wire:model=\"invoice.discount\"\n            label=\"Discount\"\n            :max=\"invoice.subtotal\"\n        />\n        \n        <div class=\"border-t pt-4\">\n            <x-currency \n                wire:model=\"invoice.total\"\n                label=\"Total\"\n                readonly\n                class=\"text-lg font-bold\"\n            />\n        </div>\n    </div>\n</form>",
+      "livewire_context": "public array $invoice = [\n    'subtotal' => 100.00,\n    'tax' => 10.00,\n    'discount' => 0.00,\n    'total' => 110.00\n];"
+    },
+    {
+      "title": "Custom Precision",
+      "description": "Currency with different decimal places",
+      "code": "<!-- Cryptocurrency (8 decimals) -->\n<x-currency \n    label=\"Bitcoin Amount\"\n    prefix=\"₿\"\n    :precision=\"8\"\n    placeholder=\"0.00000000\"\n/>\n\n<!-- Fuel price (3 decimals) -->\n<x-currency \n    label=\"Price per Gallon\"\n    prefix=\"$\"\n    :precision=\"3\"\n    placeholder=\"0.000\"\n/>"
+    }
+  ],
+  "best_practices": [
+    "Use appropriate precision for the currency type",
+    "Set min/max values to prevent invalid inputs",
+    "Show currency code for international applications",
+    "Use readonly for calculated values",
+    "Consider locale-specific formatting"
+  ],
+  "accessibility": [
+    "Numeric keyboard on mobile devices",
+    "Clear labels indicating currency type",
+    "Announce formatted values to screen readers",
+    "Keyboard shortcuts for incrementing values",
+    "Error messages for invalid inputs"
+  ],
+  "dependencies": ["input"],
+  "tags": ["currency", "money", "price", "financial", "input", "number"]
+}
