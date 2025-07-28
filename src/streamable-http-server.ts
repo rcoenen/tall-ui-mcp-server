@@ -10,15 +10,18 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { componentHandlers } from './handlers/components.js';
 import { ComponentRegistry } from './registry/loader.js';
+import { iconHandlers } from './handlers/icons.js';
+import { IconRegistry } from './icons/registry.js';
 
-// Initialize component registry
-const registry = new ComponentRegistry();
+// Initialize registries
+const componentRegistry = new ComponentRegistry();
+const iconRegistry = new IconRegistry();
 
 // Create MCP server instance
 const mcpServer = new Server(
   {
-    name: 'tall-ui-mcp-server',
-    version: '1.0.0',
+    name: 'wireui-mcp-server',
+    version: '1.1.0',
   },
   {
     capabilities: {
@@ -33,7 +36,7 @@ mcpServer.setRequestHandler(ListToolsRequestSchema, async () => {
     tools: [
       {
         name: 'tallui_list_components',
-        description: 'List all available TALL UI components',
+        description: 'List all available WireUI components',
         inputSchema: {
           type: 'object',
           properties: {
@@ -100,16 +103,28 @@ mcpServer.setRequestHandler(CallToolRequestSchema, async (request) => {
   try {
     switch (name) {
       case 'tallui_list_components':
-        return await componentHandlers.listComponents(registry, args as any || {});
+        return await componentHandlers.listComponents(componentRegistry, args as any || {});
       
       case 'tallui_get_component':
-        return await componentHandlers.getComponent(registry, args as any || {});
+        return await componentHandlers.getComponent(componentRegistry, args as any || {});
       
       case 'tallui_search_components':
-        return await componentHandlers.searchComponents(registry, args as any || {});
+        return await componentHandlers.searchComponents(componentRegistry, args as any || {});
       
       case 'tallui_get_component_example':
-        return await componentHandlers.getComponentExample(registry, args as any || {});
+        return await componentHandlers.getComponentExample(componentRegistry, args as any || {});
+      
+      case 'wireui_list_icons':
+        return await iconHandlers.listIcons(iconRegistry, args as any || {});
+      
+      case 'wireui_check_icon':
+        return await iconHandlers.checkIcon(iconRegistry, args as any || {});
+      
+      case 'wireui_find_similar_icons':
+        return await iconHandlers.findSimilarIcons(iconRegistry, args as any || {});
+      
+      case 'wireui_get_icon_example':
+        return await iconHandlers.getIconExample(iconRegistry, args as any || {});
       
       default:
         throw new McpError(
@@ -179,7 +194,7 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
             tools: [
               {
                 name: 'tallui_list_components',
-                description: 'List all available TALL UI components',
+                description: 'List all available WireUI components',
                 inputSchema: {
                   type: 'object',
                   properties: {
@@ -236,6 +251,88 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
                   required: ['name'],
                 },
               },
+              {
+                name: 'wireui_list_icons',
+                description: 'List all available icons from Heroicons and Phosphor',
+                inputSchema: {
+                  type: 'object',
+                  properties: {
+                    library: {
+                      type: 'string',
+                      enum: ['heroicons', 'phosphor', 'all'],
+                      description: 'Filter by icon library',
+                    },
+                    search: {
+                      type: 'string',
+                      description: 'Search icons by name or tags',
+                    },
+                  },
+                },
+              },
+              {
+                name: 'wireui_check_icon',
+                description: 'Check if an icon exists and get its variants',
+                inputSchema: {
+                  type: 'object',
+                  properties: {
+                    name: {
+                      type: 'string',
+                      description: 'Icon name to check',
+                    },
+                    library: {
+                      type: 'string',
+                      enum: ['heroicons', 'phosphor'],
+                      description: 'Specific library to check',
+                    },
+                    variant: {
+                      type: 'string',
+                      description: 'Specific variant to check',
+                    },
+                  },
+                  required: ['name'],
+                },
+              },
+              {
+                name: 'wireui_find_similar_icons',
+                description: 'Find icons similar to a given name (fuzzy search)',
+                inputSchema: {
+                  type: 'object',
+                  properties: {
+                    name: {
+                      type: 'string',
+                      description: 'Icon name to search for',
+                    },
+                    limit: {
+                      type: 'number',
+                      description: 'Maximum number of suggestions (default: 5)',
+                    },
+                  },
+                  required: ['name'],
+                },
+              },
+              {
+                name: 'wireui_get_icon_example',
+                description: 'Get usage examples for an icon',
+                inputSchema: {
+                  type: 'object',
+                  properties: {
+                    name: {
+                      type: 'string',
+                      description: 'Icon name',
+                    },
+                    library: {
+                      type: 'string',
+                      enum: ['heroicons', 'phosphor'],
+                      description: 'Icon library',
+                    },
+                    variant: {
+                      type: 'string',
+                      description: 'Specific variant',
+                    },
+                  },
+                  required: ['name', 'library'],
+                },
+              },
             ],
           };
         })();
@@ -247,16 +344,28 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
           let result;
           switch (name) {
             case 'tallui_list_components':
-              result = await componentHandlers.listComponents(registry, args || {});
+              result = await componentHandlers.listComponents(componentRegistry, args || {});
               break;
             case 'tallui_get_component':
-              result = await componentHandlers.getComponent(registry, args || {});
+              result = await componentHandlers.getComponent(componentRegistry, args || {});
               break;
             case 'tallui_search_components':
-              result = await componentHandlers.searchComponents(registry, args || {});
+              result = await componentHandlers.searchComponents(componentRegistry, args || {});
               break;
             case 'tallui_get_component_example':
-              result = await componentHandlers.getComponentExample(registry, args || {});
+              result = await componentHandlers.getComponentExample(componentRegistry, args || {});
+              break;
+            case 'wireui_list_icons':
+              result = await iconHandlers.listIcons(iconRegistry, args || {});
+              break;
+            case 'wireui_check_icon':
+              result = await iconHandlers.checkIcon(iconRegistry, args || {});
+              break;
+            case 'wireui_find_similar_icons':
+              result = await iconHandlers.findSimilarIcons(iconRegistry, args || {});
+              break;
+            case 'wireui_get_icon_example':
+              result = await iconHandlers.getIconExample(iconRegistry, args || {});
               break;
             default:
               throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${name}`);
@@ -275,7 +384,7 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
             tools: {}
           },
           serverInfo: {
-            name: 'tall-ui-mcp-server',
+            name: 'wireui-mcp-server',
             version: '1.0.0'
           }
         };
@@ -314,7 +423,7 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ 
         status: 'ok', 
-        server: 'tall-ui-mcp-server',
+        server: 'wireui-mcp-server',
         version: '1.0.0',
         transport: 'streamable-http',
         protocol: '2025-03-26'
@@ -327,10 +436,10 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
         <!DOCTYPE html>
         <html>
         <head>
-          <title>TALL UI MCP Server</title>
+          <title>WireUI MCP Server</title>
         </head>
         <body>
-          <h1>TALL UI MCP Server (Streamable HTTP)</h1>
+          <h1>WireUI MCP Server (Streamable HTTP)</h1>
           <p>This is a Model Context Protocol server for TALL stack UI components.</p>
           <h2>MCP Endpoint:</h2>
           <ul>
@@ -340,7 +449,7 @@ const server = createServer(async (req: IncomingMessage, res: ServerResponse) =>
           <h2>Usage:</h2>
           <p>Configure your MCP client to use:</p>
           <pre>
-claude mcp add --transport http tall-ui ${req.headers.host}/mcp
+claude mcp add --transport http wireui ${req.headers.host}/mcp
           </pre>
         </body>
         </html>
@@ -356,10 +465,11 @@ claude mcp add --transport http tall-ui ${req.headers.host}/mcp
 const PORT = process.env.PORT || 3000;
 
 async function main() {
-  await registry.loadComponents();
+  await componentRegistry.loadComponents();
+  await iconRegistry.loadIcons();
   
   server.listen(PORT, () => {
-    console.log(`TALL UI MCP Server (Streamable HTTP) listening on port ${PORT}`);
+    console.log(`WireUI MCP Server (Streamable HTTP) listening on port ${PORT}`);
     console.log(`MCP endpoint: http://localhost:${PORT}/mcp`);
     console.log(`Health check: http://localhost:${PORT}/health`);
   });

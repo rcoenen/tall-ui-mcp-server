@@ -1,6 +1,6 @@
-# TALL UI MCP Server
+# WireUI MCP Server
 
-An MCP (Model Context Protocol) server that provides AI tools with deep understanding of TALL stack UI components, focusing on WireUI v2.x components.
+An MCP (Model Context Protocol) server that provides AI tools with deep understanding of WireUI v2.x components and comprehensive icon support for Heroicons and Phosphor Icons.
 
 ## What is the TALL Stack?
 
@@ -19,6 +19,9 @@ This MCP server enables AI assistants like Claude to:
 - Get usage examples with Blade syntax
 - Understand Livewire and Alpine.js integrations
 - Generate properly structured TALL stack UI code
+- **Check icon availability** across Heroicons and Phosphor libraries
+- **Find similar icons** with fuzzy matching for typos
+- **Get icon usage examples** with all variants
 
 ## Requirements
 
@@ -32,8 +35,8 @@ This MCP server enables AI assistants like Claude to:
 
 ```bash
 # Clone the repository
-git clone https://github.com/rcoenen/tall-ui-mcp-server.git
-cd tall-ui-mcp-server
+git clone https://github.com/rcoenen/wireui-mcp-server.git
+cd wireui-mcp-server
 
 # Install dependencies
 npm install
@@ -58,7 +61,7 @@ This will:
 
 In the browser, you'll see a form. Enter these values:
 - **Command**: `node`
-- **Arguments**: `/Users/YOUR_USERNAME/Dev/tall-ui-mcp-server/dist/index.js` (adjust path to match your setup)
+- **Arguments**: `/Users/YOUR_USERNAME/Dev/wireui-mcp-server/dist/index.js` (adjust path to match your setup)
 
 Click "Connect" and you should see:
 - "Connected" status
@@ -94,7 +97,7 @@ Add to your Claude Desktop configuration (`~/Library/Application Support/Claude/
   "mcpServers": {
     "tall-ui": {
       "command": "node",
-      "args": ["/path/to/tall-ui-mcp-server/dist/index.js"]
+      "args": ["/path/to/wireui-mcp-server/dist/index.js"]
     }
   }
 }
@@ -104,10 +107,17 @@ Restart Claude Desktop and the TALL UI tools will be available.
 
 ## Available Tools
 
+### Component Tools
 - `tallui_list_components` - List all available components
 - `tallui_get_component` - Get detailed component information
 - `tallui_search_components` - Search components by keyword
 - `tallui_get_component_example` - Get component usage examples
+
+### Icon Tools (NEW! v1.1.0)
+- `wireui_list_icons` - List all available icons (324 Heroicons, 1000+ Phosphor icons)
+- `wireui_check_icon` - Check if an icon exists and get its variants
+- `wireui_find_similar_icons` - Find similar icons with fuzzy matching
+- `wireui_get_icon_example` - Get usage examples for icons
 
 ## WireUI Component Coverage
 
@@ -139,6 +149,48 @@ Based on the official WireUI v2.x component library: https://wireui.dev/componen
 - ✅ Implemented
 - ❌ Not yet implemented
 
+## Icon Support (NEW! v1.1.0)
+
+### Icon Libraries Coverage
+
+| Library | Icons | Variants | Total Combinations |
+|---------|-------|----------|-------------------|
+| **Heroicons** | 324 | outline, solid, mini.solid | 972 |
+| **Phosphor** | 1,000+ | thin, light, regular, bold, fill, duotone | 6,000+ |
+
+### Icon Features
+
+1. **Smart Icon Validation**
+   - Checks if icons exist before use
+   - Validates variant availability
+   - Prevents runtime errors from missing icons
+
+2. **Fuzzy Matching**
+   - Finds similar icons when typos occur
+   - Suggests alternatives for non-existent icons
+   - Example: "usr" → suggests "user", "users"
+
+3. **Usage Examples**
+   - Shows correct syntax for each icon library
+   - Provides examples for all variants
+   - Includes component syntax alternatives
+
+### Example Icon Tool Usage
+
+```typescript
+// Check if an icon exists
+wireui_check_icon({ name: "user", library: "heroicons" })
+// Returns: { exists: true, variants: ["outline", "solid", "mini.solid"] }
+
+// Find similar icons (typo handling)
+wireui_find_similar_icons({ name: "usr" })
+// Returns suggestions: "user", "users", etc.
+
+// Get usage examples
+wireui_get_icon_example({ name: "user", library: "heroicons" })
+// Returns Blade syntax examples for all variants
+```
+
 ## Development
 
 ```bash
@@ -150,6 +202,9 @@ npm test
 
 # Type check
 npm run typecheck
+
+# Update icon data
+npm run update-icons
 ```
 
 ## Component Structure

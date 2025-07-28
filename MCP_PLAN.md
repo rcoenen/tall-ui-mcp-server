@@ -1,4 +1,4 @@
-# TALL UI MCP Server - Implementation Plan
+# WireUI MCP Server - Implementation Plan
 
 ## Project Overview
 
@@ -160,7 +160,7 @@ interface GenerationMethods {
 
 ### Directory Structure
 ```
-tall-ui-mcp-server/
+wireui-mcp-server/
 ├── src/
 │   ├── index.ts               # MCP server entry point
 │   ├── handlers/              # Request handlers

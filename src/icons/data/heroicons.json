@@ -1,0 +1,4411 @@
+{
+  "name": "heroicons",
+  "version": "2.1.5",
+  "totalIcons": 324,
+  "variants": [
+    "outline",
+    "solid",
+    "mini.solid"
+  ],
+  "icons": [
+    {
+      "name": "academic-cap",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "academic",
+        "cap"
+      ]
+    },
+    {
+      "name": "adjustments-horizontal",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "adjustments",
+        "horizontal"
+      ]
+    },
+    {
+      "name": "adjustments-vertical",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "adjustments",
+        "vertical"
+      ]
+    },
+    {
+      "name": "archive-box-arrow-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "archive",
+        "box",
+        "arrow",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "archive-box-x-mark",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "archive",
+        "box",
+        "x",
+        "mark",
+        "close",
+        "cross"
+      ]
+    },
+    {
+      "name": "archive-box",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "archive",
+        "box"
+      ]
+    },
+    {
+      "name": "arrow-down-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "down",
+        "circle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-down-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "down",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-down-on-square-stack",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "down",
+        "on",
+        "square",
+        "stack",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-down-on-square",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "down",
+        "on",
+        "square",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-down-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "down",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-down-tray",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "down",
+        "tray",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-left-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "left",
+        "circle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-left-end-on-rectangle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "left",
+        "end",
+        "on",
+        "rectangle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-left-on-rectangle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "left",
+        "on",
+        "rectangle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-left-start-on-rectangle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "left",
+        "start",
+        "on",
+        "rectangle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-long-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "long",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-long-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "long",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-long-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "long",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-long-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "long",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-path-rounded-square",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "path",
+        "rounded",
+        "square",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-path",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "path",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-right-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "right",
+        "circle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-right-end-on-rectangle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "right",
+        "end",
+        "on",
+        "rectangle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-right-on-rectangle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "right",
+        "on",
+        "rectangle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-right-start-on-rectangle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "right",
+        "start",
+        "on",
+        "rectangle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-small-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "small",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-small-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "small",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-small-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "small",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-small-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "small",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-top-right-on-square",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "top",
+        "right",
+        "on",
+        "square",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-trending-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "trending",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-trending-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "trending",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-turn-down-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "turn",
+        "down",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-turn-down-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "turn",
+        "down",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-turn-left-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "turn",
+        "left",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-turn-left-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "turn",
+        "left",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-turn-right-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "turn",
+        "right",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-turn-right-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "turn",
+        "right",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-turn-up-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "turn",
+        "up",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-turn-up-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "turn",
+        "up",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-up-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "up",
+        "circle",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-up-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "up",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-up-on-square-stack",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "up",
+        "on",
+        "square",
+        "stack",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-up-on-square",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "up",
+        "on",
+        "square",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-up-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "up",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-up-tray",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "up",
+        "tray",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-uturn-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "uturn",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-uturn-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "uturn",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-uturn-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "uturn",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrow-uturn-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrow",
+        "uturn",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrows-pointing-in",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrows",
+        "pointing",
+        "in",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrows-pointing-out",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrows",
+        "pointing",
+        "out",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrows-right-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrows",
+        "right",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "arrows-up-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "arrows",
+        "up",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "at-symbol",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "at",
+        "symbol"
+      ]
+    },
+    {
+      "name": "backspace",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "backspace"
+      ]
+    },
+    {
+      "name": "backward",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "backward"
+      ]
+    },
+    {
+      "name": "banknotes",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "banknotes"
+      ]
+    },
+    {
+      "name": "bars-2",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bars",
+        "2"
+      ]
+    },
+    {
+      "name": "bars-3-bottom-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bars",
+        "3",
+        "bottom",
+        "left"
+      ]
+    },
+    {
+      "name": "bars-3-bottom-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bars",
+        "3",
+        "bottom",
+        "right"
+      ]
+    },
+    {
+      "name": "bars-3-center-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bars",
+        "3",
+        "center",
+        "left"
+      ]
+    },
+    {
+      "name": "bars-3",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bars",
+        "3"
+      ]
+    },
+    {
+      "name": "bars-4",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bars",
+        "4"
+      ]
+    },
+    {
+      "name": "bars-arrow-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bars",
+        "arrow",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "bars-arrow-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bars",
+        "arrow",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "battery-0",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "battery",
+        "0"
+      ]
+    },
+    {
+      "name": "battery-100",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "battery",
+        "100"
+      ]
+    },
+    {
+      "name": "battery-50",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "battery",
+        "50"
+      ]
+    },
+    {
+      "name": "beaker",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "beaker"
+      ]
+    },
+    {
+      "name": "bell-alert",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bell",
+        "alert"
+      ]
+    },
+    {
+      "name": "bell-slash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bell",
+        "slash"
+      ]
+    },
+    {
+      "name": "bell-snooze",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bell",
+        "snooze"
+      ]
+    },
+    {
+      "name": "bell",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bell"
+      ]
+    },
+    {
+      "name": "bold",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bold"
+      ]
+    },
+    {
+      "name": "bolt-slash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bolt",
+        "slash"
+      ]
+    },
+    {
+      "name": "bolt",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bolt"
+      ]
+    },
+    {
+      "name": "book-open",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "book",
+        "open"
+      ]
+    },
+    {
+      "name": "bookmark-slash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bookmark",
+        "slash"
+      ]
+    },
+    {
+      "name": "bookmark-square",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bookmark",
+        "square"
+      ]
+    },
+    {
+      "name": "bookmark",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bookmark"
+      ]
+    },
+    {
+      "name": "briefcase",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "briefcase"
+      ]
+    },
+    {
+      "name": "bug-ant",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "bug",
+        "ant"
+      ]
+    },
+    {
+      "name": "building-library",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "building",
+        "library"
+      ]
+    },
+    {
+      "name": "building-office-2",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "building",
+        "office",
+        "2"
+      ]
+    },
+    {
+      "name": "building-office",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "building",
+        "office"
+      ]
+    },
+    {
+      "name": "building-storefront",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "building",
+        "storefront"
+      ]
+    },
+    {
+      "name": "cake",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cake"
+      ]
+    },
+    {
+      "name": "calculator",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "calculator"
+      ]
+    },
+    {
+      "name": "calendar-date-range",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "calendar",
+        "date",
+        "range"
+      ]
+    },
+    {
+      "name": "calendar-days",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "calendar",
+        "days"
+      ]
+    },
+    {
+      "name": "calendar",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "calendar"
+      ]
+    },
+    {
+      "name": "camera",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "camera"
+      ]
+    },
+    {
+      "name": "chart-bar-square",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chart",
+        "bar",
+        "square"
+      ]
+    },
+    {
+      "name": "chart-bar",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chart",
+        "bar"
+      ]
+    },
+    {
+      "name": "chart-pie",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chart",
+        "pie"
+      ]
+    },
+    {
+      "name": "chat-bubble-bottom-center-text",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chat",
+        "bubble",
+        "bottom",
+        "center",
+        "text"
+      ]
+    },
+    {
+      "name": "chat-bubble-bottom-center",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chat",
+        "bubble",
+        "bottom",
+        "center"
+      ]
+    },
+    {
+      "name": "chat-bubble-left-ellipsis",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chat",
+        "bubble",
+        "left",
+        "ellipsis"
+      ]
+    },
+    {
+      "name": "chat-bubble-left-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chat",
+        "bubble",
+        "left",
+        "right"
+      ]
+    },
+    {
+      "name": "chat-bubble-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chat",
+        "bubble",
+        "left"
+      ]
+    },
+    {
+      "name": "chat-bubble-oval-left-ellipsis",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chat",
+        "bubble",
+        "oval",
+        "left",
+        "ellipsis"
+      ]
+    },
+    {
+      "name": "chat-bubble-oval-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chat",
+        "bubble",
+        "oval",
+        "left"
+      ]
+    },
+    {
+      "name": "check-badge",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "check",
+        "badge",
+        "tick",
+        "done"
+      ]
+    },
+    {
+      "name": "check-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "check",
+        "circle",
+        "tick",
+        "done"
+      ]
+    },
+    {
+      "name": "check",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "check",
+        "tick",
+        "done"
+      ]
+    },
+    {
+      "name": "chevron-double-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "double",
+        "down"
+      ]
+    },
+    {
+      "name": "chevron-double-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "double",
+        "left"
+      ]
+    },
+    {
+      "name": "chevron-double-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "double",
+        "right"
+      ]
+    },
+    {
+      "name": "chevron-double-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "double",
+        "up"
+      ]
+    },
+    {
+      "name": "chevron-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "down"
+      ]
+    },
+    {
+      "name": "chevron-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "left"
+      ]
+    },
+    {
+      "name": "chevron-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "right"
+      ]
+    },
+    {
+      "name": "chevron-up-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "up",
+        "down"
+      ]
+    },
+    {
+      "name": "chevron-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "chevron",
+        "up"
+      ]
+    },
+    {
+      "name": "circle-stack",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "circle",
+        "stack"
+      ]
+    },
+    {
+      "name": "clipboard-document-check",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "clipboard",
+        "document",
+        "check",
+        "tick",
+        "done"
+      ]
+    },
+    {
+      "name": "clipboard-document-list",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "clipboard",
+        "document",
+        "list"
+      ]
+    },
+    {
+      "name": "clipboard-document",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "clipboard",
+        "document"
+      ]
+    },
+    {
+      "name": "clipboard",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "clipboard"
+      ]
+    },
+    {
+      "name": "clock",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "clock"
+      ]
+    },
+    {
+      "name": "cloud-arrow-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cloud",
+        "arrow",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "cloud-arrow-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cloud",
+        "arrow",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "cloud",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cloud"
+      ]
+    },
+    {
+      "name": "code-bracket-square",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "code",
+        "bracket",
+        "square"
+      ]
+    },
+    {
+      "name": "code-bracket",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "code",
+        "bracket"
+      ]
+    },
+    {
+      "name": "cog-6-tooth",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cog",
+        "6",
+        "tooth"
+      ]
+    },
+    {
+      "name": "cog-8-tooth",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cog",
+        "8",
+        "tooth"
+      ]
+    },
+    {
+      "name": "cog",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cog"
+      ]
+    },
+    {
+      "name": "command-line",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "command",
+        "line"
+      ]
+    },
+    {
+      "name": "computer-desktop",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "computer",
+        "desktop"
+      ]
+    },
+    {
+      "name": "cpu-chip",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cpu",
+        "chip"
+      ]
+    },
+    {
+      "name": "credit-card",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "credit",
+        "card"
+      ]
+    },
+    {
+      "name": "cube-transparent",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cube",
+        "transparent"
+      ]
+    },
+    {
+      "name": "cube",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cube"
+      ]
+    },
+    {
+      "name": "currency-bangladeshi",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "currency",
+        "bangladeshi"
+      ]
+    },
+    {
+      "name": "currency-dollar",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "currency",
+        "dollar"
+      ]
+    },
+    {
+      "name": "currency-euro",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "currency",
+        "euro"
+      ]
+    },
+    {
+      "name": "currency-pound",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "currency",
+        "pound"
+      ]
+    },
+    {
+      "name": "currency-rupee",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "currency",
+        "rupee"
+      ]
+    },
+    {
+      "name": "currency-yen",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "currency",
+        "yen"
+      ]
+    },
+    {
+      "name": "cursor-arrow-rays",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cursor",
+        "arrow",
+        "rays",
+        "direction"
+      ]
+    },
+    {
+      "name": "cursor-arrow-ripple",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "cursor",
+        "arrow",
+        "ripple",
+        "direction"
+      ]
+    },
+    {
+      "name": "device-phone-mobile",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "device",
+        "phone",
+        "mobile"
+      ]
+    },
+    {
+      "name": "device-tablet",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "device",
+        "tablet"
+      ]
+    },
+    {
+      "name": "divide",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "divide"
+      ]
+    },
+    {
+      "name": "document-arrow-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "arrow",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "document-arrow-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "arrow",
+        "up",
+        "direction"
+      ]
+    },
+    {
+      "name": "document-chart-bar",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "chart",
+        "bar"
+      ]
+    },
+    {
+      "name": "document-check",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "check",
+        "tick",
+        "done"
+      ]
+    },
+    {
+      "name": "document-currency-bangladeshi",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "currency",
+        "bangladeshi"
+      ]
+    },
+    {
+      "name": "document-currency-dollar",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "currency",
+        "dollar"
+      ]
+    },
+    {
+      "name": "document-currency-euro",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "currency",
+        "euro"
+      ]
+    },
+    {
+      "name": "document-currency-pound",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "currency",
+        "pound"
+      ]
+    },
+    {
+      "name": "document-currency-rupee",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "currency",
+        "rupee"
+      ]
+    },
+    {
+      "name": "document-currency-yen",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "currency",
+        "yen"
+      ]
+    },
+    {
+      "name": "document-duplicate",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "duplicate"
+      ]
+    },
+    {
+      "name": "document-magnifying-glass",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "magnifying",
+        "glass"
+      ]
+    },
+    {
+      "name": "document-minus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "minus",
+        "remove",
+        "subtract"
+      ]
+    },
+    {
+      "name": "document-plus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "plus",
+        "add"
+      ]
+    },
+    {
+      "name": "document-text",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document",
+        "text"
+      ]
+    },
+    {
+      "name": "document",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "document"
+      ]
+    },
+    {
+      "name": "ellipsis-horizontal-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "ellipsis",
+        "horizontal",
+        "circle"
+      ]
+    },
+    {
+      "name": "ellipsis-horizontal",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "ellipsis",
+        "horizontal"
+      ]
+    },
+    {
+      "name": "ellipsis-vertical",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "ellipsis",
+        "vertical"
+      ]
+    },
+    {
+      "name": "envelope-open",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "envelope",
+        "open"
+      ]
+    },
+    {
+      "name": "envelope",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "envelope"
+      ]
+    },
+    {
+      "name": "equals",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "equals"
+      ]
+    },
+    {
+      "name": "exclamation-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "exclamation",
+        "circle"
+      ]
+    },
+    {
+      "name": "exclamation-triangle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "exclamation",
+        "triangle"
+      ]
+    },
+    {
+      "name": "eye-dropper",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "eye",
+        "dropper"
+      ]
+    },
+    {
+      "name": "eye-slash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "eye",
+        "slash"
+      ]
+    },
+    {
+      "name": "eye",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "eye"
+      ]
+    },
+    {
+      "name": "face-frown",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "face",
+        "frown"
+      ]
+    },
+    {
+      "name": "face-smile",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "face",
+        "smile"
+      ]
+    },
+    {
+      "name": "film",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "film"
+      ]
+    },
+    {
+      "name": "finger-print",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "finger",
+        "print"
+      ]
+    },
+    {
+      "name": "fire",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "fire"
+      ]
+    },
+    {
+      "name": "flag",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "flag"
+      ]
+    },
+    {
+      "name": "folder-arrow-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "folder",
+        "arrow",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "folder-minus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "folder",
+        "minus",
+        "remove",
+        "subtract"
+      ]
+    },
+    {
+      "name": "folder-open",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "folder",
+        "open"
+      ]
+    },
+    {
+      "name": "folder-plus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "folder",
+        "plus",
+        "add"
+      ]
+    },
+    {
+      "name": "folder",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "folder"
+      ]
+    },
+    {
+      "name": "forward",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "forward"
+      ]
+    },
+    {
+      "name": "funnel",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "funnel"
+      ]
+    },
+    {
+      "name": "gif",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "gif"
+      ]
+    },
+    {
+      "name": "gift-top",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "gift",
+        "top"
+      ]
+    },
+    {
+      "name": "gift",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "gift"
+      ]
+    },
+    {
+      "name": "globe-alt",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "globe",
+        "alt"
+      ]
+    },
+    {
+      "name": "globe-americas",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "globe",
+        "americas"
+      ]
+    },
+    {
+      "name": "globe-asia-australia",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "globe",
+        "asia",
+        "australia"
+      ]
+    },
+    {
+      "name": "globe-europe-africa",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "globe",
+        "europe",
+        "africa"
+      ]
+    },
+    {
+      "name": "h1",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "h1"
+      ]
+    },
+    {
+      "name": "h2",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "h2"
+      ]
+    },
+    {
+      "name": "h3",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "h3"
+      ]
+    },
+    {
+      "name": "hand-raised",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "hand",
+        "raised"
+      ]
+    },
+    {
+      "name": "hand-thumb-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "hand",
+        "thumb",
+        "down"
+      ]
+    },
+    {
+      "name": "hand-thumb-up",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "hand",
+        "thumb",
+        "up"
+      ]
+    },
+    {
+      "name": "hashtag",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "hashtag"
+      ]
+    },
+    {
+      "name": "heart",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "heart"
+      ]
+    },
+    {
+      "name": "home-modern",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "home",
+        "modern"
+      ]
+    },
+    {
+      "name": "home",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "home"
+      ]
+    },
+    {
+      "name": "identification",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "identification"
+      ]
+    },
+    {
+      "name": "inbox-arrow-down",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "inbox",
+        "arrow",
+        "down",
+        "direction"
+      ]
+    },
+    {
+      "name": "inbox-stack",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "inbox",
+        "stack"
+      ]
+    },
+    {
+      "name": "inbox",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "inbox"
+      ]
+    },
+    {
+      "name": "information-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "information",
+        "circle"
+      ]
+    },
+    {
+      "name": "italic",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "italic"
+      ]
+    },
+    {
+      "name": "key",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "key"
+      ]
+    },
+    {
+      "name": "language",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "language"
+      ]
+    },
+    {
+      "name": "lifebuoy",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "lifebuoy"
+      ]
+    },
+    {
+      "name": "light-bulb",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "light",
+        "bulb"
+      ]
+    },
+    {
+      "name": "link-slash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "link",
+        "slash"
+      ]
+    },
+    {
+      "name": "link",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "link"
+      ]
+    },
+    {
+      "name": "list-bullet",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "list",
+        "bullet"
+      ]
+    },
+    {
+      "name": "lock-closed",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "lock",
+        "closed"
+      ]
+    },
+    {
+      "name": "lock-open",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "lock",
+        "open"
+      ]
+    },
+    {
+      "name": "magnifying-glass-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "magnifying",
+        "glass",
+        "circle"
+      ]
+    },
+    {
+      "name": "magnifying-glass-minus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "magnifying",
+        "glass",
+        "minus",
+        "remove",
+        "subtract"
+      ]
+    },
+    {
+      "name": "magnifying-glass-plus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "magnifying",
+        "glass",
+        "plus",
+        "add"
+      ]
+    },
+    {
+      "name": "magnifying-glass",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "magnifying",
+        "glass"
+      ]
+    },
+    {
+      "name": "map-pin",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "map",
+        "pin"
+      ]
+    },
+    {
+      "name": "map",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "map"
+      ]
+    },
+    {
+      "name": "megaphone",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "megaphone"
+      ]
+    },
+    {
+      "name": "microphone",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "microphone"
+      ]
+    },
+    {
+      "name": "minus-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "minus",
+        "circle",
+        "remove",
+        "subtract"
+      ]
+    },
+    {
+      "name": "minus-small",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "minus",
+        "small",
+        "remove",
+        "subtract"
+      ]
+    },
+    {
+      "name": "minus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "minus",
+        "remove",
+        "subtract"
+      ]
+    },
+    {
+      "name": "moon",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "moon"
+      ]
+    },
+    {
+      "name": "musical-note",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "musical",
+        "note"
+      ]
+    },
+    {
+      "name": "newspaper",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "newspaper"
+      ]
+    },
+    {
+      "name": "no-symbol",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "no",
+        "symbol"
+      ]
+    },
+    {
+      "name": "numbered-list",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "numbered",
+        "list"
+      ]
+    },
+    {
+      "name": "paint-brush",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "paint",
+        "brush"
+      ]
+    },
+    {
+      "name": "paper-airplane",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "paper",
+        "airplane"
+      ]
+    },
+    {
+      "name": "paper-clip",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "paper",
+        "clip"
+      ]
+    },
+    {
+      "name": "pause-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "pause",
+        "circle"
+      ]
+    },
+    {
+      "name": "pause",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "pause"
+      ]
+    },
+    {
+      "name": "pencil-square",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "pencil",
+        "square"
+      ]
+    },
+    {
+      "name": "pencil",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "pencil"
+      ]
+    },
+    {
+      "name": "percent-badge",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "percent",
+        "badge"
+      ]
+    },
+    {
+      "name": "phone-arrow-down-left",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "phone",
+        "arrow",
+        "down",
+        "left",
+        "direction"
+      ]
+    },
+    {
+      "name": "phone-arrow-up-right",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "phone",
+        "arrow",
+        "up",
+        "right",
+        "direction"
+      ]
+    },
+    {
+      "name": "phone-x-mark",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "phone",
+        "x",
+        "mark",
+        "close",
+        "cross"
+      ]
+    },
+    {
+      "name": "phone",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "phone"
+      ]
+    },
+    {
+      "name": "photo",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "photo"
+      ]
+    },
+    {
+      "name": "play-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "play",
+        "circle"
+      ]
+    },
+    {
+      "name": "play-pause",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "play",
+        "pause"
+      ]
+    },
+    {
+      "name": "play",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "play"
+      ]
+    },
+    {
+      "name": "plus-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "plus",
+        "circle",
+        "add"
+      ]
+    },
+    {
+      "name": "plus-small",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "plus",
+        "small",
+        "add"
+      ]
+    },
+    {
+      "name": "plus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "plus",
+        "add"
+      ]
+    },
+    {
+      "name": "power",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "power"
+      ]
+    },
+    {
+      "name": "presentation-chart-bar",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "presentation",
+        "chart",
+        "bar"
+      ]
+    },
+    {
+      "name": "presentation-chart-line",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "presentation",
+        "chart",
+        "line"
+      ]
+    },
+    {
+      "name": "printer",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "printer"
+      ]
+    },
+    {
+      "name": "puzzle-piece",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "puzzle",
+        "piece"
+      ]
+    },
+    {
+      "name": "qr-code",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "qr",
+        "code"
+      ]
+    },
+    {
+      "name": "question-mark-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "question",
+        "mark",
+        "circle"
+      ]
+    },
+    {
+      "name": "queue-list",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "queue",
+        "list"
+      ]
+    },
+    {
+      "name": "radio",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "radio"
+      ]
+    },
+    {
+      "name": "receipt-percent",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "receipt",
+        "percent"
+      ]
+    },
+    {
+      "name": "receipt-refund",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "receipt",
+        "refund"
+      ]
+    },
+    {
+      "name": "rectangle-group",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "rectangle",
+        "group"
+      ]
+    },
+    {
+      "name": "rectangle-stack",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "rectangle",
+        "stack"
+      ]
+    },
+    {
+      "name": "rocket-launch",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "rocket",
+        "launch"
+      ]
+    },
+    {
+      "name": "rss",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "rss"
+      ]
+    },
+    {
+      "name": "scale",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "scale"
+      ]
+    },
+    {
+      "name": "scissors",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "scissors"
+      ]
+    },
+    {
+      "name": "server-stack",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "server",
+        "stack"
+      ]
+    },
+    {
+      "name": "server",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "server"
+      ]
+    },
+    {
+      "name": "share",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "share"
+      ]
+    },
+    {
+      "name": "shield-check",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "shield",
+        "check",
+        "tick",
+        "done"
+      ]
+    },
+    {
+      "name": "shield-exclamation",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "shield",
+        "exclamation"
+      ]
+    },
+    {
+      "name": "shopping-bag",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "shopping",
+        "bag"
+      ]
+    },
+    {
+      "name": "shopping-cart",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "shopping",
+        "cart"
+      ]
+    },
+    {
+      "name": "signal-slash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "signal",
+        "slash"
+      ]
+    },
+    {
+      "name": "signal",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "signal"
+      ]
+    },
+    {
+      "name": "slash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "slash"
+      ]
+    },
+    {
+      "name": "sparkles",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "sparkles"
+      ]
+    },
+    {
+      "name": "speaker-wave",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "speaker",
+        "wave"
+      ]
+    },
+    {
+      "name": "speaker-x-mark",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "speaker",
+        "x",
+        "mark",
+        "close",
+        "cross"
+      ]
+    },
+    {
+      "name": "square-2-stack",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "square",
+        "2",
+        "stack"
+      ]
+    },
+    {
+      "name": "square-3-stack-3d",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "square",
+        "3",
+        "stack",
+        "3d"
+      ]
+    },
+    {
+      "name": "squares-2x2",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "squares",
+        "2x2"
+      ]
+    },
+    {
+      "name": "squares-plus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "squares",
+        "plus",
+        "add"
+      ]
+    },
+    {
+      "name": "star",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "star"
+      ]
+    },
+    {
+      "name": "stop-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "stop",
+        "circle"
+      ]
+    },
+    {
+      "name": "stop",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "stop"
+      ]
+    },
+    {
+      "name": "strikethrough",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "strikethrough"
+      ]
+    },
+    {
+      "name": "sun",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "sun"
+      ]
+    },
+    {
+      "name": "swatch",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "swatch"
+      ]
+    },
+    {
+      "name": "table-cells",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "table",
+        "cells"
+      ]
+    },
+    {
+      "name": "tag",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "tag"
+      ]
+    },
+    {
+      "name": "ticket",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "ticket"
+      ]
+    },
+    {
+      "name": "trash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "trash"
+      ]
+    },
+    {
+      "name": "trophy",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "trophy"
+      ]
+    },
+    {
+      "name": "truck",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "truck"
+      ]
+    },
+    {
+      "name": "tv",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "tv"
+      ]
+    },
+    {
+      "name": "underline",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "underline"
+      ]
+    },
+    {
+      "name": "user-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "user",
+        "circle",
+        "person",
+        "people"
+      ]
+    },
+    {
+      "name": "user-group",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "user",
+        "group",
+        "person",
+        "people"
+      ]
+    },
+    {
+      "name": "user-minus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "user",
+        "minus",
+        "person",
+        "people",
+        "remove",
+        "subtract"
+      ]
+    },
+    {
+      "name": "user-plus",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "user",
+        "plus",
+        "person",
+        "people",
+        "add"
+      ]
+    },
+    {
+      "name": "user",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "user",
+        "person",
+        "people"
+      ]
+    },
+    {
+      "name": "users",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "users",
+        "person",
+        "people"
+      ]
+    },
+    {
+      "name": "variable",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "variable"
+      ]
+    },
+    {
+      "name": "video-camera-slash",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "video",
+        "camera",
+        "slash"
+      ]
+    },
+    {
+      "name": "video-camera",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "video",
+        "camera"
+      ]
+    },
+    {
+      "name": "view-columns",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "view",
+        "columns"
+      ]
+    },
+    {
+      "name": "viewfinder-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "viewfinder",
+        "circle"
+      ]
+    },
+    {
+      "name": "wallet",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "wallet"
+      ]
+    },
+    {
+      "name": "wifi",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "wifi"
+      ]
+    },
+    {
+      "name": "window",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "window"
+      ]
+    },
+    {
+      "name": "wrench-screwdriver",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "wrench",
+        "screwdriver"
+      ]
+    },
+    {
+      "name": "wrench",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "wrench"
+      ]
+    },
+    {
+      "name": "x-circle",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "x",
+        "circle"
+      ]
+    },
+    {
+      "name": "x-mark",
+      "library": "heroicons",
+      "variants": [
+        "outline",
+        "solid",
+        "mini.solid"
+      ],
+      "tags": [
+        "x",
+        "mark",
+        "close",
+        "cross"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-28T01:34:16.748Z"
+}

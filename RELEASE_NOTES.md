@@ -42,4 +42,4 @@ With complete component coverage, future releases will focus on:
 
 ---
 
-**Full Changelog**: https://github.com/rcoenen/tall-ui-mcp-server/blob/main/CHANGELOG.md
+**Full Changelog**: https://github.com/rcoenen/wireui-mcp-server/blob/main/CHANGELOG.md

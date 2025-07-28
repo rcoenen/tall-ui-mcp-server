@@ -1,4 +1,4 @@
-# TALL UI MCP Server - TODO List
+# WireUI MCP Server - TODO List
 
 ## 🚀 Immediate Priority
 
@@ -117,7 +117,7 @@ When adding new components, use this structure:
 
 ## 📝 Notes for Next Session
 
-1. **Current Working Directory**: `/Users/rob/Dev/tall-ui-mcp-server`
+1. **Current Working Directory**: `/Users/rob/Dev/wireui-mcp-server`
 2. **Last Command Run**: `npm run inspect`
 3. **Server Status**: Working correctly with 3 components
 4. **Git Status**: Changes committed locally, need to push

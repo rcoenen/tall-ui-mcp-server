@@ -1,7 +1,7 @@
 {
-  "name": "tall-ui-mcp-server",
-  "version": "1.0.0",
-  "description": "MCP server for TALL stack UI components (WireUI/Blade)",
+  "name": "wireui-mcp-server",
+  "version": "1.1.0",
+  "description": "MCP server for WireUI components and icons (Heroicons/Phosphor)",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -15,7 +15,8 @@
     "inspect": "npx @modelcontextprotocol/inspector dist/index.js",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "update-icons": "tsx src/icons/scripts/update-icons.ts"
   },
   "keywords": [
     "mcp",

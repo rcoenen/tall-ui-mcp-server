@@ -9,11 +9,13 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { componentHandlers } from './handlers/components.js';
 import { ComponentRegistry } from './registry/loader.js';
+import { iconHandlers } from './handlers/icons.js';
+import { IconRegistry } from './icons/registry.js';
 
 const server = new Server(
   {
-    name: 'tall-ui-mcp-server',
-    version: '0.1.0',
+    name: 'wireui-mcp-server',
+    version: '1.1.0',
   },
   {
     capabilities: {
@@ -22,8 +24,9 @@ const server = new Server(
   }
 );
 
-// Initialize component registry
-const registry = new ComponentRegistry();
+// Initialize registries
+const componentRegistry = new ComponentRegistry();
+const iconRegistry = new IconRegistry();
 
 // List available tools
 server.setRequestHandler(ListToolsRequestSchema, async () => {
@@ -31,7 +34,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
     tools: [
       {
         name: 'tallui_list_components',
-        description: 'List all available TALL UI components',
+        description: 'List all available WireUI components',
         inputSchema: {
           type: 'object',
           properties: {
@@ -88,6 +91,88 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           required: ['name'],
         },
       },
+      {
+        name: 'wireui_list_icons',
+        description: 'List all available icons from Heroicons and Phosphor',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            library: {
+              type: 'string',
+              enum: ['heroicons', 'phosphor', 'all'],
+              description: 'Filter by icon library',
+            },
+            search: {
+              type: 'string',
+              description: 'Search icons by name or tags',
+            },
+          },
+        },
+      },
+      {
+        name: 'wireui_check_icon',
+        description: 'Check if an icon exists and get its variants',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            name: {
+              type: 'string',
+              description: 'Icon name to check',
+            },
+            library: {
+              type: 'string',
+              enum: ['heroicons', 'phosphor'],
+              description: 'Specific library to check',
+            },
+            variant: {
+              type: 'string',
+              description: 'Specific variant to check',
+            },
+          },
+          required: ['name'],
+        },
+      },
+      {
+        name: 'wireui_find_similar_icons',
+        description: 'Find icons similar to a given name (fuzzy search)',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            name: {
+              type: 'string',
+              description: 'Icon name to search for',
+            },
+            limit: {
+              type: 'number',
+              description: 'Maximum number of suggestions (default: 5)',
+            },
+          },
+          required: ['name'],
+        },
+      },
+      {
+        name: 'wireui_get_icon_example',
+        description: 'Get usage examples for an icon',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            name: {
+              type: 'string',
+              description: 'Icon name',
+            },
+            library: {
+              type: 'string',
+              enum: ['heroicons', 'phosphor'],
+              description: 'Icon library',
+            },
+            variant: {
+              type: 'string',
+              description: 'Specific variant',
+            },
+          },
+          required: ['name', 'library'],
+        },
+      },
     ],
   };
 });
@@ -99,16 +184,28 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   try {
     switch (name) {
       case 'tallui_list_components':
-        return await componentHandlers.listComponents(registry, args as any || {});
+        return await componentHandlers.listComponents(componentRegistry, args as any || {});
       
       case 'tallui_get_component':
-        return await componentHandlers.getComponent(registry, args as any || {});
+        return await componentHandlers.getComponent(componentRegistry, args as any || {});
       
       case 'tallui_search_components':
-        return await componentHandlers.searchComponents(registry, args as any || {});
+        return await componentHandlers.searchComponents(componentRegistry, args as any || {});
       
       case 'tallui_get_component_example':
-        return await componentHandlers.getComponentExample(registry, args as any || {});
+        return await componentHandlers.getComponentExample(componentRegistry, args as any || {});
+      
+      case 'wireui_list_icons':
+        return await iconHandlers.listIcons(iconRegistry, args as any || {});
+      
+      case 'wireui_check_icon':
+        return await iconHandlers.checkIcon(iconRegistry, args as any || {});
+      
+      case 'wireui_find_similar_icons':
+        return await iconHandlers.findSimilarIcons(iconRegistry, args as any || {});
+      
+      case 'wireui_get_icon_example':
+        return await iconHandlers.getIconExample(iconRegistry, args as any || {});
       
       default:
         throw new McpError(
@@ -127,13 +224,14 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 });
 
-// Initialize registry and start server
+// Initialize registries and start server
 async function main() {
-  await registry.loadComponents();
+  await componentRegistry.loadComponents();
+  await iconRegistry.loadIcons();
   
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('TALL UI MCP Server started');
+  console.error('WireUI MCP Server started');
 }
 
 main().catch((error) => {

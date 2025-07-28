@@ -1,8 +1,8 @@
-# TALL UI MCP Server - Development Log
+# WireUI MCP Server - Development Log
 
 ## Project Status
 
-**Repository**: https://github.com/rcoenen/tall-ui-mcp-server  
+**Repository**: https://github.com/rcoenen/wireui-mcp-server  
 **Current Version**: 0.1.0  
 **Status**: Functional MCP server with 3 WireUI components
 
@@ -90,7 +90,7 @@
 
 ### Project Structure
 ```
-tall-ui-mcp-server/
+wireui-mcp-server/
 ├── src/
 │   ├── index.ts               # MCP server entry
 │   ├── handlers/
@@ -129,12 +129,12 @@ npx @modelcontextprotocol/inspector node dist/index.js
 
 In Inspector:
 - Command: `node`
-- Arguments: `/Users/rob/Dev/tall-ui-mcp-server/dist/index.js`
+- Arguments: `/Users/rob/Dev/wireui-mcp-server/dist/index.js`
 
 ## Session Context for Claude
 
 If continuing this project:
-1. You're in `/Users/rob/Dev/tall-ui-mcp-server`
+1. You're in `/Users/rob/Dev/wireui-mcp-server`
 2. The MCP server is fully functional
 3. Latest changes are committed but not pushed
 4. Focus should be on adding more components or enhancing features
