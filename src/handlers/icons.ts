@@ -22,6 +22,15 @@ export const iconHandlers = {
         return acc;
       }, {} as Record<string, Array<{ name: string; variants: string[] }>>);
       
+      // Add installation info
+      const installationInfo: Record<string, string> = {};
+      if (!library || library === 'heroicons') {
+        installationInfo.heroicons = 'composer require wireui/heroicons';
+      }
+      if (!library || library === 'phosphor') {
+        installationInfo.phosphor = 'composer require wireui/phosphoricons';
+      }
+      
       return {
         content: [
           {
@@ -29,6 +38,8 @@ export const iconHandlers = {
             text: JSON.stringify({
               totalIcons: icons.length,
               libraries: grouped,
+              installation: installationInfo,
+              note: 'Make sure to install the required icon packages in your Laravel project to use these icons.'
             }, null, 2),
           },
         ],
@@ -48,11 +59,21 @@ export const iconHandlers = {
     try {
       const result = registry.checkIcon(args.name, args.library, args.variant);
       
+      // Add installation info if icon exists
+      const response = {
+        ...result,
+        installation: result.exists && result.library ? {
+          required: true,
+          command: `composer require wireui/${result.library === 'heroicons' ? 'heroicons' : 'phosphoricons'}`,
+          note: `This icon requires the ${result.library} package to be installed in your Laravel project.`
+        } : undefined
+      };
+      
       return {
         content: [
           {
             type: 'text',
-            text: JSON.stringify(result, null, 2),
+            text: JSON.stringify(response, null, 2),
           },
         ],
       };
@@ -71,6 +92,17 @@ export const iconHandlers = {
     try {
       const suggestions = registry.findSimilarIcons(args.name, args.limit || 5);
       
+      // Get unique libraries from suggestions
+      const libraries = new Set(suggestions.map(s => s.library));
+      const installationCommands: Record<string, string> = {};
+      
+      if (libraries.has('heroicons')) {
+        installationCommands.heroicons = 'composer require wireui/heroicons';
+      }
+      if (libraries.has('phosphor')) {
+        installationCommands.phosphor = 'composer require wireui/phosphoricons';
+      }
+      
       return {
         content: [
           {
@@ -78,6 +110,10 @@ export const iconHandlers = {
             text: JSON.stringify({
               query: args.name,
               suggestions,
+              installation: {
+                note: 'To use these icons, install the required packages:',
+                commands: installationCommands
+              }
             }, null, 2),
           },
         ],
@@ -99,6 +135,17 @@ export const iconHandlers = {
       const checkResult = registry.checkIcon(args.name, args.library, args.variant);
       
       let content = `## Icon: ${args.name} (${args.library})\n\n`;
+      
+      // Add installation requirement at the top
+      content += `### ⚠️ Installation Required\n`;
+      content += `To use ${args.library} icons, install the package in your Laravel project:\n`;
+      content += `\`\`\`bash\n`;
+      if (args.library === 'heroicons') {
+        content += `composer require wireui/heroicons\n`;
+      } else {
+        content += `composer require wireui/phosphoricons\n`;
+      }
+      content += `\`\`\`\n\n`;
       
       if (checkResult.exists) {
         content += `### Basic Usage\n\`\`\`blade\n${example}\n\`\`\`\n\n`;

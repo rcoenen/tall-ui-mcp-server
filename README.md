@@ -151,6 +151,20 @@ Based on the official WireUI v2.x component library: https://wireui.dev/componen
 
 ## Icon Support (NEW! v1.1.0)
 
+### ⚠️ Installation Requirements
+
+The MCP server provides metadata about icons, but **the actual icon packages must be installed separately** in your Laravel project:
+
+```bash
+# For Heroicons support
+composer require wireui/heroicons
+
+# For Phosphor Icons support
+composer require wireui/phosphoricons
+```
+
+**Note:** The MCP server tools will remind you about these installation requirements when you use them. Each tool response includes the necessary installation commands.
+
 ### Icon Libraries Coverage
 
 | Library | Icons | Variants | Total Combinations |
